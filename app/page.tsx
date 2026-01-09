@@ -1,26 +1,27 @@
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
+  return (<>
+ 
+
       <Image
+      className=""
         src="/logo.svg"
         alt="liminal logo"
         width={256}
         height={256}
-        className="w-32 h-32"
+        priority
       />
       <p className="text-6xl font-bold">Liminal</p>
       <p className="text-2xl font-bold">
-        A{" "}
-        <a
-          href="https://github.com/liminal-market/liminal-market"
-          className="text-blue-500"
-        >
-          Liminal Market
-        </a>{" "}
-        dApp
+      A Place Between decision and departure
+        </p>
+      <p className="text-xl">
+        Liminal is a place where you can make decisions and leave without
+        regrets.  
+        
       </p>
-    </div>
+
+    </>
   );
 }
