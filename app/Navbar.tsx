@@ -2,15 +2,9 @@
 import ParticlesBackground from "@/components/lightswind/particles-background";
 import Image from "next/image";
 import SparkleNavbar  from '@/components/lightswind/sparkle-navbar'
-import { HamburgerMenuOverlay } from '@/components/lightswind/hamburger-menu-overlay'
-import { Home, Search, User, Settings } from "lucide-react";
+import { GiHamburgerMenu } from "react-icons/gi";
 export default function Navbar() {
-  const menuItems = [
-  { label: "Home", icon: <Home size={20} />, href: "/" },
-  { label: "Search", icon: <Search size={20} />, href: "/search" },
-  { label: "Profile", icon: <User size={20} />, onClick: () => console.log("Profile") },
-  { label: "Settings", icon: <Settings size={20} />, href: "/settings" }
-];
+ const [isOpen, setIsOpen] = React.useState(false);
 
   return (
  <>
@@ -42,16 +36,13 @@ export default function Navbar() {
   height="100vh"
 />
 </div>
-<div className="absolute inset-0 pointer-events-none">
-<HamburgerMenuOverlay 
-  items={menuItems}
-  overlayBackground="linear-gradient(135deg, #dde2f7ff 0%, #764ba2 100%)"
-  fontSize="xl"
-  enableBlur={true}
-  menuAlignment="center"
-  animationDuration={2}
-/>
+
+
+<div>
+<GiHamburgerMenu/>
 </div>
+
+
 
 </nav>
 
