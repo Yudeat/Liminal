@@ -1,6 +1,7 @@
 
 
 @import "tailwindcss";
+@plugin 'lightswind/plugin';
 
 :root {
   --background: #0c0606;

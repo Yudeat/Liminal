@@ -1,20 +1,19 @@
+import ParticlesBackground from "@/components/lightswind/particles-background";
 import Image from "next/image";
+
 export default function Navbar() {
   return (
-    <>
-    <div className="flex flex-row items-center">
-      <div className="flex flex-row  text-4xl items-center">
+    <nav className="relative flex flex-row items-center w-full h-24 px-6 overflow-hidden">
+ <ParticlesBackground />
+      <div className="flex items-center">
         <Image
           src="/log.png"
           alt="logo"
           width={200}
-          height={200} 
-      />
+          height={60} 
+          priority 
+        />
       </div>
-   
-      </div>
-            <h1 className="text-4xl font-bold ml-5">Liminal</h1>    
-</>
-          
+    </nav>
   );
 }
