@@ -1,16 +1,37 @@
+'use client';
 import ParticlesBackground from "@/components/lightswind/particles-background";
 import Image from "next/image";
 import SparkleNavbar  from '@/components/lightswind/sparkle-navbar'
-
+import { HamburgerMenuOverlay } from '@/components/lightswind/hamburger-menu-overlay'
+import { Home, Search, User, Settings } from "lucide-react";
 export default function Navbar() {
+  const menuItems = [
+  { label: "Home", icon: <Home size={20} />, href: "/" },
+  { label: "Search", icon: <Search size={20} />, href: "/search" },
+  { label: "Profile", icon: <User size={20} />, onClick: () => console.log("Profile") },
+  { label: "Settings", icon: <Settings size={20} />, href: "/settings" }
+];
+
   return (
  <>
- <div className="  w-full h-24 flex items-center justify-center">
+ {/* logo */}
+<nav className="relative mx-4 mt-4 max-w-7xl lg:mx-auto border p-2 md:p-4 h-auto md:h-24 rounded-3xl md:rounded-full flex flex-col md:flex-row items-center justify-evenly bg-black/50 backdrop-blur-md overflow-hidden text-white border-white/10">
+<div className="flex items-center text-xl md:text-2xl font-bold z-10">   <Image
+      src="/nav.png"
+      alt="logo"
+      width={60}
+      height={60}
+      
+    />
+  <span >Liminal</span>
+    </div>
+<div className="w-full md:w-auto flex items-center justify-center z-10 py-2 md:py-0">  
     <SparkleNavbar
   items={['Home', 'About', 'Services', 'Contact']}
   color="#1E90FF"
 />
 </div>
+<div className="absolute inset-0 pointer-events-none">
       <ParticlesBackground
   colors={['#00ffff', '#ff00ff', '#ffaa00']}
   size={4}
@@ -20,7 +41,21 @@ export default function Navbar() {
   zIndex={-1}
   height="100vh"
 />
+</div>
+<div className="absolute inset-0 pointer-events-none">
+<HamburgerMenuOverlay 
+  items={menuItems}
+  overlayBackground="linear-gradient(135deg, #dde2f7ff 0%, #764ba2 100%)"
+  fontSize="xl"
+  enableBlur={true}
+  menuAlignment="center"
+  animationDuration={2}
+/>
+</div>
+
+</nav>
 
 </>
+
   );
 }
