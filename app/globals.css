@@ -4,8 +4,8 @@
 @plugin 'lightswind/plugin';
 
 :root {
-  --background: #0c0606;
-  --foreground: #0b0e0d;
+  --background: #0b0909;
+  --foreground: #1e795b;
 }
 
 @theme inline {
@@ -17,8 +17,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #000000;
-    --foreground: #BF00FF;
+    --background: #171212;
+    --foreground: #8b33a8;
   }
 }
         
