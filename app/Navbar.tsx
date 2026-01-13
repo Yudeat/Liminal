@@ -4,16 +4,11 @@ export default function Navbar() {
     <>
     <div className="flex flex-row items-center">
       <div className="flex flex-row  text-4xl items-center">
-         <Image src="/logoo.png" 
-       width={200}
-       height={200}
-       alt="logo" 
-       className="ml-5 
-       h-10 
-     rounded-full
-     w-24
-     h-auto
-     "
+        <Image
+          src="/log.png"
+          alt="logo"
+          width={200}
+          height={200} 
       />
       </div>
    
