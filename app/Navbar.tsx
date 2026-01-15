@@ -50,9 +50,13 @@ export default function Navbar() {
 <GiHamburgerMenu/>
 </div>
 
+{/* User section */}
 <div className=" text-2xl hidden md:flex items-center justify-end z-10 py-2 md:py-0">
 <FaRegCircleUser/>
 </div>
+
+
+
 </section>
 
 
