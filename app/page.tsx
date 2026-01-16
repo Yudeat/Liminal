@@ -1,11 +1,9 @@
-import Image from "next/image";
-import Dashboard from "./dashboard";
 import Navbar from "./Navbar";
-
+import Main from "./Main";
 export default function Home() {
   return (<>
  <Navbar />
-
+<Main />
 
     
 
