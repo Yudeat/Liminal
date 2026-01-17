@@ -1,9 +1,9 @@
 import Navbar from "./Navbar";
-import Main from "./Main";
+import {ModeToggle}  from "./Main";
 export default function Home() {
   return (<>
  <Navbar />
-<Main />
+<ModeToggle />
 
     
 
