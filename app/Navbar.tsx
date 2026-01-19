@@ -119,7 +119,7 @@ export default function LandingPage() {
           variants={itemAnimate}
           className="max-w-2xl text-lg md:text-xl text-gray-400 mb-10">
            Liminal replaces confusing consultancy processes with a transparent system that
-            checks your eligibility, verifies your documents, and guides every step — while you stay in charge of submission.          </motion.p>
+            checks your eligibility, verifies your documents, and guides every step while you stay in charge of submission.          </motion.p>
           <motion.button
           variants={itemAnimate}
           whileHover={{scale:1.05}}
