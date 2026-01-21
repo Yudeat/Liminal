@@ -5,6 +5,9 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import SparkleNavbar from '@/components/lightswind/sparkle-navbar';
 import Hyperspeed from "@/components/Hyperspeed";
 import {motion} from "framer-motion";
+// Animations Props for Fade Up and Down Text
+
+// Main div animation
   const fadeUp = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, 
@@ -14,6 +17,7 @@ import {motion} from "framer-motion";
   } },
 };
 
+// Item Animation
 const itemAnimate={
   hidden: { opacity: 0, y: 30 },
   visible:{
@@ -106,6 +110,7 @@ export default function LandingPage() {
           </section>
         </nav>
 
+        {/* Main Content */}
        
         <motion.div className="flex flex-col items-center justify-center text-center px-4 pt-52 pb-20" variants={fadeUp} 
         whileInView="visible"
