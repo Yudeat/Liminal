@@ -1,6 +1,8 @@
-Liminal- In Between Decision and Departure
+//Liminal- In Between Decision and Departure
 
-Liminal
+
+
+_Liminal
 
 Clarity before the leap.
 
@@ -132,7 +134,7 @@ Invite-only pilot users
 
 The system is designed to expand country-by-country, not all at once.
 
-Who This Is For
+Who This Is For?
 
 Students applying abroad without wanting agents
 
