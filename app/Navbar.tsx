@@ -115,6 +115,7 @@ export default function LandingPage() {
         <motion.div className="flex flex-col items-center justify-center text-center px-4 pt-52 pb-20" variants={fadeUp} 
         whileInView="visible"
         initial="hidden" animate="visible" >
+          <motion.h1 variants={itemAnimate} className="text-xl md:text-5xl font-white tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-pink-600 to-gray-500">Ai Automated Processes</motion.h1>
           <motion.h1 
           variants={itemAnimate}
           className="text-xl md:text-5xl font-black tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-pink-600 to-gray-500">
