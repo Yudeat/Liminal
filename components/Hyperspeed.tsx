@@ -1,6 +1,7 @@
 import { useEffect, useRef, FC } from 'react';
 import * as THREE from 'three';
 import { BloomEffect, EffectComposer, EffectPass, RenderPass, SMAAEffect, SMAAPreset } from 'postprocessing';
+// taken from uilights
 
 interface Distortion {
   uniforms: Record<string, { value: any }>;

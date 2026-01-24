@@ -5,6 +5,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import SparkleNavbar from '@/components/lightswind/sparkle-navbar';
 import Hyperspeed from "@/components/Hyperspeed";
 import {motion} from "framer-motion";
+
 // Animations Props for Fade Up and Down Text
 
 // Main div animation
