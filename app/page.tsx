@@ -1,12 +1,12 @@
 import Navbar from "./Navbar";
 import {ModeToggle}  from "./Main";
-import { Newspaper } from "lucide-react";
+import Newsletter from "./Newsletter";  
 export default function Home() {
   return (<>
   {/* main component */}
  <Navbar />
-<ModeToggle />
-<Newspaper/>
+
+<Newsletter/>
     
 
     </>
