@@ -49,15 +49,16 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-body {
-  padding: 0;
-  margin: 0;
-
-}
-body, html {
+/* body {
+  padding: 0px;
+  margin: 0px;
+  color:black 
+} */
+/* body, html {
   overflow-x: hidden;
-  width: 100%;
-}
+  background: white;
+ 
+} */
 
 :root {
   --radius: 0.625rem;

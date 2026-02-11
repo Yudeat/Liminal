@@ -3,7 +3,7 @@ export default function Newsletter() {
 
 
   return (
-    <section className="py-20 bg-gray-900 text-white px-4">
+    <section className="py-20 bg-gray-200 text-black px-4">
       <div 
         className={`
           max-w-5xl lg:max-w-full mx-auto rounded-2xl p-8 md:p-12 lg:p-16
