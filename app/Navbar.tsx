@@ -26,7 +26,7 @@ export default function LandingPage() {
   return (
     <div className="relative min-h-screen w-full bg-white text-black px-4 overflow-x-hidden mt-6">
       
-      <div className="relative z-10">
+      <div className="sticky w-full pt-4 top-0 z-10">
         
         <nav className="relative mx-4 max-w-7xl lg:mx-auto border p-2 md:p-4 h-auto md:h-24 rounded-3xl md:rounded-full flex flex-col md:flex-row items-center justify-evenly bg-white/80 backdrop-blur-md overflow-hidden text-black border-gray-200 shadow-sm">
           
