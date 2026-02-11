@@ -1,6 +1,6 @@
 export default function CallMenu() {
   return (
-    <section className="relative overflow-hidden bg-white border-y border-gray-100 px-6 py-24 md:px-12 lg:px-24">
+    <section className="relative  overflow-hidden bg-white border-y border-gray-300 px-6 py-24 md:px-12 lg:px-24">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto flex flex-col items-center text-center md:items-start md:text-left">
