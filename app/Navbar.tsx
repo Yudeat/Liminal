@@ -28,7 +28,6 @@ export default function LandingPage() {
       
       <div className="relative z-10">
         
-        {/* REMOVED mt-4 to clear the space at the top */}
         <nav className="relative mx-4 max-w-7xl lg:mx-auto border p-2 md:p-4 h-auto md:h-24 rounded-3xl md:rounded-full flex flex-col md:flex-row items-center justify-evenly bg-white/80 backdrop-blur-md overflow-hidden text-black border-gray-200 shadow-sm">
           
           {/* Logo */}
