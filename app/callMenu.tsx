@@ -1,3 +1,4 @@
+// a section for reminding the client to sign up for free
 export default function CallMenu() {
   return (
     <section className="relative  overflow-hidden bg-white border-y border-gray-300 px-6 py-24 md:px-12 lg:px-24">

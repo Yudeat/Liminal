@@ -8,7 +8,7 @@ export default function Footer() {
     { icon: <FaSquareInstagram />, href: "#" },
     { icon: <FaGithub />, href: "#" },
   ];
-
+// footer using the dynamic links
   const footerLinks = {
     Product: ["Features", "Security", "Payment", "Risk Scoring", "How We Work"],
     Company: ["About Us", "Careers", "Contact"],

@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import SparkleNavbar from '@/components/lightswind/sparkle-navbar';
 import { motion } from "framer-motion";
-
+// animation for text and icon
 const fadeUp = {
   hidden: { opacity: 0 },
   visible: { 
