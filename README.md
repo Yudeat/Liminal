@@ -126,25 +126,6 @@ Trust is treated as infrastructure, not marketing.
 
 Current Scope
 
-Initial focus: single-country deployment (e.g. Denmark)
-
-Limited university set during beta
-
-Invite-only pilot users
-
-The system is designed to expand country-by-country, not all at once.
-
-Who This Is For?
-
-Students applying abroad without wanting agents
-
-Parents seeking transparency and accountability
-
-Institutions interested in cleaner applicant pipelines
-
-This is not for users looking for shortcuts or guarantees.
-
-Project Status
 
 Prototype / Early MVP
 
