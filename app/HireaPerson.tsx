@@ -21,7 +21,7 @@ export default function HireaPerson() {
             Book a Consultation
           </button>
           <p className="text-sm text-gray-500 font-medium italic">
-            Real people. Real results.
+            Real people. Sense in trust .
           </p>
         </div>
 

@@ -28,7 +28,7 @@ export default function LandingPage() {
       
       <div className="sticky w-full pt-4 top-0 z-10">
         
-        <nav className="relative mx-4 max-w-7xl lg:mx-auto border p-2 md:p-4 h-auto md:h-24 rounded-3xl md:rounded-full flex flex-col md:flex-row items-center justify-evenly bg-white/80 backdrop-blur-md overflow-hidden text-black border-gray-200 shadow-sm">
+        <nav className="relative mx-4 max-w-7xl lg:mx-auto border p-4  md:p-4 h-auto md:h-24 rounded-3xl md:rounded-full flex flex-row md:flex-row items-center justify-between bg-white/80 backdrop-blur-md overflow-hidden text-black border-gray-200 shadow-sm">
           
           {/* Logo */}
           <div className="flex items-center text-xl md:text-2xl font-bold z-10">
@@ -39,14 +39,14 @@ export default function LandingPage() {
           {/* Middle Links */}
           <div className="w-full md:w-auto md:block hidden z-10 py-2 md:py-0">
             <SparkleNavbar
-              items={['Home' , 'Services','Docs','About', 'Contact']}
+              items={['Home' , 'Services','Docs','Refund', 'Contact']}
               color="#2CFF05"
             />
           </div>
 
           {/* Icons Section */}
           <section className="flex items-center text-black">
-            <div className="md:hidden flex items-center justify-end z-10 py-2">
+            <div className="md:hidden flex items-center mr-5 justify-end z-10 py-2">
               <GiHamburgerMenu size={24} />
             </div>
             <div className="text-2xl hidden md:flex items-center justify-end z-10">
