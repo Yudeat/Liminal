@@ -10,7 +10,7 @@ export default function Footer() {
   ];
 // footer using the dynamic links
   const footerLinks = {
-    Product: ["Features", "Security", "Payment", "Risk Scoring", "How We Work"],
+    Product: ["Features", "Security", "Payment", "Refund","Risk Scoring", "How We Work"],
     Company: ["About Us", "Careers", "Contact"],
     Legal: ["Privacy", "Terms", "Cookie Policy"],
   };
