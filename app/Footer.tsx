@@ -14,9 +14,9 @@ export default function Footer() {
     Company: ["About Us", "Careers", "Contact"],
     Legal: ["Privacy", "Terms", "Cookie Policy"],
   };
-
+// more footer links
   const developerLinks = ["API", "SDK", "Documentation", "Support Center", "Blog", "Community"];
-
+// footer component
   return (
     <footer className="bg-white border-t border-gray-100 pt-16 pb-8 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -39,6 +39,7 @@ export default function Footer() {
         </div>
 
         <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-12">
+          {/* access the links from the dynamic links */}
           
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
