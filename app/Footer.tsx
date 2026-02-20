@@ -71,7 +71,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
         <p>© {new Date().getFullYear()} Liminal Inc. All rights reserved.</p>
         <div className="flex gap-6">
-          <span className="hover:text-gray-600 cursor-pointer">Privacy Policy</span>
+          <span className="hover:text-gray-500 cursor-pointer">Privacy Policy</span>
           <span className="hover:text-gray-600 cursor-pointer">Terms of Service</span>
         </div>
       </div>
