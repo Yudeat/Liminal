@@ -74,7 +74,7 @@ export default function LandingPage() {
 
           <motion.h1 variants={itemAnimate} className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
             Your global <br /> 
-            <span className="text-gray-400 italic">education</span> starts <br />
+            <span className="text-pink-400 italic">education</span> starts <br />
             with <span className="underline decoration-green-400">Liminal.</span>
           </motion.h1>
 
