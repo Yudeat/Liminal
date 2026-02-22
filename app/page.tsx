@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Newsletter from "./Newsletter";  
 import CallMenu from "./callMenu";
 import FAQ from "./FAQ";
+import Rating from "./Rating";
 export default function Home() {
   return (<>
   {/* main component */}
@@ -11,6 +12,7 @@ export default function Home() {
 <HireaPerson/>
 <FAQ/>
 <CallMenu/>
+<Rating/>
 <Newsletter/>
     <Footer/>
 
