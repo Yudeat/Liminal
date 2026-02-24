@@ -10,7 +10,6 @@ import {
   useTransform
 } from "framer-motion";
 
-// Icons - Refined for HI2 and FA6 verified exports
 import { GiHamburgerMenu } from "react-icons/gi";
 import { 
   HiXMark, 
@@ -18,14 +17,14 @@ import {
   HiOutlineSparkles, 
   HiOutlineAcademicCap, 
   HiOutlineGlobeAmericas,
-  HiOutlineBolt // Corrected from HiOutlineLightningBolt
+  HiOutlineBolt 
 } from "react-icons/hi2"; 
 import { 
   FaRegCircleUser, 
   FaCheck, 
   FaCompass, 
   FaPaperPlane, 
-  FaBoxArchive // Corrected from FaArchive
+  FaBoxArchive 
 } from "react-icons/fa6";
 
 export default function LiminalContextualHero() {
@@ -95,7 +94,7 @@ export default function LiminalContextualHero() {
           </div>
           <div className="flex items-center gap-3 pr-2">
             <button onClick={() => setIsOpen(true)} className="md:hidden p-2"><GiHamburgerMenu size={22} /></button>
-            <button className="px-6 py-2.5 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-colors">Start</button>
+            <button className="px-6 py-2.5 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-colors">Log In</button>
           </div>
         </nav>
       </motion.header>
@@ -172,7 +171,7 @@ export default function LiminalContextualHero() {
         </motion.div>
       </section>
 
-      {/* Spacer to allow for scroll testing */}
+    
      
     </div>
   );
