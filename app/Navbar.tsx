@@ -64,7 +64,7 @@ export default function LiminalContextualHero() {
     { name: 'Vision', icon: <FaCompass />, href: '#hero' },
     { name: 'Process', icon: <HiOutlineBolt />, href: '#process' },
     { name: 'Archive', icon: <FaBoxArchive />, href: '#archive' },
-    { name: 'Inquiry', icon: <FaPaperPlane />, href: '#contact' },
+    { name: 'Inquiry', icon: <FaPaperPlane />, href: '#chat' },
   ];
 
   return (
