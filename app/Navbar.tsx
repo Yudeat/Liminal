@@ -61,14 +61,14 @@ export default function LiminalContextualHero() {
   }, [mouseX, mouseY]);
 
   const navItems = [
-    { name: 'Vision', icon: <FaCompass />, href: '#hero' },
+    { name: 'Vision', icon: <FaCompass />, href: '/vision' },
     { name: 'Process', icon: <HiOutlineBolt />, href: '#process' },
-    { name: 'Archive', icon: <FaBoxArchive />, href: '#archive' },
+    { name: 'Archive', icon: <FaBoxArchive />, href: '/archive' },
     { name: 'Inquiry', icon: <FaPaperPlane />, href: '#chat' },
   ];
 
   return (
-    <div className="relative min-h-[100vh] w-full bg-white text-black font-sans antialiased">
+    <div id='home' className="relative min-h-[100vh] w-full bg-white text-black font-sans antialiased">
       
       {/* --- CUSTOM CURSOR --- */}
       <motion.div 
