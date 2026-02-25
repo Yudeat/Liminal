@@ -11,27 +11,8 @@ export default function WhatIsLiminal() {
   return (
     <div className="bg-white text-black font-sans selection:bg-pink-100">
       
-      {/* 1. HERO REVEAL: THE DEFINITION */}
-      <section className="h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
-        <motion.div style={{ opacity }} className="text-center z-10">
-          <span className="text-[10px] font-black uppercase tracking-[0.6em] text-gray-400 mb-8 block">
-            Etymology / Liminalis
-          </span>
-          <h1 className="text-6xl md:text-[8rem] font-black uppercase tracking-tighter leading-[0.8] mb-12">
-            The space <br />
-            <span className="text-pink-400 italic font-serif font-light lowercase">between</span> <br />
-            worlds.
-          </h1>
-          <p className="max-w-xl mx-auto text-xl text-gray-500 font-medium">
-            Liminal is a surgical operating system for those who refuse to stay in one place. 
-            Part strategy, part philosophy, total autonomy.
-          </p>
-        </motion.div>
-        
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
-      </section>
 
+      
       {/* 2. THE DUALITY: STUDENT & TRAVELLER */}
       <section className="py-32 bg-black text-white rounded-[4rem] mx-4">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">

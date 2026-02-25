@@ -7,10 +7,12 @@ import FAQ from "./FAQ";
 import Rating from "./Rating";
 import HowItWorks from "./howitWork";
 import PricingPage from "./PricingMenu";
+import WhatIsLiminal from "./whatIsIt";
 export default function Home() {
   return (<>
   {/* main component */}
  <Navbar />
+ <WhatIsLiminal/>
 <HireaPerson/>
 <HowItWorks/>
 <FAQ/>

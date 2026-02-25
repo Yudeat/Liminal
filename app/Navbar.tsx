@@ -78,26 +78,51 @@ export default function LiminalContextualHero() {
       />
 
       {/* --- 1. TOP NAVBAR --- */}
-      <motion.header 
-        animate={{ y: isHeroVisible ? 0 : -100, opacity: isHeroVisible ? 1 : 0 }}
-        className="fixed w-full pt-6 top-0 z-50 px-6 pointer-events-none"
-      >
-        <nav className="relative mx-auto max-w-7xl border border-gray-100 p-3 h-16 md:h-20 rounded-full flex items-center justify-between bg-white/60 backdrop-blur-xl pointer-events-auto shadow-sm">
-          <div className="flex items-center gap-2 pl-4">
-            <Image src="/nav.png" alt="logo" width={24} height={24} />
-            <span className="text-xl font-black tracking-tighter uppercase">Liminal</span>
-          </div>
-          <div className="hidden md:flex gap-8">
-            {navItems.map((item) => (
-              <a key={item.name} href={item.href} className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-black transition-colors">{item.name}</a>
-            ))}
-          </div>
-          <div className="flex items-center gap-3 pr-2">
-            <button onClick={() => setIsOpen(true)} className="md:hidden p-2"><GiHamburgerMenu size={22} /></button>
-            <button className="px-6 py-2.5 bg-black text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-colors">Log In</button>
-          </div>
-        </nav>
-      </motion.header>
+     <motion.header 
+  animate={{ y: isHeroVisible ? 0 : -100, opacity: isHeroVisible ? 1 : 0 }}
+  className="fixed w-full pt-4 md:pt-6 top-0 z-50 px-4 md:px-6 pointer-events-none"
+>
+  <nav className="relative mx-auto max-w-7xl border border-gray-100/50 p-2 md:p-3 h-16 md:h-20 rounded-full flex items-center justify-between bg-white/70 backdrop-blur-2xl pointer-events-auto shadow-sm transition-all">
+    
+    {/* LOGO SECTION */}
+    <div className="flex items-center gap-2 pl-3 md:pl-6">
+      <div className="relative w-6 h-6 md:w-8 md:h-8">
+        <Image src="/nav.png" alt="logo" fill className="object-contain" />
+      </div>
+      <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-black">
+        Liminal
+      </span>
+    </div>
+
+    {/* DESKTOP LINKS */}
+    <div className="hidden lg:flex items-center gap-10">
+      {navItems.map((item) => (
+        <a 
+          key={item.name} 
+          href={item.href} 
+          className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-black hover:translate-y-[-1px] transition-all duration-300"
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+
+    {/* ACTION BUTTONS */}
+    <div className="flex items-center gap-2 md:gap-4 pr-1 md:pr-2">
+      {/* Log In - Subtle Style */}
+      <button className="px-4 md:px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
+        Log In
+      </button>
+
+      {/* Primary Action - High Contrast */}
+      <button className="px-5 md:px-8 py-2.5 md:py-3.5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-200 transition-all duration-500 active:scale-95">
+        <span className="hidden sm:inline">Get Started for free</span>
+        <span className="sm:hidden">Start</span>
+      </button>
+    </div>
+
+  </nav>
+</motion.header>
 
       {/* --- 2. BOTTOM DOCK --- */}
       <AnimatePresence>
