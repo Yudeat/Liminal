@@ -88,8 +88,8 @@ export default function PricingPage() {
                 <div className="mb-4 text-2xl">{plan.icon}</div>
                 <h3 className="text-xl font-black uppercase tracking-tight mb-2">{plan.name}</h3>
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black">${plan.price}</span>
-                  <span className={`text-xs font-bold uppercase ${plan.highlight ? 'text-gray-400' : 'text-gray-400'}`}>/one-time</span>
+                  <span className="text-4xl font-black">{plan.price}</span>
+                  <span className={`text-xs font-bold uppercase {plan.highlight ? 'text-gray-400' : 'text-gray-400'}`}>/one-time</span>
                 </div>
                 <p className={`mt-4 text-sm leading-relaxed ${plan.highlight ? 'text-gray-400' : 'text-gray-500'}`}>
                   {plan.desc}
