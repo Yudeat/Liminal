@@ -1,5 +1,7 @@
 'use client';
 import { motion } from "framer-motion";
+// import { HiOutlineGlobeAmericas } from "react-icons/hi2";
+// import { HiOutlineSparkles } from "react-icons/hi";
 
 export default function Newsletter() {
   return (

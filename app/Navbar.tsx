@@ -59,7 +59,7 @@ export default function LiminalContextualHero() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
-
+// dynamic nav items
   const navItems = [
     { name: 'Vision', icon: <FaCompass />, href: '/vision' },
     { name: 'Process', icon: <HiOutlineBolt />, href: '#process' },
