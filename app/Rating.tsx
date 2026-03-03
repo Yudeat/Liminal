@@ -11,7 +11,7 @@ const springBounce = {
     transition: { type: "spring", stiffness: 100, damping: 15 } 
   }
 };
-// rating section
+// rating section as of now fake 
 export default function RatingSection() {
   return (
     <section className="bg-white py-24 px-6 border-y border-gray-100 overflow-hidden">
