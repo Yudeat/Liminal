@@ -31,11 +31,7 @@ export default function HyperDashboard() {
           
         </div>
       </nav>
-
-      {/* --- MAIN CONTENT --- */}
-   
-      {/* --- FLOATING DOCK MENU --- */}
-     {/* --- FLOATING DOCK MENU --- */}
+{/* Flowting Dock Menu */}
 <div className="fixed bottom-8 w-full flex justify-center z-[100] px-6">
   <motion.div 
     whileHover={{ scale: 1.02 }}
@@ -69,6 +65,7 @@ export default function HyperDashboard() {
     })}
     
     <div className="w-px h-8 bg-white/10 mx-2" />
+    {/* exit menu  */}
     
     <Link
      href="/" className="p-3 text-red-500 hover:bg-red-500/10 rounded-xl transition-all">
