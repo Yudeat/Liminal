@@ -10,12 +10,7 @@ import {
   HiOutlinePlus,
   HiOutlineArrowLeftOnRectangle,
   HiOutlineChatBubbleLeftRight,
-  HiOutlineCloudArrowUp,
-  HiOutlineCheckBadge,
-  HiOutlineIdentification,
-  HiOutlineSparkles,
-  HiOutlineCpuChip,
-  HiOutlineBolt
+  
 } from "react-icons/hi2";
 
 export default function HyperDashboard() {
