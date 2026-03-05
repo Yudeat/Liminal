@@ -1,5 +1,31 @@
+// auth.ts (Root)
 import NextAuth from "next-auth"
- 
+import Credentials from "next-auth/providers/credentials"
+import { signInSchema } from "./lib/zod"
+import { comparePassword } from "./lib/password"
+import { prisma } from "./lib/prisma"
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [],
+  providers: [
+    Credentials({
+      credentials: { email: {}, password: {} },
+      authorize: async (credentials) => {
+        try {
+          // 1. Validate Input with Zod
+          const { email, password } = await signInSchema.parseAsync(credentials)
+
+          // 2. Find User in Postgres
+          const user = await prisma.user.findUnique({ where: { email } })
+          if (!user || !user.password) return null
+
+          // 3. Verify Password
+          const isValid = await comparePassword(password, user.password)
+          if (!isValid) return null
+
+          return user
+        } catch (error) {
+          return null
+        }
+      },
+    }),
+  ],
 })

@@ -8,6 +8,7 @@ import Rating from "./Rating";
 import HowItWorks from "./howitWork";
 import PricingPage from "./PricingMenu";
 import WhatIsLiminal from "./whatIsIt";
+import LoginPage from "./Authentication/page";
 export default function Home() {
   return (<>
   {/* main component */}
@@ -19,6 +20,7 @@ export default function Home() {
 <PricingPage/>
 <CallMenu/>
 <Rating/>
+<LoginPage/>
 <Newsletter/>
     <Footer/>
 

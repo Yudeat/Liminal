@@ -1,21 +1,15 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client"
-  output   = "../lib/generated/prisma"
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-model User{
-  id  String @id @default(uuid())
-  Email String @unique
-  Password String
-  name String?
+model User {
+  id       String  @id @default(uuid())
+  email    String  @unique // I changed 'Email' to 'email' (standard convention)
+  password String  // I changed 'Password' to 'password'
+  name     String?
 }
