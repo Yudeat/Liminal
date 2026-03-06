@@ -9,20 +9,26 @@ export async function registerUser(formData: FormData) {
   const email = formData.get("email") as string
   const password = formData.get("password") as string
 
-  // 1. Validate inputs
-  const validated = signInSchema.safeParse({ email, password })
-  if (!validated.success) return
+  try {
+    // 1. Validate inputs
+    const validated = signInSchema.safeParse({ email, password })
+    if (!validated.success) return { error: "Invalid email or password format" }
 
-  // 2. Check if user exists
-  const existingUser = await prisma.user.findUnique({ where: { email } })
-  if (existingUser) return
+    // 2. Check if user exists
+    const existingUser = await prisma.user.findUnique({ where: { email } })
+    if (existingUser) return { error: "User already exists" }
 
-  // 3. Hash and Save
-  const hashedPassword = await hashPassword(password)
-  await prisma.user.create({
-    data: {
-      email,
-      password: hashedPassword,
-    },
-  })
+    // 3. Hash and Save
+    const hashedPassword = await hashPassword(password)
+    await prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+      },
+    })
+
+    return { success: true as const }
+  } catch {
+    return { error: "Failed to create user account" }
+  }
 }

@@ -2,20 +2,16 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   HiOutlineGlobeAsiaAustralia, 
-  HiOutlineAcademicCap, 
-  HiOutlineShieldExclamation,
   HiOutlineCheckBadge,
   HiOutlineXCircle,
   HiOutlineArrowLeft,
   HiOutlineMapPin,
-  HiOutlineBanknotes,
   HiOutlineLockClosed
 } from "react-icons/hi2";
-import { FaInstagram, FaTwitter, FaDiscord, FaWhatsapp, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaLinkedin } from "react-icons/fa6";
 
 const comparisons = [
   { feature: "Agent Commissions", local: "Hidden / High", liminal: "Zero / Transparent" },
@@ -62,7 +58,7 @@ export default function NepalVisionPage() {
             world.
           </h1>
           <p className="max-w-2xl text-xl text-gray-500 font-medium leading-relaxed">
-            Nepali students have been trapped in the "Consultancy Loop" for too long. We bring Silicon Valley precision to the streets of Bagbazar and New Baneshwor.
+            Nepali students have been trapped in the &quot;Consultancy Loop&quot; for too long. We bring Silicon Valley precision to the streets of Bagbazar and New Baneshwor.
           </p>
         </div>
       </section>

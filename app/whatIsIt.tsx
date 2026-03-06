@@ -1,13 +1,10 @@
 'use client';
 
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { HiOutlineMap, HiOutlineFingerPrint, HiOutlineSun } from "react-icons/hi2";
 
 export default function WhatIsLiminal() {
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-
   return (
     <div className="bg-white text-black font-sans selection:bg-pink-100">
       
@@ -27,7 +24,7 @@ export default function WhatIsLiminal() {
             </div>
             <h3 className="text-4xl font-black uppercase tracking-tighter">For the Student</h3>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Education shouldn't be a cage. We treat university applications like a mission. 
+              Education shouldn&apos;t be a cage. We treat university applications like a mission. 
               No agents taking commissions. No generic advice. We give you the surgical 
               tools to hack the system and place yourself in the world’s elite institutions.
             </p>
@@ -43,7 +40,7 @@ export default function WhatIsLiminal() {
             </div>
             <h3 className="text-4xl font-black uppercase tracking-tighter">For the Traveller</h3>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Travel isn't a vacation; it's an exile from the ordinary. We build the visa logic, 
+              Travel isn&apos;t a vacation; it&apos;s an exile from the ordinary. We build the visa logic, 
               the logistical blueprints, and the community support to ensure your migration 
               is seamless. You provide the destination; we provide the precision.
             </p>
@@ -58,7 +55,7 @@ export default function WhatIsLiminal() {
           <div className="flex flex-col items-center text-center mb-20">
             <HiOutlineFingerPrint size={60} className="text-gray-200 mb-8" />
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-12">
-              We don't do <br />
+              We don&apos;t do <br />
               <span className="italic font-serif font-light lowercase text-pink-400">agencies.</span>
             </h2>
           </div>
@@ -69,7 +66,7 @@ export default function WhatIsLiminal() {
               <div>
                 <h4 className="text-2xl font-black uppercase mb-4">No Middlemen</h4>
                 <p className="text-gray-500 text-lg">
-                  Traditional agents get paid by universities to "sell" you to them. 
+                  Traditional agents get paid by universities to &quot;sell&quot; you to them. 
                   Exile is paid by you to build you. Our loyalty is to your trajectory alone.
                 </p>
               </div>
@@ -80,8 +77,8 @@ export default function WhatIsLiminal() {
               <div className="md:text-right">
                 <h4 className="text-2xl font-black uppercase mb-4">Total Autonomy</h4>
                 <p className="text-gray-500 text-lg">
-                  We give you the blueprints, the drafts, and the data. You hit the "deploy" button. 
-                  By the time you reach your destination, you aren't just a student—you're an architect.
+                  We give you the blueprints, the drafts, and the data. You hit the &quot;deploy&quot; button. 
+                  By the time you reach your destination, you aren&apos;t just a student-you&apos;re an architect.
                 </p>
               </div>
             </div>

@@ -8,7 +8,7 @@ const springBounce = {
     opacity: 1, 
     scale: 1, 
     y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 15 } 
+    transition: { type: "spring" as const, stiffness: 100, damping: 15 } 
   }
 };
 // rating section as of now fake 
@@ -78,7 +78,7 @@ export default function RatingSection() {
               <FaQuoteLeft className="text-gray-200 text-4xl mb-6 group-hover:text-pink-100 transition-colors" />
               
               <p className="text-lg font-medium text-gray-600 leading-relaxed mb-10 italic">
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               <div className="flex items-center justify-between border-t border-gray-200 pt-8">

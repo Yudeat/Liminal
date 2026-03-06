@@ -92,7 +92,7 @@ const SparkleNavbar: React.FC<SparkleNavbarProps> = ({
         duration: 0.2,
       });
     }
-  }, []);
+  }, [activeIndex]);
 
   // Handler for button clicks, which triggers the animation.
   const handleClick = (index: number) => {

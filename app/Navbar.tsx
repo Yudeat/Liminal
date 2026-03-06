@@ -11,9 +11,7 @@ import {
   useTransform
 } from "framer-motion";
 
-import { GiHamburgerMenu } from "react-icons/gi";
 import { 
-  HiXMark, 
   HiOutlineChevronDoubleDown, 
   HiOutlineSparkles, 
   HiOutlineAcademicCap, 
@@ -21,15 +19,12 @@ import {
   HiOutlineBolt 
 } from "react-icons/hi2"; 
 import { 
-  FaRegCircleUser, 
-  FaCheck, 
   FaCompass, 
   FaPaperPlane, 
   FaBoxArchive 
 } from "react-icons/fa6";
 
 export default function LiminalContextualHero() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 

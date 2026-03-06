@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion"
 import { signIn } from "next-auth/react"
 import { registerUser } from "@/app/actions/register"

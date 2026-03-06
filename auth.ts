@@ -22,7 +22,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (!isValid) return null
 
           return user
-        } catch (error) {
+        } catch {
           return null
         }
       },
