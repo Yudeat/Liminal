@@ -11,11 +11,11 @@ export async function registerUser(formData: FormData) {
 
   // 1. Validate inputs
   const validated = signInSchema.safeParse({ email, password })
-  if (!validated.success) return { error: "Invalid input" }
+  if (!validated.success) return
 
   // 2. Check if user exists
   const existingUser = await prisma.user.findUnique({ where: { email } })
-  if (existingUser) return { error: "User already exists" }
+  if (existingUser) return
 
   // 3. Hash and Save
   const hashedPassword = await hashPassword(password)
@@ -25,6 +25,4 @@ export async function registerUser(formData: FormData) {
       password: hashedPassword,
     },
   })
-
-  return { success: "User created! Now you can sign in." }
 }

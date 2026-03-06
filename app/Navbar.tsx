@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import { 
   motion, 
   AnimatePresence, 
@@ -110,9 +111,9 @@ export default function LiminalContextualHero() {
     {/* ACTION BUTTONS */}
     <div className="flex items-center gap-2 md:gap-4 pr-1 md:pr-2">
       {/* Log In - Subtle Style */}
-      <button className="px-4 md:px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
+      <Link href="/authentication" className="px-4 md:px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
         Log In
-      </button>
+      </Link>
 
       {/* Primary Action - High Contrast */}
       <button className="px-5 md:px-8 py-2.5 md:py-3.5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-200 transition-all duration-500 active:scale-95">
