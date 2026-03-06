@@ -13,7 +13,6 @@ export default function LiminalAuth() {
   const [isHovered, setIsHovered] = useState(false)
   const [form, setForm] = useState({ email: "", password: "" })
 
-  // --- Theme-Matching Mouse Tracking ---
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
   const springConfig = { damping: 30, stiffness: 300 }
@@ -29,7 +28,6 @@ export default function LiminalAuth() {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [mouseX, mouseY])
 
-  // --- Debounced Validation (Keystroke) ---
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (form.email && !form.email.includes("@")) {
@@ -51,7 +49,7 @@ export default function LiminalAuth() {
       else window.location.href = "/"
     } else {
       const res = await registerUser(new FormData(e.currentTarget as HTMLFormElement))
-      if (res.error) setError(res.error)
+      if ("error" in res) setError(res.error)
       else setIsLogin(true)
     }
     setLoading(false)

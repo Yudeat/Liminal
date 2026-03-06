@@ -5,7 +5,9 @@ import { prisma } from "@/lib/prisma"
 import { hashPassword } from "@/lib/password"
 import { signInSchema } from "@/lib/zod"
 
-export async function registerUser(formData: FormData) {
+export type RegisterUserResult = { success: true } | { error: string }
+
+export async function registerUser(formData: FormData): Promise<RegisterUserResult> {
   const email = formData.get("email") as string
   const password = formData.get("password") as string
 
@@ -27,7 +29,7 @@ export async function registerUser(formData: FormData) {
       },
     })
 
-    return { success: true as const }
+    return { success: true }
   } catch {
     return { error: "Failed to create user account" }
   }
