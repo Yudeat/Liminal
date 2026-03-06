@@ -91,7 +91,7 @@ export default function LiminalContextualHero() {
         <Image src="/nav.png" alt="logo" fill className="object-contain" />
       </div>
       <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-black">
-        Liminal
+        Exile
       </span>
     </div>
 

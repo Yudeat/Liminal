@@ -44,7 +44,7 @@ export default function Newsletter() {
               </button>
             </form>
             <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-gray-400 text-center lg:text-left ml-1">
-              No spam. Just <span className="text-black">Liminal</span> logic.
+              No spam. Just <span className="text-black">Exile</span> logic.
             </p>
           </div>
         </div>

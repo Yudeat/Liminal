@@ -102,7 +102,7 @@ export default function LiminalAuth() {
                 value={form.email}
                 onChange={(e) => setForm({...form, email: e.target.value})}
                 className="w-full px-6 py-4 bg-gray-50/50 border border-gray-100 rounded-full text-sm outline-none focus:border-pink-200 focus:bg-white transition-all"
-                placeholder="identity@liminal.com"
+                placeholder="identity@exile.com"
               />
             </div>
 

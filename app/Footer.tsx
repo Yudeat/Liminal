@@ -47,9 +47,9 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-1 flex flex-col gap-8">
             <div className="flex items-center gap-2">
-              <Image src="/nav.png" alt="Liminal Logo" width={28} height={28} className="" />
-              <span className="text-xl font-black tracking-tighter uppercase">Liminal</span>
-            </div>
+              <Image src="/nav.png" alt="Exile Logo" width={28} height={28} className="" />
+  <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-black">Exile </span>
+              </div>
             <p className="text-sm text-gray-500 leading-relaxed font-medium max-w-[220px]">
               The operating system for the self-guided student. Built for the bold.
             </p>
@@ -92,7 +92,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-            <p>© {currentYear} Liminal Inc.</p>
+            <p>© {currentYear} Exile Inc.</p>
             <div className="hidden md:block h-1 w-1 bg-gray-200 rounded-full" />
             <p className="italic font-serif normal-case text-gray-300">Autonomy in Education.</p>
           </div>

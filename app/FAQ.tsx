@@ -6,24 +6,24 @@ import { HiPlus, HiOutlineArrowLongRight, HiMinus, HiOutlineSparkles } from "rea
 
 const faqs = [
   {
-    question: "What exactly is Liminal?",
-    answer: "Liminal is an end-to-end roadmap for studying abroad. We aren't a traditional agency that takes over your application; we are a digital guide that provides the tools, data, and step-by-step instructions so you can successfully navigate the process yourself."
+    question: "What exactly is Exile?",
+    answer: "Exile is an end-to-end roadmap for studying abroad. We aren't a traditional agency that takes over your application; we are a digital guide that provides the tools, data, and step-by-step instructions so you can successfully navigate the process yourself."
   },
   {
     question: "Can I really handle the application without an agent?",
-    answer: "Absolutely. Most agents use the same public information we’ve digitized. Liminal breaks down complex tasks—like SOP writing, visa filing, and university shortlisting—into manageable daily steps tailored to your specific profile."
+    answer: "Absolutely. Most agents use the same public information we’ve digitized. Exile breaks down complex tasks—like SOP writing, visa filing, and university shortlisting—into manageable daily steps tailored to your specific profile."
   },
   {
     question: "How does the 'Step-by-Step' guidance work?",
-    answer: "Once you check your eligibility, Liminal generates a custom timeline. From 'Day 1: Document Checklist' to 'Day 45: Visa Interview Prep,' we provide templates, tutorials, and AI reviews for every single milestone."
+    answer: "Once you check your eligibility, Exile generates a custom timeline. From 'Day 1: Document Checklist' to 'Day 45: Visa Interview Prep,' we provide templates, tutorials, and AI reviews for every single milestone."
   },
   {
-    question: "Does Liminal help with the Visa process?",
+    question: "Does Exile help with the Visa process?",
     answer: "Yes. We guide you through the financial documentation requirements and provide a 'DIY Visa Kit' that explains exactly how to book your appointment and what to say during your interview."
   },
   {
     question: "What if I get stuck while doing it myself?",
-    answer: "While Liminal is designed for self-sufficiency, you're never alone. You can access our 'Emergency Review' feature where a human expert double-checks your work before you hit submit."
+    answer: "While Exile is designed for self-sufficiency, you're never alone. You can access our 'Emergency Review' feature where a human expert double-checks your work before you hit submit."
   }
 ];
 

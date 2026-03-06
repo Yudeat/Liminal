@@ -70,7 +70,7 @@ export default function WhatIsLiminal() {
                 <h4 className="text-2xl font-black uppercase mb-4">No Middlemen</h4>
                 <p className="text-gray-500 text-lg">
                   Traditional agents get paid by universities to "sell" you to them. 
-                  Liminal is paid by you to build you. Our loyalty is to your trajectory alone.
+                  Exile is paid by you to build you. Our loyalty is to your trajectory alone.
                 </p>
               </div>
             </div>
