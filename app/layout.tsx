@@ -8,6 +8,11 @@ export const metadata: Metadata = {
     template: "%s | Exile",
   },
   description: "Independent education OS for students planning global admissions and visa journeys.",
+  icons: {
+    icon: "/nav.png",
+    shortcut: "/nav.png",
+    apple: "/nav.png",
+  },
 };
 
 export default function RootLayout({
