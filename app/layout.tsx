@@ -4,8 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Liminal",
-    template: "%s | Liminal",
+    default: "Exile",
+    template: "%s | Exile",
   },
   description: "Independent education OS for students planning global admissions and visa journeys.",
 };
