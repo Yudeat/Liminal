@@ -46,7 +46,7 @@ const plans = [
 
 export default function PricingPage() {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section id="price" className="relative py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}

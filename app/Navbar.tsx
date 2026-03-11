@@ -110,7 +110,6 @@ export default function LiminalContextualHero() {
         Log In
       </Link>
 
-      {/* Primary Action - High Contrast */}
       <button className="px-5 md:px-8 py-2.5 md:py-3.5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-200 transition-all duration-500 active:scale-95">
         <span className="hidden sm:inline">Get Started for free</span>
         <span className="sm:hidden">Start</span>
@@ -177,13 +176,20 @@ export default function LiminalContextualHero() {
             EXILE.
           </h1>
           <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button 
-              onMouseEnter={() => setIsHovered(true)} 
-              onMouseLeave={() => setIsHovered(false)}
-              className="px-12 py-6 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-black/20 flex items-center gap-3"
-            >
-              Begin Journey <HiOutlineAcademicCap size={18} />
-            </button>
+           <Link 
+  href='#price'
+  onMouseEnter={() => setIsHovered(true)} 
+  onMouseLeave={() => setIsHovered(false)}
+  className="px-12 py-6 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-black/20 flex items-center gap-3"
+>
+  Begin Journey 
+  <motion.div
+    animate={{ y: isHovered ? -3 : 0, rotate: isHovered ? 10 : 0 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    <HiOutlineAcademicCap size={18} />
+  </motion.div>
+</Link>
           </div>
         </motion.div>
 
