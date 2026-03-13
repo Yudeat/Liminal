@@ -1,138 +1,97 @@
-//Liminal- In Between Decision and Departure
+🏴‍☠️ Exile | Decision. Departure. Defined.
+Exile is a transparent, system-driven platform that de-risks the study-abroad application process. It replaces the "black box" of traditional consultancy with a clear, auditable workflow that prioritizes correctness over persuasion.
 
+Live Demo: https://exile-nu.vercel.app/
 
+📖 The "Exile" Philosophy
+Applying to universities abroad is a high-stakes transition. Students often rely on consultants out of fear: fear of missing documents, eligibility mismatches, or visa rejections due to clerical errors.
 
-_Liminal
+Exile exists to turn this fear into a verifiable process. It acts as a guided application infrastructure—an "autopilot for global education" where the student remains the pilot, and the system ensures the flight path is clear of errors.
 
-Clarity before the leap.
+Core Pillars
+Transparency: Every decision and requirement is visible. No hidden commissions or biased recommendations.
 
-Liminal is a transparent, system-driven platform that guides students through the study-abroad application process with verification, automation, and human oversight — while keeping final control in the student’s hands.
+Student Control: Automation assists—it never replaces user consent. The student always clicks "Submit."
 
-It is designed to replace opaque consultancy workflows with a clear, auditable process that reduces mistakes, fear, and dependency.
+Verification: Errors are caught at the upload stage, not the rejection stage.
 
-Why Liminal Exists
+🛠 Tech Stack
+Framework: Next.js 14+ (App Router)
 
-Applying to universities abroad is not hard because it is complex —
-it is hard because mistakes are expensive.
+Styling: Tailwind CSS
 
-Students rely on consultants not for intelligence, but for safety:
+Animations: Framer Motion (for smooth, state-based UI transitions)
 
-fear of missing documents
+Database & Auth: Supabase (PostgreSQL + GoTrue)
 
-fear of eligibility mismatches
+Deployment: Vercel
 
-fear of visa rejection due to clerical errors
+Validation: Zod (Strict schema-based eligibility and document checking)
 
-fear of opaque fees and hidden incentives
-
-Liminal exists to turn this fear into a verifiable process.
-
-What Liminal Does
-
-Liminal acts as a guided application system, not an agent.
-
-The platform:
-
-evaluates eligibility before applications are submitted
-
-verifies documents against country-specific standards
-
-reviews and scores Statements of Purpose (SOPs)
-
-automates repetitive application tasks
-
-provides optional human review when certainty matters
-
-The student always submits the final application themselves.
-
-Core Principles
-
-Transparency over persuasion
-Every step is visible. No hidden decisions.
-
-Student control by design
-Automation assists — it does not replace consent.
-
-Verification before submission
-Errors are caught early, not after rejection.
-
-Human support where it matters
-Experts review, systems execute.
-
-Key Features (MVP)
+🚀 Key Features (MVP)
 1. Smart Profile & Eligibility Engine
-
-Students input academic background, test scores, budget, and preferences.
-Liminal generates a verified eligibility match for selected countries and universities.
+A logic-driven module that maps student academic JSON profiles against specific university requirement schemas to ensure high-probability matches.
 
 2. Document Vault & Compliance Checker
+A secure dashboard for uploading sensitive documents (Passports, Transcripts, CVs).
 
-A secure dashboard to upload:
+Real-time Linting: Checks for formatting, seals, and validity.
 
-Passport
-
-Academic transcripts
-
-CV
-
-SOP
-
-Proof of funds
-
-Documents are checked against official immigration and university requirements (e.g. missing seals, formatting issues, validity).
+Country Standards: Maps uploads against official immigration and university mandates.
 
 3. SOP Review & Scoring
-
-Instead of writing essays for students, Liminal:
-
-evaluates structure, clarity, and relevance
-
-checks alignment with country-specific expectations
-
-provides actionable improvement suggestions
-
-The student remains the author.
+An analysis tool that evaluates Statements of Purpose for structure, clarity, and relevance—providing actionable suggestions while ensuring the student remains the author.
 
 4. Guided Application Automation
+A "human-in-the-loop" automation tool that handles:
 
-For repetitive portal workflows, Liminal assists with:
+Form pre-filling and field validation.
 
-form pre-fill
+Step-by-step guidance through complex portal workflows.
 
-field validation
+💻 Getting Started
+Prerequisites
+Node.js 18.x or higher
 
-step-by-step guidance
+A Supabase project (for Authentication and Storage)
 
-Final submission is always performed by the student.
+Installation
+Clone the repository
 
-5. Human-in-the-Loop Support
+Bash
+git clone https://github.com/your-username/exile.git
+cd exile
+Install dependencies
 
-Students can book limited sessions with verified mentors who are:
+Bash
+npm install
+# or
+pnpm install
+Set up Environment Variables
+Create a .env.local file in the root:
 
-currently studying or working in the destination country
+Code snippet
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_APP_URL=https://exile-nu.vercel.app/
+Run Development Server
 
-available to clarify doubts, not sell outcomes
+Bash
+npm run dev
+🛡 Security & Trust
+Encryption: All sensitive documents are encrypted at rest via Supabase Storage.
 
-Trust & Safety
+Data Sovereignty: Users can export or delete their entire profile and document history at any time.
 
-No guaranteed admissions
+Clerical Error Refund: If a system error leads to a failure, 90% of the platform fee is refunded. Trust is treated as infrastructure, not marketing.
 
-No hidden commissions influencing recommendations
+🤝 Contributing
+We are currently in Early MVP. We welcome contributors interested in:
 
-Clear refund policy:
-If Liminal makes a clerical or system error, 90% of the fee is refunded
+Schema Design: Developing JSON schemas for global university requirements.
 
-Trust is treated as infrastructure, not marketing.
+Document Parsing: Improving automated document verification.
 
-Current Scope
+UI/UX: Refining the "Exile" aesthetic—minimal, high-contrast, and calm.
 
-
-Prototype / Early MVP
-
-Currently under active development.
-Features and workflows are evolving based on real user feedback.
-
-Vision
-
-Liminal aims to become the application infrastructure behind global education —
-where guidance is calm, systems are visible, and trust is earned through correctness.
+Project Link: https://exile-nu.vercel.app/
