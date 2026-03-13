@@ -7,12 +7,12 @@ export default function Newsletter() {
     <section className="py-24 bg-white text-black px-4">
       <div className="max-w-7xl mx-auto border border-gray-100 bg-gray-50/50 rounded-[40px] p-8 md:p-16 lg:p-20 relative overflow-hidden">
         
-        {/* Subtle Decorative Background Element */}
+        
         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-green-100/30 blur-[100px] rounded-full" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
           
-          {/* Text Content */}
+        
           <div className="max-w-xl text-center lg:text-left space-y-4">
             <div className="inline-block px-3 py-1 bg-black text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-md">
               The Dispatch

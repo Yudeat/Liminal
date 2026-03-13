@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+import { auth } from "@/auth";
 import HireaPerson from "./HireaPerson";
 import Navbar from "./Navbar";
 import Newsletter from "./Newsletter";  
@@ -8,10 +9,12 @@ import Rating from "./Rating";
 import HowItWorks from "./howitWork";
 import PricingPage from "./PricingMenu";
 import WhatIsLiminal from "./whatIsIt";
-export default function Home() {
+export default async function Home() {
+   const session=await auth();
   return (<>
+ 
   {/* main component */}
- <Navbar />
+ <Navbar session={session} />
  <WhatIsLiminal/>
 <HireaPerson/>
 <HowItWorks/>

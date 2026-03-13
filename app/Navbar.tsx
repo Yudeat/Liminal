@@ -1,8 +1,9 @@
 'use client';
-
+// importing 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
+
 import { 
   motion, 
   AnimatePresence, 
@@ -16,7 +17,8 @@ import {
   HiOutlineSparkles, 
   HiOutlineAcademicCap, 
   HiOutlineGlobeAmericas,
-  HiOutlineBolt 
+  HiOutlineBolt, 
+  HiUserCircle
 } from "react-icons/hi2"; 
 import { 
   FaCompass, 
@@ -24,7 +26,13 @@ import {
   FaBoxArchive 
 } from "react-icons/fa6";
 
-export default function LiminalContextualHero() {
+// Types 
+interface NavbarProps{
+  session:any
+}
+
+export default function LiminalContextualHero({session}:NavbarProps) {
+const user = session?.user;
   const [isHovered, setIsHovered] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
@@ -106,14 +114,33 @@ export default function LiminalContextualHero() {
     {/* ACTION BUTTONS */}
     <div className="flex items-center gap-2 md:gap-4 pr-1 md:pr-2">
       {/* Log In - Subtle Style */}
-      <Link href="/authentication" className="px-4 md:px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
-        Log In
-      </Link>
-
+      {user ?(
+        <> 
+        <Link
+         href="/profile"
+          className="px-4 md:px-6 py-2.5  tracking-widest ">
+   <HiUserCircle size={38}/>
+      </Link> 
       <button className="px-5 md:px-8 py-2.5 md:py-3.5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-200 transition-all duration-500 active:scale-95">
         <span className="hidden sm:inline">Get Started for free</span>
         <span className="sm:hidden">Start</span>
       </button>
+
+      
+
+     </> ):(
+<>
+      <Link href="/authentication" className="px-4 md:px-6 py-2.5 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors">
+        Log In
+      </Link> 
+      <button className="px-5 md:px-8 py-2.5 md:py-3.5 bg-black text-white rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] hover:bg-pink-400 hover:shadow-lg hover:shadow-pink-200 transition-all duration-500 active:scale-95">
+        <span className="hidden sm:inline">Get Started for free</span>
+        <span className="sm:hidden">Start</span>
+      </button>
+      
+</>
+     )}
+     
     </div>
 
   </nav>
@@ -153,7 +180,55 @@ export default function LiminalContextualHero() {
       </AnimatePresence>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+      {user?(<>
+        <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-50" />
+          <motion.div style={{ x: globeX, y: globeY }} className="absolute -bottom-20 -right-20 text-gray-100/60">
+            <HiOutlineGlobeAmericas size={500} />
+          </motion.div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10"
+        >
+          <div className="mb-6 inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-gray-400">
+            <HiOutlineSparkles className="text-green-500" /> EXILEOS-The in-between
+          </div>
+          <h1 className="text-[4.5rem] md:text-[9rem] leading-[0.85] font-black tracking-tighter uppercase">
+            BE READY <br /> 
+            <span className="text-pink-400 italic font-serif font-light lowercase">to jumb</span> <br />
+            HIGHER.
+          </h1>
+          <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
+ 
+         <Link 
+  href='#price'
+  onMouseEnter={() => setIsHovered(true)} 
+  onMouseLeave={() => setIsHovered(false)}
+  className="px-12 py-6 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-xl shadow-black/20 flex items-center gap-3"
+>
+  Begin Journey 
+  <motion.div
+    animate={{ y: isHovered ? -3 : 0, rotate: isHovered ? 10 : 0 }}
+    transition={{ type: "spring", stiffness: 300 }}
+  >
+    <HiOutlineAcademicCap size={18} />
+  </motion.div>
+</Link>
+          </div>
+        </motion.div>
+
+        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }} className="absolute bottom-10 text-gray-300">
+          <HiOutlineChevronDoubleDown size={24} />
+        </motion.div>
+      </section>
+      </>
+      ):(<>
+       <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] opacity-50" />
           <motion.div style={{ x: globeX, y: globeY }} className="absolute -bottom-20 -right-20 text-gray-100/60">
@@ -176,7 +251,8 @@ export default function LiminalContextualHero() {
             EXILE.
           </h1>
           <div className="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
-           <Link 
+ 
+         <Link 
   href='#price'
   onMouseEnter={() => setIsHovered(true)} 
   onMouseLeave={() => setIsHovered(false)}
@@ -197,6 +273,9 @@ export default function LiminalContextualHero() {
           <HiOutlineChevronDoubleDown size={24} />
         </motion.div>
       </section>
+        </>
+      )
+      }
 
     
      

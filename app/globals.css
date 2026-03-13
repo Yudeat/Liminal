@@ -4,7 +4,6 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@plugin './lightswind-plugin';
 
 @theme inline {
   --color-background: var(--background);
