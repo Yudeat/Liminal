@@ -65,11 +65,6 @@ Install dependencies
 
 Bash
 npm install
-# or
-pnpm install
-Set up Environment Variables
-Create a .env.local file in the root:
-
 Code snippet
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
