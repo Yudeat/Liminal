@@ -17,6 +17,17 @@ import {
   HiOutlineGlobeAlt, 
   HiOutlineArrowLeft
 } from "react-icons/hi2";
+import { 
+  Languages, 
+  CircleDollarSign, 
+  Palette, 
+  ShieldCheck, 
+  Smartphone, 
+  LockKeyhole, 
+  ChevronRight 
+} from 'lucide-react';
+
+
 interface DashboardProps {
   session: {
     user?: {
@@ -33,7 +44,23 @@ export default function DashboardPage({ session }: DashboardProps) {
   const user = session?.user;
   const [image, setImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+// Reusable Row Component
+const SettingRow = ({ icon: Icon, label, href = "#" }) => (
+  <Link 
+    href={href}
+    className="group flex items-center justify-between p-4 bg-white transition-all active:scale-[0.98] hover:bg-gray-50"
+  >
+    <div className="flex items-center gap-4">
+      <div className="text-gray-700 group-hover:text-blue-600 transition-colors">
+        <Icon size={22} strokeWidth={1.5} />
+      </div>
+      <span className="text-[15px] font-medium text-gray-800 leading-none">
+        {label}
+      </span>
+    </div>
+    <ChevronRight size={18} className="text-gray-300 group-hover:text-gray-500 transition-colors" />
+  </Link>
+);
   useEffect(() => {
     if (typeof window !== "undefined") {
       try {
@@ -204,7 +231,26 @@ const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
       </div>
     </section>
-          
+    <div className="md:hidden bg-[#F8F9FA] py-8 px-4">
+      <div className="max-w-md mx-auto space-y-6">
+        
+        {/* Top Group */}
+        <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
+          <SettingRow icon={Languages} label="Language" />
+          <SettingRow icon={CircleDollarSign} label="Currencies" />
+          <SettingRow icon={Palette} label="Appearance" />
+        </div>
+
+        {/* Bottom Group */}
+        <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
+          <SettingRow icon={ShieldCheck} label="Application Security" />
+          <SettingRow icon={Smartphone} label="Manage Devices" />
+          <SettingRow icon={LockKeyhole} label="Change Password" />
+        </div>
+
+      </div>
+    </div>
+   
         </div>
       </main>
     </div>
