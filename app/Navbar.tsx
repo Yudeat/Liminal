@@ -74,14 +74,12 @@ const user = session?.user;
   return (
     <div id='home' className="relative min-h-[100vh] w-full bg-white text-black font-sans antialiased">
       
-      {/* --- CUSTOM CURSOR --- */}
       <motion.div 
         className="fixed top-0 left-0 w-4 h-4 bg-black rounded-full pointer-events-none z-[100] mix-blend-difference hidden md:block"
         animate={{ scale: isHovered ? 4 : 1 }}
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
       />
 
-      {/* --- 1. TOP NAVBAR --- */}
      <motion.header 
   animate={{ y: isHeroVisible ? 0 : -100, opacity: isHeroVisible ? 1 : 0 }}
   className="fixed w-full pt-4 md:pt-6 top-0 z-50 px-4 md:px-6 pointer-events-none"
@@ -113,7 +111,6 @@ const user = session?.user;
 
     {/* ACTION BUTTONS */}
     <div className="flex items-center gap-2 md:gap-4 pr-1 md:pr-2">
-      {/* Log In - Subtle Style */}
       {user ?(
         <> 
         <Link

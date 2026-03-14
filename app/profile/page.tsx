@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   HiBars3BottomRight, 
   HiAcademicCap,
@@ -11,40 +12,73 @@ import {
   HiXMark,
   HiOutlineArrowLeftOnRectangle,
   HiOutlineCamera, 
-  HiOutlineCheck, 
   HiOutlineEnvelope, 
   HiOutlineIdentification,
-  HiOutlineGlobeAlt 
+  HiOutlineGlobeAlt, 
+  HiOutlineArrowLeft
 } from "react-icons/hi2";
+interface DashboardProps {
+  session: {
+    user?: {
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  } | null;
+}
 
-export default function DashboardPage({ session }: { session: any }) {
+export default function DashboardPage({ session }: DashboardProps) {
   // 1. UI State
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [saving, setSaving] = useState(false);
-  
-  // 2. Profile Logic State
   const user = session?.user;
-  const [formData, setFormData] = useState({
-    name: user?.name || "Seeker",
-    bio: "Independent learner exploring the Art of Exile.",
-    location: "Digital Nomad",
-    website: "https://exile.os"
-  });
-  const [image, setImage] = useState(user?.image || null);
+  const [image, setImage] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // 3. Handlers
-  const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const savedImage = localStorage.getItem("profile-image");
+        if (savedImage) {
+          setImage(savedImage);
+          return;
+        }
+      } catch {
+        // Ignore storage errors
+      }
+    }
+    if (user?.image) {
+      setImage(user.image);
+    }
+  }, [user]);
+  
+const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => setImage(reader.result as string);
+      reader.onloadend = () => {
+        const nextImage = reader.result as string;
+        setImage(nextImage);
+        if (typeof window !== "undefined") {
+          try {
+            localStorage.setItem("profile-image", nextImage);
+          } catch {
+            // Ignore storage errors
+          }
+        }
+      };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleSave = () => {
-    setSaving(true);
-    setTimeout(() => setSaving(false), 2000);
+  const handleClearImage = () => {
+    setImage(null);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.removeItem("profile-image");
+      } catch {
+        // Ignore storage errors
+      }
+    }
   };
 
   return (
@@ -54,7 +88,9 @@ export default function DashboardPage({ session }: { session: any }) {
       <div className={`fixed inset-0 z-[60] bg-white/95 backdrop-blur-xl transition-transform duration-500 lg:hidden ${isNavOpen ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="p-6 flex flex-col h-full">
           <div className="flex justify-end">
-             <button onClick={() => setIsNavOpen(false)} className="p-4 text-black"><HiXMark size={32} /></button>
+             <button 
+             title='navopen'
+             onClick={() => setIsNavOpen(false)} className="p-4 text-black"><HiXMark size={32} /></button>
           </div>
           <div className="flex-1 flex flex-col justify-center gap-4 px-6">
              <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-4">Account Menu</h2>
@@ -75,7 +111,9 @@ export default function DashboardPage({ session }: { session: any }) {
           
           <div className="flex items-center gap-4">
             <button type="button"
-            onClick={() => setIsNavOpen(true)} className="lg:hidden p-2 bg-gray-50 rounded-full">
+            title='Navopen'
+            onClick={() => setIsNavOpen(true)} 
+            className="lg:hidden p-2 bg-gray-50 rounded-full">
               <HiBars3BottomRight size={20} />
             </button>
 
@@ -98,91 +136,75 @@ export default function DashboardPage({ session }: { session: any }) {
             <NavItem icon={<HiOutlineCog6Tooth />} label="Settings" />
             <NavItem icon={<HiAcademicCap/>} label="Dashboard" />
           </aside>
-
-          {/* MAIN SECTION: PROFILE GRID */}
-          <section className="lg:col-span-9">
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-              
-              {/* LEFT COLUMN: PROFILE CARD */}
-              <div className="xl:col-span-1">
-                <div className="xl:sticky xl:top-32 bg-black text-white rounded-[2.5rem] p-8 overflow-hidden relative">
-                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/20 rounded-full blur-3xl" />
-                  
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className="w-32 h-32 rounded-full border-4 border-white/10 p-1 mb-6">
-                      <div className="w-full h-full rounded-full bg-zinc-800 overflow-hidden flex items-center justify-center">
-                        {image ? (
-                          <img src={image} className="w-full h-full object-cover" alt="Profile" />
-                        ) : (
-                          <span className="text-4xl font-black">{formData.name[0]}</span>
-                        )}
-                      </div>
-                    </div>
-                    <h2 className="text-2xl font-black tracking-tighter uppercase mb-1">{formData.name}</h2>
-                    <p className="text-pink-400 font-serif italic text-sm mb-6">Verified Student</p>
-                    <div className="w-full space-y-4 text-left border-t border-white/10 pt-6">
-                      <div className="flex items-center gap-3 text-zinc-400">
-                        <HiOutlineEnvelope className="text-pink-400" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest truncate">{user?.email}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-zinc-400">
-                        <HiOutlineGlobeAlt className="text-pink-400" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">{formData.location}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* RIGHT COLUMN: THE FORM */}
-              <div className="xl:col-span-2">
-                <div className="bg-gray-50 border border-gray-100 rounded-[2.5rem] p-8 md:p-12">
-                  <h3 className="text-xs font-black uppercase tracking-[0.3em] text-gray-400 mb-10">Update Identity</h3>
-                  <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-black ml-1 flex items-center gap-2">
-                        <HiOutlineIdentification size={14}/> Display Name
-                      </label>
-                      <input 
-                        type="text" 
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-white border-none rounded-2xl p-4 text-sm font-bold focus:ring-2 focus:ring-pink-200 shadow-sm"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-black ml-1">Your Philosophy (Bio)</label>
-                      <textarea 
-                        rows={3}
-                        value={formData.bio}
-                        onChange={(e) => setFormData({...formData, bio: e.target.value})}
-                        className="w-full bg-white border-none rounded-2xl p-4 text-sm font-medium focus:ring-2 focus:ring-pink-200 shadow-sm resize-none"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-black ml-1">Change Portrait</label>
-                      <label className="flex items-center justify-center gap-2 p-4 bg-white border-2 border-dashed border-gray-200 rounded-2xl cursor-pointer hover:border-pink-400 hover:bg-pink-50 transition-all group">
-                        <HiOutlineCamera className="text-gray-400 group-hover:text-pink-500" />
-                        <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 group-hover:text-pink-500">Choose Image</span>
-                        <input type="file" className="hidden" onChange={handlePhoto} accept="image/*" />
-                      </label>
-                    </div>
-
-                    <button 
-                      onClick={handleSave}
-                      className="group relative w-full md:w-auto px-10 py-4 bg-black text-white rounded-full transition-all hover:bg-pink-500 active:scale-95"
-                    >
-                      <span className="text-[10px] font-black uppercase tracking-widest">
-                        {saving ? 'Synchronizing...' : 'Save Profile'}
-                      </span>
-                    </button>
-                  </form>
-                </div>
-              </div>
+          
+{/* profile */}
+<section id='profile' className="p-6 md:hidden">
+      <Link href="/" aria-label="Back to home">
+        <HiOutlineArrowLeft size={29} className="hover:text-pink-500 transition-all" />
+      </Link>
+      
+      <p className='font-black uppercase tracking-tighter text-2xl mt-5 mb-6'>Profile</p>
+      
+      <div className='bg-black text-white w-full md:w-3/4 rounded-[2rem] p-8 shadow-2xl relative group'>
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          
+          {/* IMAGE UPLOAD TARGET */}
+          <div className="relative">
+            <div className="w-24 h-24 rounded-full border-2 border-dashed border-zinc-700 overflow-hidden flex items-center justify-center bg-zinc-900 group-hover:border-pink-500 transition-colors">
+              {image ? (
+                <Image src={image} alt="Profile" fill className="rounded-full object-cover" />
+              ) : (
+                <HiOutlineCamera size={30} className="text-zinc-500" />
+              )}
             </div>
-          </section>
+            
+            {/* Hidden Input */}
+            <input 
+            title='fileupload'
+              type="file" 
+              ref={fileInputRef}
+              onChange={handleImageUpload}
+              accept="image/*"
+              className="hidden"
+            />
+            
+            {/* Trigger Button */}
+            <button 
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="absolute -bottom-1 -right-1 bg-pink-500 p-2 rounded-full hover:scale-110 transition-transform shadow-lg"
+              aria-label="Upload photo"
+            >
+              <HiOutlineCamera size={14} className="text-white" />
+            </button>
+          </div>
+
+          <div className="text-center md:text-left flex-1">
+            <h2 className="text-2xl font-black uppercase tracking-tight">
+              {user?.name ?? "Seeker"}
+            </h2>
+            <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mt-1 mb-6">
+              {user?.email ?? "no-email@exile.os"}
+            </div>
+            
+            <button 
+              type="button" 
+              className="px-6 py-2 border border-zinc-700 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+            >
+              Edit Profile
+            </button>
+            <button
+              type="button"
+              onClick={handleClearImage}
+              className="mt-3 px-6 py-2 border border-zinc-700/60 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all"
+            >
+              Clear Photo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+          
         </div>
       </main>
     </div>
@@ -192,6 +214,7 @@ export default function DashboardPage({ session }: { session: any }) {
 function NavItem({ icon, label, active = false, onClick }: { icon: any, label: string, active?: boolean, onClick?: () => void }) {
   return (
     <button 
+    title='some'
       onClick={onClick}
       className={`w-full flex items-center gap-4 px-6 py-5 rounded-[1.5rem] text-[10px] font-black uppercase tracking-widest transition-all ${
         active ? "bg-black text-white shadow-xl shadow-black/10 scale-[1.02]" : "text-gray-400 hover:bg-gray-100 hover:text-black"
