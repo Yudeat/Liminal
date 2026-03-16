@@ -144,7 +144,7 @@ const user = session?.user;
   </nav>
 </motion.header>
 
-      {/* --- 2. BOTTOM DOCK --- */}
+      {/* docks navbar */}
       <AnimatePresence>
         {!isHeroVisible && (
           <motion.div 
