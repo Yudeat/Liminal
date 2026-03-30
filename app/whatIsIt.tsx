@@ -10,7 +10,6 @@ export default function WhatIsLiminal() {
       
 
       
-      {/* 2. THE DUALITY: STUDENT & TRAVELLER */}
       <section className="py-32 bg-black text-white rounded-[4rem] mx-4">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
           
@@ -24,7 +23,7 @@ export default function WhatIsLiminal() {
             </div>
             <h3 className="text-4xl font-black uppercase tracking-tighter">For the Student</h3>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Education shouldn&apos;t be a cage. We treat university applications like a mission. 
+              Education shouldn't be a cage. We treat university applications like a mission. 
               No agents taking commissions. No generic advice. We give you the surgical 
               tools to hack the system and place yourself in the world’s elite institutions.
             </p>
@@ -86,7 +85,6 @@ export default function WhatIsLiminal() {
         </div>
       </section>
 
-      {/* 4. CALL TO ACTION: JOIN THE EXILE */}
       <section className="py-32 flex justify-center items-center">
         <motion.div 
           whileHover={{ scale: 0.98 }}

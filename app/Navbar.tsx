@@ -28,8 +28,18 @@ import {
 } from "react-icons/fa6";
 
 // Types 
+interface SessionUser {
+  name?: string;
+  email?: string;
+  image?: string;
+}
+
+interface Session {
+  user?: SessionUser;
+}
+
 interface NavbarProps{
-  session:any
+  session: Session;
 }
 
 export default function LiminalContextualHero({session}:NavbarProps) {
