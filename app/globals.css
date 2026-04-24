@@ -196,4 +196,33 @@ body::after {
   .bg-white .text-gray-200 {
     color: oklch(0.48 0.05 14) !important;
   }
+
+  .magazine-prose {
+    color: oklch(0.36 0.07 14);
+    font-size: 1.15rem;
+    line-height: 1.95;
+    letter-spacing: 0.001em;
+  }
+
+  .magazine-prose p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .magazine-prose p:first-of-type {
+    font-size: 1.28rem;
+    line-height: 1.85;
+    color: oklch(0.3 0.09 14);
+  }
+
+  .magazine-prose p:first-of-type::first-letter {
+    float: left;
+    font-size: 4.2rem;
+    line-height: 0.9;
+    padding-right: 0.45rem;
+    margin-top: 0.2rem;
+    font-weight: 900;
+    color: oklch(0.44 0.16 12);
+    font-family: "Times New Roman", Georgia, serif;
+  }
 }

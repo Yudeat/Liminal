@@ -1,6 +1,7 @@
 import MainNavigation from "./navigation/MainNavigation";
 import {
   AboutSection,
+  BlogHighlightsSection,
   CallToActionSection,
   FaqSection,
   FooterSection,
@@ -25,6 +26,7 @@ export default function HomePage({ session }: HomePageProps) {
       <HowItWorksSection />
       <FaqSection />
       <PricingSection />
+      <BlogHighlightsSection />
       <CallToActionSection />
       <TestimonialsSection />
       <NewsletterSection />
