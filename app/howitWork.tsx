@@ -37,7 +37,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="process" className="relative py-24 bg-white overflow-hidden">
+    <section id="process" className="relative py-24 bg-white/70 overflow-hidden">
       {/* Background Aesthetic */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-gray-100 to-transparent" />
@@ -49,16 +49,16 @@ export default function HowItWorks() {
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-400 mb-4"
+            className="text-[10px] font-black uppercase tracking-[0.4em] text-[#8b1e3f] mb-4"
           >
             The Protocol
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter"
+            className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#4b1227]"
           >
-            How it <span className="italic font-serif font-light lowercase">works.</span>
+            How it <span className="italic font-serif font-light lowercase text-[#7a1e39]">works.</span>
           </motion.h2 >
         </div>
 
@@ -96,14 +96,14 @@ export default function HowItWorks() {
               <div className="w-full md:w-1/2 text-center md:text-left">
                 <div className={`flex items-center gap-4 mb-4 justify-center md:justify-start`}>
                   <div className={`w-10 h-1 ${step.color}`} />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-[#7a2f47]">
                     Phase 0{i + 1}
                   </span>
                 </div>
-                <h3 className="text-4xl font-black uppercase tracking-tight mb-6">
+                <h3 className="text-4xl font-black uppercase tracking-tight mb-6 text-[#4b1227]">
                   {step.title}
                 </h3>
-                <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-md mx-auto md:mx-0">
+                <p className="text-xl text-[#5d2d3f] font-medium leading-relaxed max-w-md mx-auto md:mx-0">
                   {step.desc}
                 </p>
               </div>

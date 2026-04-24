@@ -4,6 +4,8 @@
 import { prisma } from "@/lib/prisma"
 import { hashPassword } from "@/lib/password"
 import { signInSchema } from "@/lib/zod"
+import { applyRateLimit } from "@/lib/rate-limit"
+import { getRequestIp } from "@/lib/request"
 
 export type RegisterUserResult = { success: true } | { error: string }
 
@@ -12,6 +14,10 @@ export async function registerUser(formData: FormData): Promise<RegisterUserResu
   const password = formData.get("password") as string
 
   try {
+    const ip = await getRequestIp()
+    const signupRateLimit = applyRateLimit(`signup:${ip}:${email}`, { windowMs: 10 * 60 * 1000, max: 3 })
+    if (!signupRateLimit.allowed) return { error: "Too many signup attempts. Please try again later." }
+
     // 1. Validate inputs
     const validated = signInSchema.safeParse({ email, password })
     if (!validated.success) return { error: "Invalid email or password format" }
