@@ -1,7 +1,7 @@
 🏴‍☠️ Exile | Decision. Departure. Defined.
 Exile is a transparent, system-driven platform that de-risks the study-abroad application process. It replaces the "black box" of traditional consultancy with a clear, auditable workflow that prioritizes correctness over persuasion.
 
-Live Demo: https://exile-nu.vercel.app/
+Live Demo: Exileos.com
 
 📖 The "Exile" Philosophy
 Applying to universities abroad is a high-stakes transition. Students often rely on consultants out of fear: fear of missing documents, eligibility mismatches, or visa rejections due to clerical errors.
