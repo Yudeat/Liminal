@@ -4,47 +4,58 @@ import { HiOutlineArrowLongRight } from "react-icons/hi2";
 
 export default function CallMenu() {
   return (
-    <section className="relative overflow-hidden bg-white border-y border-gray-100 px-6 py-24 md:px-12 lg:px-24">
-      {/* Subtle Background Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto flex flex-col items-center text-center">
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+    <section className="bg-[#080808] px-6 py-32 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-6"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative bg-white/[0.03] border border-white/8 rounded-3xl p-12 md:p-20 overflow-hidden"
         >
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]">
-            Ready to lead your <br className="hidden md:block" />
-            <span className="text-pink-400 italic font-serif font-light lowercase">departure?</span>
-          </h2>
-          
-          <div className="text-xl md:text-2xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
-            <p>
-              Join thousands of students navigating their future independently. 
-              <span className="block text-black">Map your journey for free today.</span>
+          {/* Ambient */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(232,196,160,0.07) 0%, transparent 55%)" }}
+          />
+          <div
+            className="absolute top-0 left-0 w-full h-px"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(232,196,160,0.3), transparent)" }}
+          />
+
+          <div className="relative z-10 flex flex-col items-center text-center space-y-8">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25">
+              Ready for Departure
+            </p>
+
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.88] uppercase">
+              Ready to lead your
+              <br />
+              <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+                departure?
+              </em>
+            </h2>
+
+            <p className="text-white/35 text-lg max-w-xl mx-auto leading-relaxed font-medium">
+              Join thousands of students navigating their future independently.{" "}
+              <span className="text-white/60">Map your journey for free today.</span>
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <button className="group inline-flex items-center gap-3 px-10 py-4 bg-white text-black rounded-xl font-black text-[11px] uppercase tracking-widest hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95 shadow-[0_0_40px_rgba(255,255,255,0.07)]">
+                Start for Free
+                <HiOutlineArrowLongRight className="text-lg group-hover:translate-x-2 transition-transform duration-300" />
+              </button>
+              <button className="px-10 py-4 rounded-xl border border-white/10 text-white/40 font-black text-[11px] uppercase tracking-widest hover:border-white/25 hover:text-white/70 transition-all duration-300">
+                Talk to an Expert
+              </button>
+            </div>
+
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/15">
+              No Credit Card Required &bull; Global Coverage
             </p>
           </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="group relative px-12 py-5 rounded-2xl bg-black text-white text-sm font-black uppercase tracking-widest overflow-hidden transition-all hover:bg-gray-900 active:scale-95 shadow-xl shadow-black/10">
-              <span className="relative z-10 flex items-center gap-3">
-                Start for Free <HiOutlineArrowLongRight className="text-xl group-hover:translate-x-2 transition-transform" />
-              </span>
-            </button>
-            
-            <button className="px-12 py-5 rounded-2xl bg-white text-black border border-gray-200 text-sm font-black uppercase tracking-widest hover:bg-gray-50 transition-all active:scale-95 shadow-sm">
-              Talk to an Expert
-            </button>
-          </div>
-          
-          <p className="mt-8 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">
-            No Credit Card Required • Global Coverage
-          </p>
         </motion.div>
-        
       </div>
     </section>
   );

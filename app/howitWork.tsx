@@ -1,131 +1,168 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  HiOutlineFingerPrint, 
-  HiOutlineCommandLine, 
-  HiOutlineGlobeAlt, 
-  HiOutlineRocketLaunch 
+import {
+  HiOutlineFingerPrint,
+  HiOutlineCommandLine,
+  HiOutlineGlobeAlt,
+  HiOutlineRocketLaunch,
+  HiOutlineArrowUpRight,
 } from "react-icons/hi2";
 
 const steps = [
   {
     title: "System Audit",
     desc: "We analyze your academic trajectory and professional intent using our proprietary DIY logic. No middlemen, just data.",
-    icon: <HiOutlineFingerPrint size={32} />,
-    color: "bg-blue-500"
+    icon: HiOutlineFingerPrint,
+    tag: "Phase 01",
+    accent: "#e8c4a0",
   },
   {
     title: "Surgical Design",
     desc: "Architect a custom roadmap that bypasses traditional agency noise. You own the process; we provide the blueprint.",
-    icon: <HiOutlineCommandLine size={32} />,
-    color: "bg-pink-400"
+    icon: HiOutlineCommandLine,
+    tag: "Phase 02",
+    accent: "#c45080",
   },
   {
     title: "Global Deployment",
     desc: "Launch your journey across international borders with surgical precision. Secure your exile on your own terms.",
-    icon: <HiOutlineGlobeAlt size={32} />,
-    color: "bg-green-400"
+    icon: HiOutlineGlobeAlt,
+    tag: "Phase 03",
+    accent: "#80c4a0",
   },
   {
     title: "Autonomous Growth",
     desc: "Scale your skills within a decentralized network of global students. The system is now yours to operate.",
-    icon: <HiOutlineRocketLaunch size={32} />,
-    color: "bg-black"
-  }
+    icon: HiOutlineRocketLaunch,
+    tag: "Phase 04",
+    accent: "#a080e8",
+  },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="process" className="relative py-24 bg-white/70 overflow-hidden">
-      {/* Background Aesthetic */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-gray-100 to-transparent" />
-      </div>
+    <section id="process" className="bg-[#080808] py-32 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-24">
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-[#8b1e3f] mb-4"
-          >
-            The Protocol
-          </motion.p>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#4b1227]"
-          >
-            How it <span className="italic font-serif font-light lowercase text-[#7a1e39]">works.</span>
-          </motion.h2 >
-        </div>
-
-        {/* Timeline Steps */}
-        <div className="relative">
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
-              className={`flex flex-col md:flex-row items-center gap-12 mb-32 ${
-                i % 2 !== 0 ? 'md:flex-row-reverse' : ''
-              }`}
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-24">
+          <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25 mb-5"
             >
-              {/* Image/Icon Block */}
-              <div className="w-full md:w-1/2 flex justify-center">
-                <motion.div 
-                  whileHover={{ scale: 1.05, rotate: i % 2 === 0 ? 2 : -2 }}
-                  className="relative w-64 h-64 md:w-80 md:h-80 bg-gray-50 rounded-[3rem] border border-gray-100 flex items-center justify-center shadow-inner"
-                >
-                  <div className={`absolute inset-0 opacity-5 rounded-[3rem] ${step.color}`} />
-                  <div className="text-black relative z-10 scale-150">
-                    {step.icon}
-                  </div>
-                  {/* Decorative Number */}
-                  <span className="absolute -top-4 -left-4 text-8xl font-black text-gray-100 -z-10">
-                    0{i + 1}
-                  </span>
-                </motion.div>
-              </div>
-
-              {/* Text Block */}
-              <div className="w-full md:w-1/2 text-center md:text-left">
-                <div className={`flex items-center gap-4 mb-4 justify-center md:justify-start`}>
-                  <div className={`w-10 h-1 ${step.color}`} />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-[#7a2f47]">
-                    Phase 0{i + 1}
-                  </span>
-                </div>
-                <h3 className="text-4xl font-black uppercase tracking-tight mb-6 text-[#4b1227]">
-                  {step.title}
-                </h3>
-                <p className="text-xl text-[#5d2d3f] font-medium leading-relaxed max-w-md mx-auto md:mx-0">
-                  {step.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              The Protocol
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white leading-[0.88]"
+            >
+              How it{" "}
+              <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+                works.
+              </em>
+            </motion.h2>
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className="text-white/30 max-w-xs text-base leading-relaxed"
+          >
+            Four phases. Zero agents. Complete ownership of your global trajectory.
+          </motion.p>
         </div>
 
-        {/* Final CTA */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          className="mt-12 p-12 bg-black rounded-[4rem] text-center text-white overflow-hidden relative"
+        {/* Steps grid */}
+        <div className="grid md:grid-cols-2 gap-5 mb-16">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative bg-white/[0.03] border border-white/8 rounded-3xl p-10 hover:bg-white/[0.05] hover:border-white/14 transition-all duration-500 overflow-hidden"
+              >
+                {/* Accent glow */}
+                <div
+                  className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: `radial-gradient(circle, ${step.accent}12 0%, transparent 70%)` }}
+                />
+
+                <div className="relative z-10 space-y-6">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className="text-[10px] font-black uppercase tracking-[0.28em]"
+                      style={{ color: `${step.accent}99` }}
+                    >
+                      {step.tag}
+                    </span>
+                    <div
+                      className="w-10 h-10 rounded-xl border flex items-center justify-center"
+                      style={{ borderColor: `${step.accent}25`, color: `${step.accent}99` }}
+                    >
+                      <Icon size={18} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-white/35 leading-relaxed text-sm">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Large bg number */}
+                <span className="absolute -bottom-4 -right-2 text-[7rem] font-black leading-none text-white/[0.025] pointer-events-none select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative bg-white/[0.03] border border-white/8 rounded-3xl p-10 md:p-16 overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-pink-500/20 blur-[100px]" />
-          <h4 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-8 relative z-10">
-            Ready to initiate <br />
-            <span className="text-pink-400 italic font-serif font-light lowercase">your exile?</span>
-          </h4>
-          <button className="px-12 py-6 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-pink-400 transition-colors relative z-10">
-            Get Started Now
-          </button>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(232,196,160,0.06) 0%, transparent 60%)" }}
+          />
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="space-y-3">
+              <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white">
+                Ready to initiate{" "}
+                <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+                  your exile?
+                </em>
+              </h4>
+              <p className="text-white/30 text-sm">Four phases from audit to autonomous growth.</p>
+            </div>
+            <button className="group shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95">
+              Get Started Now
+              <HiOutlineArrowUpRight size={14} className="group-hover:rotate-12 transition-transform" />
+            </button>
+          </div>
         </motion.div>
+
       </div>
     </section>
   );

@@ -29,8 +29,8 @@ export function HeroShell({ session }: HeroShellProps) {
   const mouseY = useMotionValue(0);
   const cursorX = useSpring(mouseX, { damping: 30, stiffness: 300 });
   const cursorY = useSpring(mouseY, { damping: 30, stiffness: 300 });
-  const globeX = useTransform(mouseX, [0, 2000], [15, -15]);
-  const globeY = useTransform(mouseY, [0, 2000], [15, -15]);
+  const globeX = useTransform(mouseX, [0, 2000], [20, -20]);
+  const globeY = useTransform(mouseY, [0, 2000], [20, -20]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -49,10 +49,12 @@ export function HeroShell({ session }: HeroShellProps) {
   ];
 
   return (
-    <div id="home" className="relative min-h-[100vh] w-full bg-white text-black font-sans antialiased">
+    <div id="home" className="relative w-full font-sans antialiased">
+      {/* Custom cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-black rounded-full pointer-events-none z-[100] mix-blend-difference hidden md:block"
-        animate={{ scale: isHovered ? 4 : 1 }}
+        className="fixed top-0 left-0 w-3 h-3 bg-[#e8c4a0] rounded-full pointer-events-none z-[100] mix-blend-screen hidden md:block"
+        animate={{ scale: isHovered ? 5 : 1 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
         style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
       />
 
@@ -63,7 +65,13 @@ export function HeroShell({ session }: HeroShellProps) {
         setIsHovered={setIsHovered}
       />
 
-      <HeroSection user={user} isHovered={isHovered} setIsHovered={setIsHovered} globeX={globeX} globeY={globeY} />
+      <HeroSection
+        user={user}
+        isHovered={isHovered}
+        setIsHovered={setIsHovered}
+        globeX={globeX}
+        globeY={globeY}
+      />
     </div>
   );
 }
