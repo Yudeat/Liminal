@@ -40,45 +40,45 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-100 pt-24 pb-12 px-6">
+    <footer className="bg-[#080808] border-t border-white/5 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
-          
-          {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
+
+          {/* Brand */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-7">
             <div className="flex items-center gap-2">
-              <Image src="/nav.png" alt="Exile Logo" width={28} height={28} className="" />
-  <span className="text-lg md:text-xl font-black tracking-tighter uppercase text-black">Exile </span>
-              </div>
-            <p className="text-sm text-gray-500 leading-relaxed font-medium max-w-[220px]">
+              <Image src="/nav.png" alt="Exile Logo" width={24} height={24} className="opacity-80" />
+              <span className="text-base font-black tracking-tighter uppercase text-white">Exile</span>
+            </div>
+            <p className="text-xs text-white/25 leading-relaxed font-medium max-w-[200px]">
               The operating system for the self-guided student. Built for the bold.
             </p>
-            <div className="flex gap-5">
+            <div className="flex gap-4">
               {socialLinks.map((social, i) => (
-                <Link 
-                  key={i} 
+                <Link
+                  key={i}
                   href={social.href}
                   aria-label={social.label}
-                  className="text-gray-400 hover:text-black transition-all duration-500 transform hover:-translate-y-1"
+                  className="text-white/20 hover:text-white/60 transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <span className="text-lg">{social.icon}</span>
+                  <span className="text-base">{social.icon}</span>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Nav Links Columns */}
+          {/* Nav columns */}
           {Object.entries(footerNavigation).map(([title, links]) => (
-            <div key={title} className="flex flex-col gap-6">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-black">
+            <div key={title} className="flex flex-col gap-5">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
                 {title}
               </h3>
-              <ul className="flex flex-col gap-4">
+              <ul className="flex flex-col gap-3.5">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
-                      className="text-sm text-gray-400 font-medium hover:text-black transition-colors duration-300"
+                      className="text-xs text-white/20 font-medium hover:text-white/50 transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
@@ -89,18 +89,20 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-10 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-            <p>© {currentYear} Exile Inc.</p>
-            <div className="hidden md:block h-1 w-1 bg-gray-200 rounded-full" />
-            <p className="italic font-serif normal-case text-gray-300">Autonomy in Education.</p>
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[10px] font-bold uppercase tracking-widest text-white/15">
+            <p>&copy; {currentYear} Exile Inc.</p>
+            <div className="hidden md:block h-1 w-1 bg-white/10 rounded-full" />
+            <p className="italic font-serif normal-case text-white/10">Autonomy in Education.</p>
           </div>
-          
-          <div className="flex gap-8 items-center border border-gray-100 px-4 py-2 rounded-full bg-gray-50/50">
+
+          <div className="flex gap-6 items-center border border-white/6 px-4 py-2 rounded-full bg-white/[0.02]">
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-              <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Network Operational</span>
+              <div className="w-1.5 h-1.5 bg-[#80c4a0] rounded-full animate-pulse shadow-[0_0_8px_rgba(128,196,160,0.5)]" />
+              <span className="text-[10px] font-black text-white/20 uppercase tracking-widest">
+                Network Operational
+              </span>
             </div>
           </div>
         </div>
