@@ -1,11 +1,11 @@
 // app/actions/register.ts
 "use server"
 
-import { prisma } from "@/lib/prisma"
-import { hashPassword } from "@/lib/password"
-import { signInSchema } from "@/lib/zod"
-import { applyRateLimit } from "@/lib/rate-limit"
-import { getRequestIp } from "@/lib/request"
+import { prisma } from "../lib/prisma"
+import { hashPassword } from "../lib/password"
+import { signInSchema } from "../lib/zod"
+import { applyRateLimit } from "../lib/rate-limit"
+import { getRequestIp } from "../lib/request"
 
 export type RegisterUserResult = { success: true } | { error: string }
 

@@ -9,8 +9,8 @@ import {
   HiOutlineCpuChip,
   HiOutlineRocketLaunch,
 } from "react-icons/hi2";
-import BlogNavbar from "@/components/blog/BlogNavbar";
-import Footer from "@/app/Footer";
+import BlogNavbar from "@/frontend/components/blog/BlogNavbar";
+import Footer from "@/frontend/components/legacy/Footer";
 
 export default function NepalVisionPage() {
   return (

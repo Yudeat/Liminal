@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion"
 import { signIn } from "next-auth/react"
-import { registerUser } from "@/app/actions/register"
+import { registerUser } from "@/backend/actions/register"
 import { HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineArrowRight } from "react-icons/hi2"
 
 export default function LiminalAuth() {

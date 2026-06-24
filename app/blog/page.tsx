@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { blogPosts } from "@/lib/blog-posts";
-import BlogNavbar from "@/components/blog/BlogNavbar";
+import { blogPosts } from "@/backend/lib/blog-posts";
+import BlogNavbar from "@/frontend/components/blog/BlogNavbar";
 
 export const metadata: Metadata = {
   title: "Blog | Exile OS",

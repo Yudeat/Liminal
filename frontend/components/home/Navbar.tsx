@@ -1,5 +1,5 @@
-import { HeroShell } from "@/components/home/HeroShell";
-import { SessionData } from "@/components/home/types";
+import { HeroShell } from "./HeroShell";
+import { SessionData } from "./types";
 
 type NavbarProps = {
   session: SessionData | null;

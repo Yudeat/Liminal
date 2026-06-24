@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { blogPosts, getPostBySlug } from "@/lib/blog-posts";
-import BlogNavbar from "@/components/blog/BlogNavbar";
+import { blogPosts, getPostBySlug } from "@/backend/lib/blog-posts";
+import BlogNavbar from "@/frontend/components/blog/BlogNavbar";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
