@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
 import type { Session } from "next-auth";
 import {
   HiBars3BottomRight,
@@ -25,8 +26,10 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+const MAX_IMAGE_SIZE = 500 * 1024; // 500KB
+
 type ProfileClientProps = {
-  session: Session | null;
+  session: Session;
 };
 
 type SettingRowProps = {
@@ -37,14 +40,14 @@ type SettingRowProps = {
 
 export default function ProfileClient({ session }: ProfileClientProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [imageError, setImageError] = useState("");
   const user = session?.user;
   const [image, setImage] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
       try {
-        const savedImage = localStorage.getItem("profile-image");
-        if (savedImage) return savedImage;
+        return localStorage.getItem("profile-image") ?? user?.image ?? null;
       } catch {
-        // Ignore storage errors
+        return user?.image ?? null;
       }
     }
     return user?.image ?? null;
@@ -53,31 +56,34 @@ export default function ProfileClient({ session }: ProfileClientProps) {
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const nextImage = reader.result as string;
-        setImage(nextImage);
-        if (typeof window !== "undefined") {
-          try {
-            localStorage.setItem("profile-image", nextImage);
-          } catch {
-            // Ignore storage errors
-          }
-        }
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
+
+    if (file.size > MAX_IMAGE_SIZE) {
+      setImageError("Image must be under 500KB");
+      return;
     }
+    setImageError("");
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const nextImage = reader.result as string;
+      setImage(nextImage);
+      try {
+        localStorage.setItem("profile-image", nextImage);
+      } catch {
+        // Storage full — image shown in session only
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleClearImage = () => {
     setImage(null);
-    if (typeof window !== "undefined") {
-      try {
-        localStorage.removeItem("profile-image");
-      } catch {
-        // Ignore storage errors
-      }
+    setImageError("");
+    try {
+      localStorage.removeItem("profile-image");
+    } catch {
+      // ignore
     }
   };
 
@@ -131,6 +137,7 @@ export default function ProfileClient({ session }: ProfileClientProps) {
 
             <button
               type="button"
+              onClick={() => signOut({ callbackUrl: "/" })}
               className="hidden md:flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-red-500 transition-colors"
             >
               <HiOutlineArrowLeftOnRectangle size={18} />
@@ -153,91 +160,104 @@ export default function ProfileClient({ session }: ProfileClientProps) {
             <NavItem icon={<HiAcademicCap />} label="Dashboard" />
           </aside>
 
-          {/* PROFILE */}
-          <section id="profile" className="p-6 md:hidden">
-            <Link href="/" aria-label="Back to home">
-              <HiOutlineArrowLeft size={29} className="hover:text-pink-500 transition-all" />
-            </Link>
+          {/* MAIN CONTENT — visible on all screen sizes */}
+          <div className="lg:col-span-9 space-y-8">
+            {/* PROFILE CARD */}
+            <section id="profile" className="p-6">
+              <Link href="/" aria-label="Back to home" className="inline-block lg:hidden mb-5">
+                <HiOutlineArrowLeft size={29} className="hover:text-pink-500 transition-all" />
+              </Link>
 
-            <p className="font-black uppercase tracking-tighter text-2xl mt-5 mb-6">Profile</p>
+              <p className="font-black uppercase tracking-tighter text-2xl mb-6">Profile</p>
 
-            <div className="bg-black text-white w-full md:w-3/4 rounded-[2rem] p-8 shadow-2xl relative group">
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                {/* IMAGE UPLOAD TARGET */}
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-full border-2 border-dashed border-zinc-700 overflow-hidden flex items-center justify-center bg-zinc-900 group-hover:border-pink-500 transition-colors">
-                    {image ? (
-                      <Image
-                        src={image}
-                        alt="Profile"
-                        fill
-                        unoptimized={image.startsWith("data:")}
-                        className="rounded-full object-cover"
-                      />
-                    ) : (
-                      <HiOutlineCamera size={30} className="text-zinc-500" />
+              <div className="bg-black text-white w-full rounded-[2rem] p-8 shadow-2xl relative group">
+                <div className="flex flex-col md:flex-row items-center gap-8">
+                  {/* IMAGE UPLOAD */}
+                  <div className="relative">
+                    <div className="w-24 h-24 rounded-full border-2 border-dashed border-zinc-700 overflow-hidden flex items-center justify-center bg-zinc-900 group-hover:border-pink-500 transition-colors">
+                      {image ? (
+                        <Image
+                          src={image}
+                          alt="Profile"
+                          fill
+                          unoptimized={image.startsWith("data:")}
+                          className="rounded-full object-cover"
+                        />
+                      ) : (
+                        <HiOutlineCamera size={30} className="text-zinc-500" />
+                      )}
+                    </div>
+
+                    <input
+                      title="Upload profile photo"
+                      type="file"
+                      ref={fileInputRef}
+                      onChange={handleImageUpload}
+                      accept="image/*"
+                      className="hidden"
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="absolute -bottom-1 -right-1 bg-pink-500 p-2 rounded-full hover:scale-110 transition-transform shadow-lg"
+                      aria-label="Upload photo"
+                    >
+                      <HiOutlineCamera size={14} className="text-white" />
+                    </button>
+                  </div>
+
+                  <div className="text-center md:text-left flex-1">
+                    <h2 className="text-2xl font-black uppercase tracking-tight">{user?.name ?? "Seeker"}</h2>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mt-1 mb-4">
+                      {user?.email ?? "no-email@exile.os"}
+                    </div>
+
+                    {imageError && (
+                      <p className="text-red-400 text-[10px] font-bold uppercase tracking-wide mb-4">{imageError}</p>
                     )}
+
+                    <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                      <button
+                        type="button"
+                        className="px-6 py-2 border border-zinc-700 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                      >
+                        Edit Profile
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleClearImage}
+                        className="px-6 py-2 border border-zinc-700/60 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all"
+                      >
+                        Clear Photo
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => signOut({ callbackUrl: "/" })}
+                        className="md:hidden px-6 py-2 border border-red-800/60 rounded-full text-[10px] font-black uppercase tracking-widest text-red-400 hover:bg-red-900/30 transition-all"
+                      >
+                        Sign Out
+                      </button>
+                    </div>
                   </div>
-
-                  {/* Hidden Input */}
-                  <input
-                    title="Upload profile photo"
-                    type="file"
-                    ref={fileInputRef}
-                    onChange={handleImageUpload}
-                    accept="image/*"
-                    className="hidden"
-                  />
-
-                  {/* Trigger Button */}
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="absolute -bottom-1 -right-1 bg-pink-500 p-2 rounded-full hover:scale-110 transition-transform shadow-lg"
-                    aria-label="Upload photo"
-                  >
-                    <HiOutlineCamera size={14} className="text-white" />
-                  </button>
-                </div>
-
-                <div className="text-center md:text-left flex-1">
-                  <h2 className="text-2xl font-black uppercase tracking-tight">{user?.name ?? "Seeker"}</h2>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mt-1 mb-6">
-                    {user?.email ?? "no-email@exile.os"}
-                  </div>
-
-                  <button
-                    type="button"
-                    className="px-6 py-2 border border-zinc-700 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all"
-                  >
-                    Edit Profile
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleClearImage}
-                    className="mt-3 px-6 py-2 border border-zinc-700/60 rounded-full text-[10px] font-black uppercase tracking-widest text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all"
-                  >
-                    Clear Photo
-                  </button>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <div className="md:hidden bg-[#F8F9FA] py-8 px-4">
-            <div className="max-w-md mx-auto space-y-6">
-              {/* Top Group */}
-              <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
-                <SettingRow icon={Languages} label="Language" />
-                <SettingRow icon={CircleDollarSign} label="Currencies" />
-                <SettingRow icon={Palette} label="Appearance" />
-              </div>
+            {/* SETTINGS */}
+            <div className="bg-[#F8F9FA] py-8 px-4 rounded-2xl">
+              <div className="max-w-md mx-auto space-y-6">
+                <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
+                  <SettingRow icon={Languages} label="Language" />
+                  <SettingRow icon={CircleDollarSign} label="Currencies" />
+                  <SettingRow icon={Palette} label="Appearance" />
+                </div>
 
-              {/* Bottom Group */}
-              <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
-                <SettingRow icon={ShieldCheck} label="Application Security" />
-                <SettingRow icon={Smartphone} label="Manage Devices" />
-                <SettingRow icon={LockKeyhole} label="Change Password" />
+                <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm divide-y divide-gray-50">
+                  <SettingRow icon={ShieldCheck} label="Application Security" />
+                  <SettingRow icon={Smartphone} label="Manage Devices" />
+                  <SettingRow icon={LockKeyhole} label="Change Password" />
+                </div>
               </div>
             </div>
           </div>

@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence, useSpring, useMotionValue } from "framer-motion"
 import { signIn } from "next-auth/react"
 import { registerUser } from "@/app/actions/register"
 import { HiOutlineSparkles, HiOutlineShieldCheck, HiOutlineArrowRight } from "react-icons/hi2"
 
 export default function LiminalAuth() {
+  const router = useRouter()
   const [isLogin, setIsLogin] = useState(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -46,7 +48,7 @@ export default function LiminalAuth() {
     if (isLogin) {
       const res = await signIn("credentials", { ...form, redirect: false })
       if (res?.error) setError("Authentication failed: Identity mismatch")
-      else window.location.href = "/"
+      else router.push("/")
     } else {
       const res = await registerUser(new FormData(e.currentTarget as HTMLFormElement))
       if ("error" in res) setError(res.error)
