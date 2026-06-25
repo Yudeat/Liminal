@@ -25,7 +25,7 @@ export default function NepalVisionPage() {
             className="flex items-center gap-3 mb-6"
           >
             <HiOutlineGlobeAsiaAustralia className="text-red-500 animate-pulse" size={24} />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-600">
               Vision / Exile OS
             </span>
           </motion.div>

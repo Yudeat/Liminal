@@ -50,7 +50,7 @@ export default function RatingSection() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/30"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/55"
             >
               Audited Success
             </motion.div>
@@ -80,7 +80,7 @@ export default function RatingSection() {
             <div className="flex gap-1 text-[#e8c4a0] text-lg">
               {[...Array(5)].map((_, i) => <FaStar key={i} />)}
             </div>
-            <p className="text-[11px] font-black uppercase tracking-widest text-white/25">
+            <p className="text-[11px] font-black uppercase tracking-widest text-white/50">
               4.9 / 5 Average Global Rating
             </p>
           </motion.div>
@@ -100,7 +100,7 @@ export default function RatingSection() {
             >
               <div className="space-y-5">
                 <HiOutlineQuestionMarkCircle className="text-white/10 text-3xl group-hover:text-[#e8c4a0]/20 transition-colors" />
-                <p className="text-white/50 text-base leading-relaxed italic">
+                <p className="text-white/70 text-base leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
@@ -108,11 +108,11 @@ export default function RatingSection() {
               <div className="mt-8 pt-6 border-t border-white/6 flex items-center justify-between">
                 <div>
                   <h4 className="text-xs font-black uppercase tracking-tight text-white">{t.author}</h4>
-                  <p className="text-[11px] font-bold text-white/25 uppercase tracking-widest mt-0.5">{t.uni}</p>
+                  <p className="text-[11px] font-bold text-white/50 uppercase tracking-widest mt-0.5">{t.uni}</p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <FaStar className="text-[#e8c4a0] text-xs" />
-                  <span className="text-[11px] font-black text-white/40">{t.rating}</span>
+                  <span className="text-[11px] font-black text-white/65">{t.rating}</span>
                 </div>
               </div>
             </motion.div>
@@ -130,7 +130,7 @@ export default function RatingSection() {
           {universities.map((uni) => (
             <span
               key={uni}
-              className="text-sm font-black tracking-tighter uppercase text-white/10 hover:text-white/20 transition-colors"
+              className="text-sm font-black tracking-tighter uppercase text-white/25 hover:text-white/45 transition-colors"
             >
               {uni}
             </span>

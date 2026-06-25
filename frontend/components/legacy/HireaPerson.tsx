@@ -21,7 +21,7 @@ export default function HireaPerson() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/30"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/55"
             >
               <HiOutlineUserGroup size={12} />
               The Human Element
@@ -46,7 +46,7 @@ export default function HireaPerson() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/40 text-lg leading-relaxed"
+              className="text-white/65 text-lg leading-relaxed"
             >
               While our AI is surgical in its precision, some paths require nuanced judgment.
               Connect with a seasoned strategist to navigate the complexities of global admission.
@@ -63,7 +63,7 @@ export default function HireaPerson() {
               <HiOutlineArrowUpRight size={14} className="group-hover:rotate-12 transition-transform" />
             </motion.button>
 
-            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/20">
+            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/45">
               Experience Meets Intuition
             </p>
           </div>
@@ -84,11 +84,11 @@ export default function HireaPerson() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-sm font-black text-white uppercase tracking-tight">{expert.name}</h4>
-                  <p className="text-[11px] text-white/30 font-medium">{expert.role} &mdash; {expert.spec}</p>
+                  <p className="text-[11px] text-white/55 font-medium">{expert.role} &mdash; {expert.spec}</p>
                 </div>
                 <div className="flex items-center gap-1 text-[#e8c4a0]/50">
                   <HiOutlineStar size={13} />
-                  <span className="text-[11px] font-black text-white/25">5.0</span>
+                  <span className="text-[11px] font-black text-white/55">5.0</span>
                 </div>
               </motion.div>
             ))}
@@ -100,7 +100,7 @@ export default function HireaPerson() {
               transition={{ delay: 0.4 }}
               className="text-center pt-3"
             >
-              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/20">
+              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/45">
                 + 24 more specialists available
               </p>
             </motion.div>

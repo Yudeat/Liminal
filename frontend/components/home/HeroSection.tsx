@@ -64,7 +64,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/40"
+              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/55"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#e8c4a0] animate-pulse" />
               {badgeText}
@@ -89,7 +89,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              className="text-white/40 text-lg font-medium leading-relaxed max-w-sm"
+              className="text-white/65 text-lg font-medium leading-relaxed max-w-sm"
             >
               Navigate global admissions and migration with surgical precision — no agents, no commissions.
             </motion.p>
@@ -116,7 +116,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
               </Link>
               <Link
                 href="#process"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-white/10 text-white/50 rounded-xl font-black uppercase tracking-widest text-[11px] hover:border-white/30 hover:text-white transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-white/15 text-white/65 rounded-xl font-black uppercase tracking-widest text-[11px] hover:border-white/40 hover:text-white transition-all duration-300"
               >
                 See How It Works
               </Link>
@@ -131,21 +131,21 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
             className="hidden lg:flex flex-col gap-4"
           >
             <div className="border border-white/8 bg-white/3 rounded-2xl p-8 backdrop-blur-sm space-y-8">
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/25">
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">
                 Audited Metrics
               </p>
               <div className="grid grid-cols-3 gap-6">
                 {stats.map((stat, i) => (
                   <div key={i} className="space-y-1.5">
                     <div className="text-3xl font-black text-white tracking-tight">{stat.value}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/30">{stat.label}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">{stat.label}</div>
                   </div>
                 ))}
               </div>
               <div className="h-px bg-white/6" />
               <div className="flex items-center gap-3">
                 <HiOutlineAcademicCap className="text-[#e8c4a0]" size={18} />
-                <p className="text-xs text-white/30 font-medium">
+                <p className="text-xs text-white/55 font-medium">
                   Trusted by students targeting Oxford, MIT, ETH Zurich & more
                 </p>
               </div>
@@ -154,7 +154,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
             {/* Marquee logos */}
             <div className="border border-white/8 bg-white/2 rounded-2xl px-8 py-5 flex items-center justify-between overflow-hidden">
               {["Oxford", "Stanford", "MIT", "ETH Zürich", "Toronto"].map((uni) => (
-                <span key={uni} className="text-xs font-black uppercase tracking-tighter text-white/15 whitespace-nowrap">
+                <span key={uni} className="text-xs font-black uppercase tracking-tighter text-white/40 whitespace-nowrap">
                   {uni}
                 </span>
               ))}
@@ -167,7 +167,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/20 z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 z-10"
       >
         <HiOutlineChevronDoubleDown size={20} />
       </motion.div>

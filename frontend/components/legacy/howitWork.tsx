@@ -52,7 +52,7 @@ export default function HowItWorks() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25 mb-5"
+              className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-5"
             >
               The Protocol
             </motion.p>
@@ -74,7 +74,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15 }}
-            className="text-white/30 max-w-xs text-base leading-relaxed"
+            className="text-white/55 max-w-xs text-base leading-relaxed"
           >
             Four phases. Zero agents. Complete ownership of your global trajectory.
           </motion.p>
@@ -119,7 +119,7 @@ export default function HowItWorks() {
                     <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-white/35 leading-relaxed text-sm">
+                    <p className="text-white/60 leading-relaxed text-sm">
                       {step.desc}
                     </p>
                   </div>
@@ -154,7 +154,7 @@ export default function HowItWorks() {
                   your exile?
                 </em>
               </h4>
-              <p className="text-white/30 text-sm">Four phases from audit to autonomous growth.</p>
+              <p className="text-white/55 text-sm">Four phases from audit to autonomous growth.</p>
             </div>
             <button className="group shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95">
               Get Started Now

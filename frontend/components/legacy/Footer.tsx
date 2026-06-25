@@ -50,7 +50,7 @@ export default function Footer() {
               <Image src="/nav.png" alt="Exile Logo" width={24} height={24} className="opacity-80" />
               <span className="text-base font-black tracking-tighter uppercase text-white">Exile</span>
             </div>
-            <p className="text-xs text-white/25 leading-relaxed font-medium max-w-[200px]">
+            <p className="text-xs text-white/50 leading-relaxed font-medium max-w-[200px]">
               The operating system for the self-guided student. Built for the bold.
             </p>
             <div className="flex gap-4">
@@ -59,7 +59,7 @@ export default function Footer() {
                   key={i}
                   href={social.href}
                   aria-label={social.label}
-                  className="text-white/20 hover:text-white/60 transition-all duration-300 hover:-translate-y-0.5"
+                  className="text-white/40 hover:text-white/75 transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <span className="text-base">{social.icon}</span>
                 </Link>
@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Nav columns */}
           {Object.entries(footerNavigation).map(([title, links]) => (
             <div key={title} className="flex flex-col gap-5">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">
                 {title}
               </h3>
               <ul className="flex flex-col gap-3.5">
@@ -78,7 +78,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-xs text-white/20 font-medium hover:text-white/50 transition-colors duration-300"
+                      className="text-xs text-white/45 font-medium hover:text-white/75 transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
@@ -91,16 +91,16 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[10px] font-bold uppercase tracking-widest text-white/15">
+          <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-[10px] font-bold uppercase tracking-widest text-white/50">
             <p>&copy; {currentYear} Exile Inc.</p>
             <div className="hidden md:block h-1 w-1 bg-white/10 rounded-full" />
-            <p className="italic font-serif normal-case text-white/10">Autonomy in Education.</p>
+            <p className="italic font-serif normal-case text-white/40">Autonomy in Education.</p>
           </div>
 
           <div className="flex gap-6 items-center border border-white/6 px-4 py-2 rounded-full bg-white/[0.02]">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-[#80c4a0] rounded-full animate-pulse shadow-[0_0_8px_rgba(128,196,160,0.5)]" />
-              <span className="text-[10px] font-black text-white/20 uppercase tracking-widest">
+              <span className="text-[10px] font-black text-white/45 uppercase tracking-widest">
                 Network Operational
               </span>
             </div>

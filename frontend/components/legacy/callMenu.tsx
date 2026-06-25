@@ -24,7 +24,7 @@ export default function CallMenu() {
           />
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-8">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25">
+            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50">
               Ready for Departure
             </p>
 
@@ -36,9 +36,9 @@ export default function CallMenu() {
               </em>
             </h2>
 
-            <p className="text-white/35 text-lg max-w-xl mx-auto leading-relaxed font-medium">
+            <p className="text-white/60 text-lg max-w-xl mx-auto leading-relaxed font-medium">
               Join thousands of students navigating their future independently.{" "}
-              <span className="text-white/60">Map your journey for free today.</span>
+              <span className="text-white/80">Map your journey for free today.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
@@ -46,12 +46,12 @@ export default function CallMenu() {
                 Start for Free
                 <HiOutlineArrowLongRight className="text-lg group-hover:translate-x-2 transition-transform duration-300" />
               </button>
-              <button className="px-10 py-4 rounded-xl border border-white/10 text-white/40 font-black text-[11px] uppercase tracking-widest hover:border-white/25 hover:text-white/70 transition-all duration-300">
+              <button className="px-10 py-4 rounded-xl border border-white/15 text-white/60 font-black text-[11px] uppercase tracking-widest hover:border-white/35 hover:text-white/85 transition-all duration-300">
                 Talk to an Expert
               </button>
             </div>
 
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/15">
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
               No Credit Card Required &bull; Global Coverage
             </p>
           </div>

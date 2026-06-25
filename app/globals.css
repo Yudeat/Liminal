@@ -149,7 +149,7 @@ body{
 
 @layer utilities {
   .magazine-prose {
-    color: oklch(0.8 0.02 0);
+    color: oklch(0.32 0.02 0);
     font-size: 1.15rem;
     line-height: 1.95;
     letter-spacing: 0.001em;
@@ -163,7 +163,7 @@ body{
   .magazine-prose p:first-of-type {
     font-size: 1.28rem;
     line-height: 1.85;
-    color: oklch(0.85 0.02 0);
+    color: oklch(0.22 0.02 0);
   }
 
   .magazine-prose p:first-of-type::first-letter {

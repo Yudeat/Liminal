@@ -79,7 +79,7 @@ export default function LiminalAuth() {
       >
         {/* Context Badge */}
         <div className="mb-8 flex justify-center">
-          <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-gray-400">
+          <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-100 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-gray-500">
             <HiOutlineSparkles className="text-pink-400" /> {isLogin ? "Secure Entry" : "System Enrollment"}
           </div>
         </div>

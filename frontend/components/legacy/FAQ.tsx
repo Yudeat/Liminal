@@ -36,7 +36,7 @@ export default function FAQPage() {
 
         {/* Badge */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/8 text-white/30 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em]">
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/8 text-white/55 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em]">
             <HiOutlineSparkles className="text-[#e8c4a0]" /> The DIY Revolution
           </div>
         </div>
@@ -53,7 +53,7 @@ export default function FAQPage() {
               <span className="absolute bottom-1 left-0 right-0 h-[6px] bg-[#e8c4a0]/20 rounded-sm -z-0" />
             </span>
           </h2>
-          <p className="text-white/35 text-lg font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/60 text-lg font-medium max-w-xl mx-auto leading-relaxed">
             Stop paying thousands in agency commissions. Own your journey with surgical precision.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function FAQPage() {
                 <div className={`w-7 h-7 flex items-center justify-center rounded-lg shrink-0 transition-all duration-300 ${
                   activeIndex === index
                     ? "bg-[#e8c4a0] text-black"
-                    : "bg-white/5 text-white/30"
+                    : "bg-white/5 text-white/50"
                 }`}>
                   {activeIndex === index ? <HiMinus size={13} /> : <HiPlus size={13} />}
                 </div>
@@ -96,7 +96,7 @@ export default function FAQPage() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-7 pb-8 text-white/40 text-base font-medium leading-relaxed">
+                    <div className="px-7 pb-8 text-white/65 text-base font-medium leading-relaxed">
                       <div className="h-px w-full bg-white/5 mb-6" />
                       {faq.answer}
                     </div>
@@ -131,7 +131,7 @@ export default function FAQPage() {
                 <br />
                 Navigate there.
               </h2>
-              <p className="text-white/30 text-base font-medium leading-relaxed max-w-xs">
+              <p className="text-white/55 text-base font-medium leading-relaxed max-w-xs">
                 The bridge between your current desk and your future campus. No middlemen, no mystery.
               </p>
             </div>
@@ -140,7 +140,7 @@ export default function FAQPage() {
                 Begin Journey
                 <HiOutlineArrowLongRight className="text-xl group-hover:translate-x-2 transition-transform duration-300" />
               </button>
-              <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.3em]">
+              <p className="text-white/45 text-[10px] font-black uppercase tracking-[0.3em]">
                 Free to start &bull; Precision to finish
               </p>
             </div>

@@ -13,7 +13,7 @@ const plans = [
     features: ["1 University Target", "1 Application Draft", "Standard Community Access", "Basic Protocol Docs"],
     notIncluded: ["Priority Support", "Visa Architecture", "Direct Mentorship"],
     Icon: HiOutlineBolt,
-    iconColor: "text-white/30",
+    iconColor: "text-white/50",
     button: "Get Started",
     highlight: false,
   },
@@ -63,7 +63,7 @@ export default function PricingPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25 mb-5"
+            className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-5"
           >
             Investment Tiers
           </motion.p>
@@ -110,15 +110,15 @@ export default function PricingPage() {
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline gap-1 mb-3">
-                  <span className={`text-[10px] font-black ${plan.highlight ? "text-black/50" : "text-white/25"}`}>$</span>
+                  <span className={`text-[10px] font-black ${plan.highlight ? "text-black/60" : "text-white/50"}`}>$</span>
                   <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
                     {plan.price}
                   </span>
-                  <span className={`text-[10px] font-bold uppercase ${plan.highlight ? "text-black/40" : "text-white/20"}`}>
+                  <span className={`text-[10px] font-bold uppercase ${plan.highlight ? "text-black/50" : "text-white/45"}`}>
                     /one-time
                   </span>
                 </div>
-                <p className={`text-xs leading-relaxed ${plan.highlight ? "text-black/50" : "text-white/30"}`}>
+                <p className={`text-xs leading-relaxed ${plan.highlight ? "text-black/60" : "text-white/55"}`}>
                   {plan.desc}
                 </p>
               </div>
@@ -130,7 +130,7 @@ export default function PricingPage() {
                       className={plan.highlight ? "text-black/60" : "text-[#80c4a0]"}
                       size={10}
                     />
-                    <span className={`text-xs font-medium ${plan.highlight ? "text-black/70" : "text-white/40"}`}>
+                    <span className={`text-xs font-medium ${plan.highlight ? "text-black/80" : "text-white/65"}`}>
                       {feature}
                     </span>
                   </div>
@@ -164,7 +164,7 @@ export default function PricingPage() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center border-t border-white/5 pt-10"
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/20 flex items-center justify-center gap-4 flex-wrap">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/45 flex items-center justify-center gap-4 flex-wrap">
             Secure Payment via Stripe
             <span className="h-1 w-1 bg-white/15 rounded-full" />
             No Hidden Fees

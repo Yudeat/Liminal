@@ -22,7 +22,7 @@ export default function WhatIsLiminal() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 mb-16"
+            className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-16"
           >
             Who We Serve
           </motion.p>
@@ -43,13 +43,13 @@ export default function WhatIsLiminal() {
                   <HiOutlineSun size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/25 mb-3">
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/45 mb-3">
                     For the Student
                   </p>
                   <h3 className="text-3xl font-black uppercase tracking-tighter text-white leading-tight mb-5">
                     Own Your Application
                   </h3>
-                  <p className="text-white/40 text-base leading-relaxed">
+                  <p className="text-white/65 text-base leading-relaxed">
                     Education shouldn&apos;t be a cage. We treat university applications like a mission —
                     no agents taking commissions, no generic advice. We give you surgical tools
                     to place yourself in the world&apos;s elite institutions.
@@ -78,20 +78,20 @@ export default function WhatIsLiminal() {
                   <HiOutlineMap size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/25 mb-3">
+                  <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/45 mb-3">
                     For the Traveller
                   </p>
                   <h3 className="text-3xl font-black uppercase tracking-tighter text-white leading-tight mb-5">
                     Precision Migration
                   </h3>
-                  <p className="text-white/40 text-base leading-relaxed">
+                  <p className="text-white/65 text-base leading-relaxed">
                     Travel isn&apos;t a vacation — it&apos;s an exile from the ordinary. We build the
                     visa logic, logistical blueprints, and community support to ensure your
                     migration is seamless. You provide the destination; we provide the precision.
                   </p>
                 </div>
                 <div className="pt-2">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/30 group-hover:text-white/60 transition-colors">
+                  <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-white/50 group-hover:text-white/80 transition-colors">
                     Explore <HiOutlineArrowUpRight size={13} />
                   </span>
                 </div>
@@ -115,7 +115,7 @@ export default function WhatIsLiminal() {
                 variants={fadeUp}
               >
                 <HiOutlineFingerPrint size={40} className="text-white/15 mb-8" />
-                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/25 mb-6">
+                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-6">
                   The Philosophy
                 </p>
                 <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.88] text-white">
@@ -160,7 +160,7 @@ export default function WhatIsLiminal() {
                   </span>
                   <div className="pt-2 border-t border-white/8 flex-1 space-y-3">
                     <h4 className="text-lg font-black uppercase tracking-tight text-white">{item.title}</h4>
-                    <p className="text-white/40 leading-relaxed">{item.desc}</p>
+                    <p className="text-white/65 leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

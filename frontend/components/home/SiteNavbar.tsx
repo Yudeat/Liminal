@@ -41,7 +41,7 @@ export function SiteNavbar({
               <a
                 key={item.name}
                 href={item.href}
-                className="text-[10px] font-black uppercase tracking-[0.22em] text-white/40 hover:text-white transition-all duration-300"
+                className="text-[10px] font-black uppercase tracking-[0.22em] text-white/55 hover:text-white transition-all duration-300"
               >
                 {item.name}
               </a>
@@ -63,7 +63,7 @@ export function SiteNavbar({
               <>
                 <Link
                   href="/authentication"
-                  className="px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors"
+                  className="px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white/60 hover:text-white transition-colors"
                 >
                   Log In
                 </Link>
@@ -93,7 +93,7 @@ export function SiteNavbar({
                   href={item.href}
                   whileHover={{ scale: 1.35, y: -8 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                  className="p-3.5 text-white/30 hover:text-[#e8c4a0] transition-colors"
+                  className="p-3.5 text-white/50 hover:text-[#e8c4a0] transition-colors"
                 >
                   <span className="text-lg">{item.icon}</span>
                 </motion.a>
