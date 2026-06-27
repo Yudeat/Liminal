@@ -44,7 +44,7 @@ export function HeroShell({ session }: HeroShellProps) {
   const navItems = [
     { name: "Vision", icon: <FaCompass />, href: "/vision" },
     { name: "Process", icon: <HiOutlineBolt />, href: "#process" },
-    { name: "Archive", icon: <FaBoxArchive />, href: "/archive" },
+    ...(user ? [{ name: "Archive", icon: <FaBoxArchive />, href: "/archive" }] : []),
     { name: "Inquiry", icon: <FaPaperPlane />, href: "#chat" },
   ];
 

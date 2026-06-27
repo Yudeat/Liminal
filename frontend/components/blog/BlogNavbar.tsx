@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { auth } from "@/backend/auth";
 
-export default function BlogNavbar() {
+export default async function BlogNavbar() {
+  const session = await auth();
+  const user = session?.user;
+
   return (
     <header className="sticky top-0 z-40 px-4 md:px-6 pt-4 md:pt-6">
       <nav className="relative mx-auto max-w-7xl border border-gray-100/60 p-2 md:p-3 h-16 md:h-20 rounded-full flex items-center justify-between bg-white/80 backdrop-blur-2xl shadow-sm">
@@ -25,12 +29,14 @@ export default function BlogNavbar() {
           >
             Journal
           </Link>
-          <Link
-            href="/archive"
-            className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-black transition-colors"
-          >
-            Archive
-          </Link>
+          {user && (
+            <Link
+              href="/archive"
+              className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-black transition-colors"
+            >
+              Archive
+            </Link>
+          )}
         </div>
 
         <div className="pr-1 md:pr-2">
