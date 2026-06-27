@@ -3,12 +3,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import { HiOutlineBolt, HiOutlineStar } from "react-icons/hi2";
+import { HiOutlineBolt, HiOutlineStar, HiOutlineUserGroup } from "react-icons/hi2";
 
 const plans = [
   {
     name: "Free",
     price: "0",
+    priceLabel: null,
     desc: "Entry-level system access for independent explorers.",
     features: ["1 University Target", "1 Application Draft", "Standard Community Access", "Basic Protocol Docs"],
     notIncluded: ["Priority Support", "Visa Architecture", "Direct Mentorship"],
@@ -16,10 +17,12 @@ const plans = [
     iconColor: "text-white/50",
     button: "Get Started",
     highlight: false,
+    custom: false,
   },
   {
     name: "Elite",
     price: "4,999",
+    priceLabel: null,
     desc: "Full white-glove autonomous migration for high-probability global success.",
     features: ["Unlimited Universities", "Unlimited Draft Reviews", "Full Visa Management", "1-on-1 Strategy Calls", "Priority Processing", "Post-Arrival Support", "Lifetime System Updates"],
     notIncluded: [],
@@ -27,6 +30,20 @@ const plans = [
     iconColor: "text-[#e8c4a0]",
     button: "Initiate Exile",
     highlight: true,
+    custom: false,
+  },
+  {
+    name: "Custom",
+    price: "",
+    priceLabel: "Let's talk",
+    desc: "A fully bespoke journey built around your goals, timeline, and destination.",
+    features: ["Dedicated Personal Mentor", "Custom Strategy & Roadmap", "Direct WhatsApp Access", "Bespoke Visa Architecture", "Application Ghost-Writing", "Interview Preparation", "Flexible Payment Terms"],
+    notIncluded: [],
+    Icon: HiOutlineUserGroup,
+    iconColor: "text-white/50",
+    button: "Book a Call",
+    highlight: false,
+    custom: true,
   },
 ];
 
@@ -60,7 +77,7 @@ export default function PricingPage() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={i}
@@ -88,13 +105,21 @@ export default function PricingPage() {
                   {plan.name}
                 </h3>
                 <div className="flex items-baseline gap-1 mb-3">
-                  <span className={`text-[10px] font-black ${plan.highlight ? "text-black/60" : "text-white/50"}`}>$</span>
-                  <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
-                    {plan.price}
-                  </span>
-                  <span className={`text-[10px] font-bold uppercase ${plan.highlight ? "text-black/50" : "text-white/45"}`}>
-                    /one-time
-                  </span>
+                  {plan.custom ? (
+                    <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
+                      {plan.priceLabel}
+                    </span>
+                  ) : (
+                    <>
+                      <span className={`text-[10px] font-black ${plan.highlight ? "text-black/60" : "text-white/50"}`}>$</span>
+                      <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
+                        {plan.price}
+                      </span>
+                      <span className={`text-[10px] font-bold uppercase ${plan.highlight ? "text-black/50" : "text-white/45"}`}>
+                        /one-time
+                      </span>
+                    </>
+                  )}
                 </div>
                 <p className={`text-xs leading-relaxed ${plan.highlight ? "text-black/60" : "text-white/55"}`}>
                   {plan.desc}
