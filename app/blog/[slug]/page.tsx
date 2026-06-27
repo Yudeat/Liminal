@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getPostBySlug } from "@/backend/lib/blog-posts";
 import BlogNavbar from "@/frontend/components/blog/BlogNavbar";
+import { auth } from "@/backend/auth";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -64,9 +65,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const session = await auth();
+
   return (
     <>
-      <BlogNavbar />
+      <BlogNavbar user={session?.user} />
       <article className="min-h-screen px-6 py-12 md:py-16">
         <div className="max-w-3xl mx-auto rounded-[2rem] border border-gray-200/80 bg-white/75 backdrop-blur-sm p-7 md:p-10">
           <Link

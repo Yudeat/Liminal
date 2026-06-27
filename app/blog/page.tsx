@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/backend/lib/blog-posts";
 import BlogNavbar from "@/frontend/components/blog/BlogNavbar";
+import { auth } from "@/backend/auth";
 
 export const metadata: Metadata = {
   title: "Blog | Exile OS",
@@ -23,10 +24,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
+export default async function BlogIndexPage() {
+  const session = await auth();
   return (
     <>
-      <BlogNavbar />
+      <BlogNavbar user={session?.user} />
       <section className="min-h-screen px-6 py-14 md:py-16">
         <div className="max-w-5xl mx-auto">
           <div className="rounded-[2rem] border border-gray-200/80 bg-white/75 backdrop-blur-sm p-8 md:p-10">

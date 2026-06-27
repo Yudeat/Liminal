@@ -3,11 +3,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import { HiOutlineBolt, HiOutlineShieldCheck, HiOutlineStar, HiOutlineGlobeAlt } from "react-icons/hi2";
+import { HiOutlineBolt, HiOutlineStar } from "react-icons/hi2";
 
 const plans = [
   {
-    name: "Basic",
+    name: "Free",
     price: "0",
     desc: "Entry-level system access for independent explorers.",
     features: ["1 University Target", "1 Application Draft", "Standard Community Access", "Basic Protocol Docs"],
@@ -18,37 +18,15 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Tactical",
-    price: "999",
-    desc: "Surgical precision for focused deployments.",
-    features: ["5 University Targets", "3 Application Drafts", "Visa Logic Blueprint", "Email Support", "Digital Archive Access"],
-    notIncluded: [],
-    Icon: HiOutlineShieldCheck,
-    iconColor: "text-white/50",
-    button: "Deploy Now",
-    highlight: false,
-  },
-  {
     name: "Elite",
-    price: "3,999",
-    desc: "The standard for high-probability global success.",
-    features: ["Unlimited Universities", "Unlimited Draft Reviews", "Full Visa Management", "1-on-1 Strategy Calls", "Priority Processing"],
+    price: "4,999",
+    desc: "Full white-glove autonomous migration for high-probability global success.",
+    features: ["Unlimited Universities", "Unlimited Draft Reviews", "Full Visa Management", "1-on-1 Strategy Calls", "Priority Processing", "Post-Arrival Support", "Lifetime System Updates"],
     notIncluded: [],
     Icon: HiOutlineStar,
     iconColor: "text-[#e8c4a0]",
     button: "Initiate Exile",
     highlight: true,
-  },
-  {
-    name: "Sovereign",
-    price: "7,999",
-    desc: "Full white-glove autonomous migration.",
-    features: ["Everything in Elite", "Concierge Documentation", "Post-Arrival Support", "Private Network Access", "Lifetime System Updates"],
-    notIncluded: [],
-    Icon: HiOutlineGlobeAlt,
-    iconColor: "text-white/40",
-    button: "Full Autonomy",
-    highlight: false,
   },
 ];
 
@@ -82,7 +60,7 @@ export default function PricingPage() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {plans.map((plan, i) => (
             <motion.div
               key={i}
