@@ -55,9 +55,9 @@ export function SiteNavbar({
                 <Link href="/profile" className="text-white/50 hover:text-white transition-colors">
                   <HiUserCircle size={32} />
                 </Link>
-                <button className="px-5 py-2.5 bg-white text-black rounded-xl text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#f0f0f0] transition-all duration-300 active:scale-95">
+                <Link href="/profile" className="px-5 py-2.5 bg-white text-black rounded-xl text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#f0f0f0] transition-all duration-300 active:scale-95">
                   Dashboard
-                </button>
+                </Link>
               </>
             ) : (
               <>
@@ -67,9 +67,9 @@ export function SiteNavbar({
                 >
                   Log In
                 </Link>
-                <button className="px-5 py-2.5 bg-white text-black rounded-xl text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#f0f0f0] transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                <Link href="/authentication" className="px-5 py-2.5 bg-white text-black rounded-xl text-[10px] font-black uppercase tracking-[0.18em] hover:bg-[#f0f0f0] transition-all duration-300 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                   Get Started
-                </button>
+                </Link>
               </>
             )}
           </div>
@@ -99,13 +99,14 @@ export function SiteNavbar({
                 </motion.a>
               ))}
               <div className="h-7 w-px bg-white/10 mx-1.5" />
-              <button
+              <Link
+                href={user ? "/profile" : "/authentication"}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className="bg-white text-black px-5 py-2.5 rounded-[1.25rem] font-black text-[10px] uppercase tracking-widest hover:bg-[#e8c4a0] transition-colors"
               >
                 Begin
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

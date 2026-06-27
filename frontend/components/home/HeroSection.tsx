@@ -101,7 +101,7 @@ export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: H
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href="#price"
+                href={user ? "#price" : "/authentication"}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
