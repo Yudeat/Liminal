@@ -27,6 +27,12 @@ import {
 
 const MAX_IMAGE_SIZE = 500 * 1024; // 500KB
 
+type MockUser = {
+  name?: string | null;
+  email?: string | null;
+  image?: string | null;
+};
+
 type ProfileClientProps = {
   session: null;
 };
@@ -41,16 +47,16 @@ export default function ProfileClient({ session }: ProfileClientProps) {
   const router = useRouter();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [imageError, setImageError] = useState("");
-  const user = null;
+  const user: MockUser | null = null as MockUser | null;
   const [image, setImage] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
       try {
-        return localStorage.getItem("profile-image") ?? user?.image ?? null;
+        return localStorage.getItem("profile-image") ?? null;
       } catch {
-        return user?.image ?? null;
+        return null;
       }
     }
-    return user?.image ?? null;
+    return null;
   });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -208,9 +214,9 @@ export default function ProfileClient({ session }: ProfileClientProps) {
                   </div>
 
                   <div className="text-center md:text-left flex-1">
-                    <h2 className="text-2xl font-black uppercase tracking-tight">{user?.name ?? "Seeker"}</h2>
+                    <h2 className="text-2xl font-black uppercase tracking-tight">{"Seeker"}</h2>
                     <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mt-1 mb-4">
-                      {user?.email ?? "no-email@exile.os"}
+                      {"no-email@exile.os"}
                     </div>
 
                     {imageError && (
