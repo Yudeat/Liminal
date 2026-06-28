@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts } from "@/backend/lib/blog-posts";
+import { blogPosts } from "@/frontend/lib/blog-posts";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 
 export default function BlogHighlightsSection() {

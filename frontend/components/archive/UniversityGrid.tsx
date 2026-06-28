@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineAcademicCap, HiOutlineFunnel, HiOutlineArrowUpRight, HiOutlineStar } from "react-icons/hi2";
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import { MatchResult, EligibilityProfile, ukUniversities, University, SubjectArea } from "@/backend/lib/archive-data";
+import { MatchResult, EligibilityProfile, ukUniversities, University, SubjectArea } from "@/frontend/lib/archive-data";
 
 type Props = {
   results: MatchResult[] | null;

@@ -11,7 +11,7 @@ import {
   StudyLevel,
   ukUniversities,
   evaluateMatch,
-} from "@/backend/lib/archive-data";
+} from "@/frontend/lib/archive-data";
 
 type Props = {
   onResults: (results: MatchResult[], profile: EligibilityProfile) => void;

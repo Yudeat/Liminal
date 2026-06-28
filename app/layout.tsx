@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/frontend/components/theme-provider";
+import LenisProvider from "@/frontend/components/LenisProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -29,7 +30,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <LenisProvider>
+              {children}
+            </LenisProvider>
           </ThemeProvider>
 
       </body>

@@ -3,8 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
-import type { Session } from "next-auth";
+import { useRouter } from "next/navigation";
 import {
   HiBars3BottomRight,
   HiAcademicCap,
@@ -29,7 +28,7 @@ import {
 const MAX_IMAGE_SIZE = 500 * 1024; // 500KB
 
 type ProfileClientProps = {
-  session: Session;
+  session: null;
 };
 
 type SettingRowProps = {
@@ -39,9 +38,10 @@ type SettingRowProps = {
 };
 
 export default function ProfileClient({ session }: ProfileClientProps) {
+  const router = useRouter();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [imageError, setImageError] = useState("");
-  const user = session?.user;
+  const user = null;
   const [image, setImage] = useState<string | null>(() => {
     if (typeof window !== "undefined") {
       try {
@@ -137,7 +137,7 @@ export default function ProfileClient({ session }: ProfileClientProps) {
 
             <button
               type="button"
-              onClick={() => signOut({ callbackUrl: "/" })}
+              onClick={() => router.push("/")}
               className="hidden md:flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-red-500 transition-colors"
             >
               <HiOutlineArrowLeftOnRectangle size={18} />
@@ -233,7 +233,7 @@ export default function ProfileClient({ session }: ProfileClientProps) {
                       </button>
                       <button
                         type="button"
-                        onClick={() => signOut({ callbackUrl: "/" })}
+                        onClick={() => router.push("/")}
                         className="md:hidden px-6 py-2 border border-red-800/60 rounded-full text-[10px] font-black uppercase tracking-widest text-red-400 hover:bg-red-900/30 transition-all"
                       >
                         Sign Out

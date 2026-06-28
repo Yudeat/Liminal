@@ -1,55 +1,21 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
+import { useState } from "react"
 import Image from "next/image"
-import { signIn } from "next-auth/react"
-import { registerUser } from "@/backend/actions/register"
 import { HiEye, HiEyeOff } from "react-icons/hi"
 
 export default function AuthPage() {
-  const router = useRouter()
   const [isLogin, setIsLogin] = useState(true)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [form, setForm] = useState({ name: "", email: "", password: "" })
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (form.email && !form.email.includes("@")) {
-        setError("Enter a valid email address")
-      } else {
-        setError("")
-      }
-    }, 800)
-    return () => clearTimeout(timeout)
-  }, [form.email])
-
-  const handleAction = async (e: React.FormEvent) => {
+  const handleAction = (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    setError("")
-
-    if (isLogin) {
-      const res = await signIn("credentials", { ...form, redirect: false })
-      if (res?.error) setError("Incorrect email or password")
-      else router.push("/")
-    } else {
-      const data = new FormData()
-      data.append("name", form.name)
-      data.append("email", form.email)
-      data.append("password", form.password)
-      const res = await registerUser(data)
-      if ("error" in res) setError(res.error)
-      else setIsLogin(true)
-    }
-    setLoading(false)
+    // auth coming soon
   }
 
   const switchMode = () => {
     setIsLogin(!isLogin)
-    setError("")
     setForm({ name: "", email: "", password: "" })
   }
 
@@ -65,7 +31,6 @@ export default function AuthPage() {
           className="object-cover object-top"
           priority
         />
-        {/* subtle darkening at edges for readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20" />
 
         {/* Centered content */}
@@ -88,28 +53,23 @@ export default function AuthPage() {
       <div className="flex-1 flex flex-col items-center justify-center bg-white px-8 py-12">
         <div className="w-full max-w-[380px]">
 
-          {/* Brand name top */}
           <p className="text-center text-[11px] font-black uppercase tracking-[0.3em] text-gray-400 mb-10">
             Exile OS
           </p>
 
-          {/* Heading */}
           <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             {isLogin ? "Access to Exile" : "Join Exile"}
           </h1>
 
           <form onSubmit={handleAction} className="space-y-5">
 
-            {/* Name field — signup only */}
             {!isLogin && (
               <div>
                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">
                   Full Name
                 </label>
                 <input
-                  name="name"
                   type="text"
-                  required={!isLogin}
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Your name"
@@ -118,13 +78,11 @@ export default function AuthPage() {
               </div>
             )}
 
-            {/* Email */}
             <div>
               <label className="block text-xs font-semibold text-gray-500 mb-1.5">
                 Email
               </label>
               <input
-                name="email"
                 type="email"
                 required
                 value={form.email}
@@ -134,24 +92,19 @@ export default function AuthPage() {
               />
             </div>
 
-            {/* Password */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="text-xs font-semibold text-gray-500">
                   Password
                 </label>
                 {isLogin && (
-                  <button
-                    type="button"
-                    className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
-                  >
+                  <button type="button" className="text-xs text-gray-400 hover:text-gray-700 transition-colors">
                     Forgot password?
                   </button>
                 )}
               </div>
               <div className="relative">
                 <input
-                  name="password"
                   type={showPassword ? "text" : "password"}
                   required
                   value={form.password}
@@ -169,30 +122,21 @@ export default function AuthPage() {
               </div>
             </div>
 
-            {/* Error */}
-            {error && (
-              <p className="text-xs text-red-500 font-medium">{error}</p>
-            )}
-
-            {/* Submit */}
             <button
               type="submit"
-              disabled={loading}
-              className="w-full mt-2 py-3.5 bg-black text-white rounded-lg text-sm font-bold hover:bg-[#4b1227] transition-colors disabled:opacity-60"
+              className="w-full mt-2 py-3.5 bg-black text-white rounded-lg text-sm font-bold hover:bg-[#4b1227] transition-colors"
             >
-              {loading ? "Please wait…" : isLogin ? "Login" : "Create account"}
+              {isLogin ? "Login" : "Create account"}
             </button>
           </form>
 
-          {/* Divider */}
           <div className="my-7 border-t border-gray-100" />
 
-          {/* Toggle */}
           <p className="text-center text-sm text-gray-500">
             {isLogin ? "New to Exile? " : "Already have an account? "}
             <button
               onClick={switchMode}
-              className="font-semibold text-gray-900 hover:underline transition-all"
+              className="font-semibold text-gray-900 hover:underline"
             >
               {isLogin ? "Create an account" : "Log in"}
             </button>

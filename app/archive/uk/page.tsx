@@ -16,7 +16,7 @@ import {
 } from "react-icons/hi2";
 import EligibilityChecker from "@/frontend/components/archive/EligibilityChecker";
 import UniversityGrid from "@/frontend/components/archive/UniversityGrid";
-import { MatchResult, EligibilityProfile, ukAtAGlance, ukVisaSteps, ukTimeline } from "@/backend/lib/archive-data";
+import { MatchResult, EligibilityProfile, ukAtAGlance, ukVisaSteps, ukTimeline } from "@/frontend/lib/archive-data";
 
 const glanceStats = [
   { icon: HiOutlineAcademicCap, label: "Universities", value: `${ukAtAGlance.universities}+` },

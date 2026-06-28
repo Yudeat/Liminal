@@ -1,6 +1,7 @@
 import MainNavigation from "./navigation/MainNavigation";
 import {
   AboutSection,
+  DestinationsSection,
   BlogHighlightsSection,
   CallToActionSection,
   FaqSection,
@@ -21,6 +22,7 @@ export default function HomePage({ session }: HomePageProps) {
   return (
     <>
       <MainNavigation session={session} />
+      <DestinationsSection />
       <AboutSection />
       <HireExpertSection />
       <HowItWorksSection />

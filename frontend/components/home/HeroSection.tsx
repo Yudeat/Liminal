@@ -1,176 +1,278 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { MotionValue, motion } from "framer-motion";
-import {
-  HiOutlineAcademicCap,
-  HiOutlineChevronDoubleDown,
-  HiOutlineArrowUpRight,
-} from "react-icons/hi2";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import { SessionUser } from "./types";
+import { blogPosts } from "@/frontend/lib/blog-posts";
+import dynamic from "next/dynamic";
+
+const HeroGL = dynamic(() => import("./HeroGL"), { ssr: false });
+
+gsap.registerPlugin(ScrollTrigger);
+
+const slides = [
+  {
+    src: "/hero-1.png",
+    city: "Frankfurt",
+    label: "Germany",
+    tagline: "Financial capital. Global gateway.",
+  },
+  {
+    src: "/hero-2.png",
+    city: "Český Krumlov",
+    label: "Czech Republic",
+    tagline: "Medieval heritage. Modern ambition.",
+  },
+  {
+    src: "/hero-3.png",
+    city: "Explore",
+    label: "The World",
+    tagline: "Every journey starts with one step.",
+  },
+];
+
+const WORDS = ["Begin.", "Every", "Journey."];
 
 type HeroSectionProps = {
   user?: SessionUser;
   isHovered: boolean;
-  setIsHovered: (value: boolean) => void;
-  globeX: MotionValue<number>;
-  globeY: MotionValue<number>;
+  setIsHovered: (v: boolean) => void;
 };
 
-const stats = [
-  { value: "3,000+", label: "Students Guided" },
-  { value: "48", label: "Countries Reached" },
-  { value: "$0", label: "In Agency Fees" },
-];
+export function HeroSection({ user, setIsHovered }: HeroSectionProps) {
+  const latest = blogPosts[0];
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const textRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-export function HeroSection({ user, isHovered, setIsHovered, globeX, globeY }: HeroSectionProps) {
-  const badgeText = user ? "Your Journey Continues" : "Independent Education OS";
-  const headingTop = user ? "READY TO" : "THE ART";
-  const headingMid = user ? "jump" : "of self";
-  const headingBottom = user ? "HIGHER." : "EXILE.";
+  // Auto-advance
+  useEffect(() => {
+    intervalRef.current = setInterval(() => goTo((prev) => (prev + 1) % slides.length), 5000);
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Initial text animation
+  useEffect(() => {
+    if (!textRef.current) return;
+    const words = textRef.current.querySelectorAll(".word");
+    gsap.fromTo(words,
+      { y: 120, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.1, stagger: 0.15, ease: "power4.out", delay: 0.3 }
+    );
+  }, []);
+
+  // Scroll parallax on images
+  useEffect(() => {
+    if (!containerRef.current) return;
+    slideRefs.current.forEach((el) => {
+      if (!el) return;
+      gsap.to(el.querySelector("img"), {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+  }, []);
+
+  function goTo(next: number | ((prev: number) => number)) {
+    const nextIndex = typeof next === "function" ? next(current) : next;
+    if (animating || nextIndex === current) return;
+    setAnimating(true);
+
+    const currentSlide = slideRefs.current[current];
+    const nextSlide = slideRefs.current[nextIndex];
+    if (!currentSlide || !nextSlide) return;
+
+    // Bring next slide on top
+    gsap.set(nextSlide, { zIndex: 2, clipPath: "inset(0 100% 0 0)" });
+    gsap.set(currentSlide, { zIndex: 1 });
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        gsap.set(currentSlide, { zIndex: 0, clipPath: "inset(0 0% 0 0)" });
+        setCurrent(nextIndex);
+        setAnimating(false);
+      },
+    });
+
+    tl.to(nextSlide, { clipPath: "inset(0 0% 0 0)", duration: 1.2, ease: "power3.inOut" });
+
+    // Animate counter
+    if (counterRef.current) {
+      gsap.to(counterRef.current, {
+        opacity: 0, y: -12, duration: 0.3,
+        onComplete: () => {
+          if (counterRef.current) {
+            counterRef.current.textContent = `0${nextIndex + 1}`;
+            gsap.to(counterRef.current, { opacity: 1, y: 0, duration: 0.3 });
+          }
+        }
+      });
+    }
+
+    // Animate city label
+    const label = document.querySelector(".slide-city");
+    if (label) {
+      gsap.to(label, { opacity: 0, y: -8, duration: 0.25, onComplete: () => {
+        gsap.to(label, { opacity: 1, y: 0, duration: 0.3, delay: 0.8 });
+      }});
+    }
+
+    // Reset interval
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => goTo((p) => (p + 1) % slides.length), 5000);
+  }
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#080808]">
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-black">
 
-      {/* Ambient glow */}
-      <motion.div
-        style={{
-          x: globeX,
-          y: globeY,
-          background: "radial-gradient(circle, rgba(232,196,160,0.08) 0%, transparent 70%)",
-        }}
-        className="absolute top-[20%] right-[5%] w-[600px] h-[600px] rounded-full pointer-events-none"
-      />
-      <motion.div
-        className="absolute bottom-[10%] left-[0%] w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(200,80,120,0.06) 0%, transparent 70%)",
-        }}
-      />
+      {/* Slides */}
+      {slides.map((slide, i) => (
+        <div
+          key={slide.src}
+          ref={(el) => { slideRefs.current[i] = el; }}
+          className="absolute inset-0"
+          style={{
+            zIndex: i === current ? 1 : 0,
+            clipPath: "inset(0 0% 0 0)",
+          }}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.city}
+            fill
+            className="object-cover object-center scale-110"
+            priority={i === 0}
+            sizes="100vw"
+          />
+          {/* Dark overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+        </div>
+      ))}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center pt-32 pb-24">
-          {/* Left: Headline */}
-          <div className="space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/55"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e8c4a0] animate-pulse" />
-              {badgeText}
-            </motion.div>
+      {/* R3F wave overlay */}
+      <HeroGL />
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-[4.5rem] md:text-[7.5rem] lg:text-[8.5rem] leading-[0.82] font-black tracking-tighter uppercase text-white"
-            >
-              {headingTop}
-              <br />
-              <em className="font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
-                {headingMid}
-              </em>
-              <br />
-              {headingBottom}
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="text-white/65 text-lg font-medium leading-relaxed max-w-sm"
-            >
-              Navigate global admissions and migration with surgical precision — no agents, no commissions.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                href={user ? "#price" : "/authentication"}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
-              >
-                Begin Journey
-                <motion.div
-                  animate={{ rotate: isHovered ? 45 : 0 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <HiOutlineArrowUpRight size={16} />
-                </motion.div>
-              </Link>
-              <Link
-                href="#process"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-white/15 text-white/65 rounded-xl font-black uppercase tracking-widest text-[11px] hover:border-white/40 hover:text-white transition-all duration-300"
-              >
-                See How It Works
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Right: Stats panel */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="hidden lg:flex flex-col gap-4"
+      {/* Slide progress bar */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex h-[2px]">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className="flex-1 relative overflow-hidden bg-white/15"
           >
-            <div className="border border-white/8 bg-white/3 rounded-2xl p-8 backdrop-blur-sm space-y-8">
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/45">
-                Audited Metrics
-              </p>
-              <div className="grid grid-cols-3 gap-6">
-                {stats.map((stat, i) => (
-                  <div key={i} className="space-y-1.5">
-                    <div className="text-3xl font-black text-white tracking-tight">{stat.value}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-white/50">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="h-px bg-white/6" />
-              <div className="flex items-center gap-3">
-                <HiOutlineAcademicCap className="text-[#e8c4a0]" size={18} />
-                <p className="text-xs text-white/55 font-medium">
-                  Trusted by students targeting Oxford, MIT, ETH Zurich & more
-                </p>
-              </div>
-            </div>
+            {i === current && (
+              <span
+                key={current}
+                className="absolute inset-y-0 left-0 bg-white"
+                style={{
+                  animation: "progress 5s linear forwards",
+                }}
+              />
+            )}
+          </button>
+        ))}
+      </div>
 
-            {/* Marquee logos */}
-            <div className="border border-white/8 bg-white/2 rounded-2xl px-8 py-5 flex items-center justify-between overflow-hidden">
-              {["Oxford", "Stanford", "MIT", "ETH Zürich", "Toronto"].map((uni) => (
-                <span key={uni} className="text-xs font-black uppercase tracking-tighter text-white/40 whitespace-nowrap">
-                  {uni}
-                </span>
-              ))}
+      {/* Bottom-left: big headline */}
+      <div className="absolute bottom-10 left-8 md:left-14 z-20">
+        <div ref={textRef} className="overflow-hidden mb-6">
+          {WORDS.map((w, i) => (
+            <div key={i} className="overflow-hidden">
+              <span className="word block text-[5rem] md:text-[9rem] lg:text-[11rem] font-black leading-[0.86] tracking-tighter text-white uppercase">
+                {w}
+              </span>
             </div>
-          </motion.div>
+          ))}
+        </div>
+
+        {/* City + tagline */}
+        <div className="mb-6 space-y-1">
+          <p className="slide-city text-[10px] font-black uppercase tracking-[0.3em] text-[#e8c4a0]">
+            {slides[current].label} · {slides[current].city}
+          </p>
+          <p className="text-white/50 text-xs font-medium tracking-wide">
+            {slides[current].tagline}
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex items-center gap-5">
+          <Link
+            href="/authentication"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-black text-[11px] uppercase tracking-widest hover:bg-[#e8c4a0] transition-colors duration-300"
+          >
+            Get Started <HiOutlineArrowUpRight size={12} />
+          </Link>
+          <Link
+            href="#process"
+            className="text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-white transition-colors"
+          >
+            How it works
+          </Link>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 z-10"
-      >
-        <HiOutlineChevronDoubleDown size={20} />
-      </motion.div>
+      {/* Bottom-right: slide counter + blog card */}
+      <div className="absolute bottom-10 right-8 md:right-14 z-20 flex flex-col items-end gap-5">
+
+        {/* Slide counter */}
+        <div className="flex items-center gap-3 text-white/50">
+          <span ref={counterRef} className="text-4xl font-black text-white tabular-nums">01</span>
+          <span className="text-[10px] font-black uppercase tracking-widest">/ 0{slides.length}</span>
+        </div>
+
+        {/* Blog card */}
+        <Link href={`/blog/${latest.slug}`} className="group block w-[220px]">
+          <div className="relative h-28 overflow-hidden mb-2 bg-black/40 backdrop-blur-sm border border-white/10">
+            <Image src="/hero-2.png" alt="" fill className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute top-2 right-2 bg-white/10 backdrop-blur-sm p-1 group-hover:bg-[#e8c4a0] transition-colors">
+              <HiOutlineArrowUpRight size={11} className="text-white group-hover:text-black" />
+            </div>
+          </div>
+          <p className="text-[9px] font-black uppercase tracking-[0.28em] text-white/45 mb-1">{latest.series}</p>
+          <p className="text-xs font-bold text-white/80 group-hover:text-[#e8c4a0] transition-colors leading-snug line-clamp-2">
+            {latest.title}
+          </p>
+        </Link>
+      </div>
+
+      {/* Slide dots — mobile */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2 md:hidden">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-white w-4" : "bg-white/40"}`}
+          />
+        ))}
+      </div>
+
+      <style jsx>{`
+        @keyframes progress {
+          from { width: 0% }
+          to { width: 100% }
+        }
+      `}</style>
     </section>
   );
 }

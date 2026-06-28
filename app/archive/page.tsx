@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { HiOutlineGlobeAlt, HiOutlineArrowUpRight, HiOutlineLockClosed } from "react-icons/hi2";
-import { auth } from "@/backend/auth";
 
 const countries = [
   {
@@ -37,12 +36,9 @@ const countries = [
   },
 ];
 
-export default async function ArchivePage() {
-  const session = await auth();
-
+export default function ArchivePage() {
   return (
     <div className="min-h-screen bg-[#080808] text-white font-sans antialiased">
-      {/* Nav back */}
       <div className="px-6 pt-8 max-w-7xl mx-auto">
         <Link
           href="/"
@@ -53,7 +49,6 @@ export default async function ArchivePage() {
       </div>
 
       <section className="px-6 pt-16 pb-32 max-w-7xl mx-auto">
-        {/* Header */}
         <div className="mb-20">
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45 mb-5">
             The Intelligence Layer
@@ -69,7 +64,6 @@ export default async function ArchivePage() {
           </p>
         </div>
 
-        {/* Country grid */}
         <div className="grid md:grid-cols-2 gap-5">
           {countries.map((country) =>
             country.live ? (
@@ -135,13 +129,6 @@ export default async function ArchivePage() {
               </div>
             )
           )}
-        </div>
-
-        {/* Bottom note */}
-        <div className="mt-16 text-center">
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30">
-            {session ? `Logged in as ${session.user?.email} · Your profile is saved` : "Log in to save your profile and persist eligibility checks across sessions"}
-          </p>
         </div>
       </section>
     </div>
