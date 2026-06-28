@@ -1,4 +1,5 @@
 export { default as AboutSection } from "./AboutSection";
+export { default as StatementSection } from "./StatementSection";
 export { default as JourneySection } from "./JourneySection";
 export { default as DestinationsSection } from "./DestinationsSection";
 export { default as HireExpertSection } from "./HireExpertSection";
