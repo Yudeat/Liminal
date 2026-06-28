@@ -2,6 +2,7 @@ import MainNavigation from "./navigation/MainNavigation";
 import {
   AboutSection,
   DestinationsSection,
+  JourneySection,
   BlogHighlightsSection,
   CallToActionSection,
   FaqSection,
@@ -32,6 +33,7 @@ export default function HomePage({ session }: HomePageProps) {
       <CallToActionSection />
       <TestimonialsSection />
       <NewsletterSection />
+      <JourneySection />
       <FooterSection />
     </>
   );
