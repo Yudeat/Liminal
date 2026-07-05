@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/frontend/components/theme-provider";
 import LenisProvider from "@/frontend/components/LenisProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://exile.so"),
   title: {
     default: "Exile",
     template: "%s | Exile",
