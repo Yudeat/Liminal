@@ -113,7 +113,7 @@ export default function UKArchivePage() {
               className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.88] text-white mb-6"
             >
               United{" "}
-              <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+              <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
                 Kingdom.
               </em>
             </motion.h1>
@@ -160,7 +160,7 @@ export default function UKArchivePage() {
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45 mb-4">Step by Step</p>
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-[0.88] mb-12">
             The Visa{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">logic.</em>
+            <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">logic.</em>
           </h2>
 
           <div className="relative">
@@ -182,15 +182,15 @@ export default function UKArchivePage() {
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h3 className="text-lg font-black uppercase tracking-tight text-white">{step.title}</h3>
                       {step.cost && (
-                        <span className="text-[10px] font-black text-[#e8c4a0] border border-[#e8c4a0]/25 px-2.5 py-1 rounded-full shrink-0">
+                        <span className="text-[10px] font-black text-[#f9a8d4] border border-[#f9a8d4]/25 px-2.5 py-1 rounded-full shrink-0">
                           £{step.cost.toLocaleString()}
                         </span>
                       )}
                     </div>
                     <p className="text-white/60 text-sm leading-relaxed mb-4">{step.desc}</p>
                     <div className="flex items-start gap-2">
-                      <HiOutlineExclamationTriangle size={14} className="text-[#e8c4a0] shrink-0 mt-0.5" />
-                      <p className="text-[11px] text-[#e8c4a0]/70 leading-relaxed font-medium">{step.failPoint}</p>
+                      <HiOutlineExclamationTriangle size={14} className="text-[#f9a8d4] shrink-0 mt-0.5" />
+                      <p className="text-[11px] text-[#f9a8d4]/70 leading-relaxed font-medium">{step.failPoint}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -204,7 +204,7 @@ export default function UKArchivePage() {
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45 mb-4">The Real Number</p>
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white leading-[0.88] mb-2">
             What you must{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">show in your bank.</em>
+            <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">show in your bank.</em>
           </h2>
           <p className="text-white/55 text-sm mb-10 max-w-xl">
             This is the number students consistently underestimate. The UKVI requires you to show tuition + 9 months of maintenance, held for 28 consecutive days before you apply.
@@ -240,7 +240,7 @@ export default function UKArchivePage() {
                     <div className="h-px bg-white/8" />
                     <div className="flex justify-between">
                       <span className="text-white font-black text-sm uppercase tracking-tight">Total to show</span>
-                      <span className="text-[#e8c4a0] font-black text-lg">£{total.toLocaleString()}</span>
+                      <span className="text-[#f9a8d4] font-black text-lg">£{total.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ export default function UKArchivePage() {
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45 mb-4">Month by Month</p>
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-[0.88] mb-12">
             Your 18-month{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">map.</em>
+            <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">map.</em>
           </h2>
 
           <div className="relative">
@@ -274,19 +274,19 @@ export default function UKArchivePage() {
                 >
                   <div className="shrink-0 w-12 text-right">
                     <span className={`text-[10px] font-black uppercase tracking-widest ${
-                      point.month === 0 ? "text-[#e8c4a0]" : "text-white/30"
+                      point.month === 0 ? "text-[#f9a8d4]" : "text-white/30"
                     }`}>
                       {point.month === 0 ? "Day 0" : `M ${point.month}`}
                     </span>
                   </div>
                   <div className={`w-2 h-2 rounded-full mt-1 shrink-0 ${
-                    point.month === 0 ? "bg-[#e8c4a0] shadow-[0_0_8px_rgba(232,196,160,0.6)]" : "bg-white/20"
+                    point.month === 0 ? "bg-[#f9a8d4] shadow-[0_0_8px_rgba(232,196,160,0.6)]" : "bg-white/20"
                   }`} />
                   <div className={`flex-1 pb-4 ${
-                    point.month === 0 ? "bg-[#e8c4a0]/5 border border-[#e8c4a0]/15 rounded-xl px-4 py-3 -mt-1" : ""
+                    point.month === 0 ? "bg-[#f9a8d4]/5 border border-[#f9a8d4]/15 rounded-xl px-4 py-3 -mt-1" : ""
                   }`}>
                     <p className={`text-sm font-black uppercase tracking-tight mb-1 ${
-                      point.month === 0 ? "text-[#e8c4a0]" : "text-white"
+                      point.month === 0 ? "text-[#f9a8d4]" : "text-white"
                     }`}>
                       {point.label}
                     </p>
@@ -303,7 +303,7 @@ export default function UKArchivePage() {
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45 mb-4">What You Need</p>
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-[0.88] mb-12">
             Document{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">checklist.</em>
+            <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">checklist.</em>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -349,7 +349,7 @@ export default function UKArchivePage() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative bg-[#e8c4a0] rounded-3xl p-12 md:p-20 overflow-hidden"
+          className="relative bg-[#f9a8d4] rounded-3xl p-12 md:p-20 overflow-hidden"
         >
           <div
             className="absolute inset-0 pointer-events-none opacity-[0.04]"

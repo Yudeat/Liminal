@@ -27,7 +27,7 @@ export function HeroShell({ session }: HeroShellProps) {
     <div id="home" className="relative w-full font-sans antialiased">
       {/* Custom cursor */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-[#e8c4a0] rounded-full pointer-events-none z-[100] mix-blend-screen hidden md:block"
+        className="fixed top-0 left-0 w-3 h-3 bg-[#f9a8d4] rounded-full pointer-events-none z-[100] mix-blend-screen hidden md:block"
         animate={{ scale: isHovered ? 5 : 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       />

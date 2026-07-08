@@ -204,7 +204,7 @@ export function HeroSection({ user, setIsHovered }: HeroSectionProps) {
 
         {/* City + tagline */}
         <div className="mb-6 space-y-1">
-          <p className="slide-city text-[10px] font-black uppercase tracking-[0.3em] text-[#e8c4a0]">
+          <p className="slide-city text-[10px] font-black uppercase tracking-[0.3em] text-[#f9a8d4]">
             {slides[current].label} · {slides[current].city}
           </p>
           <p className="text-white/50 text-xs font-medium tracking-wide">
@@ -218,7 +218,7 @@ export function HeroSection({ user, setIsHovered }: HeroSectionProps) {
             href="/authentication"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-black text-[11px] uppercase tracking-widest hover:bg-[#e8c4a0] transition-colors duration-300"
+            className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 font-black text-[11px] uppercase tracking-widest hover:bg-[#f9a8d4] transition-colors duration-300"
           >
             Get Started <HiOutlineArrowUpRight size={12} />
           </Link>
@@ -245,12 +245,12 @@ export function HeroSection({ user, setIsHovered }: HeroSectionProps) {
           <div className="relative h-28 overflow-hidden mb-2 bg-black/40 backdrop-blur-sm border border-white/10">
             <Image src="/hero-2.png" alt="" fill className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute top-2 right-2 bg-white/10 backdrop-blur-sm p-1 group-hover:bg-[#e8c4a0] transition-colors">
+            <div className="absolute top-2 right-2 bg-white/10 backdrop-blur-sm p-1 group-hover:bg-[#f9a8d4] transition-colors">
               <HiOutlineArrowUpRight size={11} className="text-white group-hover:text-black" />
             </div>
           </div>
           <p className="text-[9px] font-black uppercase tracking-[0.28em] text-white/45 mb-1">{latest.series}</p>
-          <p className="text-xs font-bold text-white/80 group-hover:text-[#e8c4a0] transition-colors leading-snug line-clamp-2">
+          <p className="text-xs font-bold text-white/80 group-hover:text-[#f9a8d4] transition-colors leading-snug line-clamp-2">
             {latest.title}
           </p>
         </Link>

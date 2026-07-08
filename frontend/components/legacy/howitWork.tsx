@@ -15,7 +15,7 @@ const steps = [
     desc: "We analyze your academic trajectory and professional intent using our proprietary DIY logic. No middlemen, just data.",
     icon: HiOutlineFingerPrint,
     tag: "Phase 01",
-    accent: "#e8c4a0",
+    accent: "#f9a8d4",
   },
   {
     title: "Surgical Design",
@@ -64,7 +64,7 @@ export default function HowItWorks() {
               className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white leading-[0.88]"
             >
               How it{" "}
-              <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+              <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
                 works.
               </em>
             </motion.h2>
@@ -150,13 +150,13 @@ export default function HowItWorks() {
             <div className="space-y-3">
               <h4 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white">
                 Ready to initiate{" "}
-                <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+                <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
                   your exile?
                 </em>
               </h4>
               <p className="text-white/55 text-sm">Four phases from audit to autonomous growth.</p>
             </div>
-            <button className="group shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all duration-300 active:scale-95">
+            <button className="group shrink-0 inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#f9a8d4] transition-all duration-300 active:scale-95">
               Get Started Now
               <HiOutlineArrowUpRight size={14} className="group-hover:rotate-12 transition-transform" />
             </button>

@@ -81,7 +81,7 @@ export default function DestinationsSection() {
             </p>
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.88] text-white">
               The{" "}
-              <em className="font-serif font-light lowercase text-[#e8c4a0] not-italic italic">world</em>
+              <em className="font-serif font-light lowercase text-[#f9a8d4] not-italic italic">world</em>
               <br />awaits.
             </h2>
           </div>
@@ -112,7 +112,7 @@ export default function DestinationsSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute bottom-0 left-0 right-0 p-7">
-                <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#e8c4a0] mb-2">
+                <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#f9a8d4] mb-2">
                   {d.country}
                 </p>
                 <h3 className="text-2xl font-black uppercase tracking-tight text-white mb-2">

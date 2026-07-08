@@ -41,7 +41,7 @@ export default function PricingPage() {
           >
             For every student,<br />
             there is a{" "}
-            <em className="font-serif font-light not-italic italic text-[#e8c4a0]">
+            <em className="font-serif font-light not-italic italic text-[#f9a8d4]">
               system
             </em>{" "}
             built<br />
@@ -114,7 +114,7 @@ export default function PricingPage() {
           </a>
           <a
             href="#"
-            className="text-[10px] font-black uppercase tracking-widest bg-[#e8c4a0] text-black px-6 py-3 hover:bg-[#ddb88e] transition-colors"
+            className="text-[10px] font-black uppercase tracking-widest bg-[#f9a8d4] text-black px-6 py-3 hover:bg-[#f472b6] transition-colors"
           >
             Initiate Exile →
           </a>

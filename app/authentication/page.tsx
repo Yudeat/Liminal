@@ -43,7 +43,7 @@ export default function AuthPage() {
           </div>
           <p className="text-white/80 text-2xl font-light leading-snug tracking-tight">
             "The art of<br />
-            <em className="text-[#e8c4a0] not-italic font-black">self-exile</em><br />
+            <em className="text-[#f9a8d4] not-italic font-black">self-exile</em><br />
             begins here."
           </p>
         </div>

@@ -39,7 +39,7 @@ const verdictConfig = {
   },
   borderline: {
     label: "Borderline",
-    color: "#e8c4a0",
+    color: "#f9a8d4",
     bg: "rgba(232,196,160,0.08)",
     border: "rgba(232,196,160,0.25)",
     icon: HiOutlineExclamationCircle,
@@ -113,7 +113,7 @@ export default function EligibilityChecker({ onResults }: Props) {
               onClick={() => setStudyLevel(lvl)}
               className={`py-4 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${
                 studyLevel === lvl
-                  ? "bg-[#e8c4a0] text-black"
+                  ? "bg-[#f9a8d4] text-black"
                   : "bg-white/5 border border-white/10 text-white/60 hover:bg-white/8"
               }`}
             >
@@ -135,7 +135,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                 onClick={() => setQualType(qt.value)}
                 className={`py-2.5 px-3 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all text-left ${
                   qualType === qt.value
-                    ? "bg-[#e8c4a0]/15 border border-[#e8c4a0]/40 text-[#e8c4a0]"
+                    ? "bg-[#f9a8d4]/15 border border-[#f9a8d4]/40 text-[#f9a8d4]"
                     : "bg-white/4 border border-white/8 text-white/45 hover:border-white/15"
                 }`}
               >
@@ -163,7 +163,7 @@ export default function EligibilityChecker({ onResults }: Props) {
             <button
               onClick={() => setEnglishNotTaken(!englishNotTaken)}
               className={`w-5 h-5 rounded border flex items-center justify-center transition-all ${
-                englishNotTaken ? "bg-[#e8c4a0] border-[#e8c4a0]" : "border-white/20 bg-white/5"
+                englishNotTaken ? "bg-[#f9a8d4] border-[#f9a8d4]" : "border-white/20 bg-white/5"
               }`}
             >
               {englishNotTaken && <span className="text-black text-[10px]">✓</span>}
@@ -207,7 +207,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                   onClick={() => setSubject(subject === s ? "" : s)}
                   className={`py-2 px-3 rounded-lg text-[10px] font-black uppercase tracking-wide transition-all text-left ${
                     subject === s
-                      ? "bg-[#e8c4a0]/15 border border-[#e8c4a0]/40 text-[#e8c4a0]"
+                      ? "bg-[#f9a8d4]/15 border border-[#f9a8d4]/40 text-[#f9a8d4]"
                       : "bg-white/4 border border-white/8 text-white/45 hover:border-white/15"
                   }`}
                 >
@@ -239,7 +239,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                   onClick={() => setIsLondon(opt.val)}
                   className={`py-2.5 rounded-lg text-[10px] font-black uppercase tracking-wide transition-all ${
                     isLondon === opt.val
-                      ? "bg-[#e8c4a0]/15 border border-[#e8c4a0]/40 text-[#e8c4a0]"
+                      ? "bg-[#f9a8d4]/15 border border-[#f9a8d4]/40 text-[#f9a8d4]"
                       : "bg-white/4 border border-white/8 text-white/45 hover:border-white/15"
                   }`}
                 >
@@ -274,7 +274,7 @@ export default function EligibilityChecker({ onResults }: Props) {
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em] text-white/55">
-                  <HiOutlineSparkles className="text-[#e8c4a0]" size={11} />
+                  <HiOutlineSparkles className="text-[#f9a8d4]" size={11} />
                   Eligibility Engine
                 </div>
                 <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white leading-tight">
@@ -286,7 +286,7 @@ export default function EligibilityChecker({ onResults }: Props) {
               </div>
               <button
                 onClick={() => setOpen(true)}
-                className="group shrink-0 inline-flex items-center gap-3 px-7 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#e8c4a0] transition-all active:scale-95"
+                className="group shrink-0 inline-flex items-center gap-3 px-7 py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-[#f9a8d4] transition-all active:scale-95"
               >
                 Check My Profile
                 <HiOutlineArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -307,7 +307,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                 <div
                   key={i}
                   className={`h-1 flex-1 rounded-full transition-all duration-500 ${
-                    i <= step ? "bg-[#e8c4a0]" : "bg-white/10"
+                    i <= step ? "bg-[#f9a8d4]" : "bg-white/10"
                   }`}
                 />
               ))}
@@ -334,7 +334,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                 <button
                   onClick={() => setStep(step + 1)}
                   disabled={!currentStep.valid}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-[#e8c4a0] disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-[#f9a8d4] disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
                 >
                   Next
                   <HiOutlineArrowRight size={13} />
@@ -343,7 +343,7 @@ export default function EligibilityChecker({ onResults }: Props) {
                 <button
                   onClick={runEvaluation}
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#e8c4a0] text-black rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-white transition-all active:scale-95 disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#f9a8d4] text-black rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-white transition-all active:scale-95 disabled:opacity-60"
                 >
                   {loading ? "Evaluating..." : "Run Evaluation"}
                   {!loading && <HiOutlineArrowRight size={13} />}

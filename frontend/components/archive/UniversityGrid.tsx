@@ -13,7 +13,7 @@ type Props = {
 
 const verdictStyles = {
   eligible: { label: "Eligible", color: "#80c4a0", dot: "bg-[#80c4a0]" },
-  borderline: { label: "Borderline", color: "#e8c4a0", dot: "bg-[#e8c4a0]" },
+  borderline: { label: "Borderline", color: "#f9a8d4", dot: "bg-[#f9a8d4]" },
   reach: { label: "Reach", color: "#c8a0e8", dot: "bg-[#c8a0e8]" },
   "not-yet": { label: "Not Yet", color: "#e87070", dot: "bg-[#e87070]" },
 };
@@ -30,7 +30,7 @@ function StarScore({ score }: { score: number }) {
         <HiOutlineStar
           key={i}
           size={11}
-          className={i <= score ? "text-[#e8c4a0] fill-[#e8c4a0]" : "text-white/15"}
+          className={i <= score ? "text-[#f9a8d4] fill-[#f9a8d4]" : "text-white/15"}
         />
       ))}
     </div>
@@ -228,7 +228,7 @@ function UniversityCard({
             href={university.website}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#e8c4a0]/70 hover:text-[#e8c4a0] transition-colors"
+            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#f9a8d4]/70 hover:text-[#f9a8d4] transition-colors"
           >
             Official Website <HiOutlineArrowUpRight size={11} />
           </a>
@@ -293,7 +293,7 @@ export default function UniversityGrid({ results, profile }: Props) {
             {results && verdictCounts && (
               <div className="flex gap-3 pb-0.5">
                 <span className="text-[10px] font-black text-[#80c4a0]">{verdictCounts.eligible} eligible</span>
-                <span className="text-[10px] font-black text-[#e8c4a0]">{verdictCounts.borderline} borderline</span>
+                <span className="text-[10px] font-black text-[#f9a8d4]">{verdictCounts.borderline} borderline</span>
                 <span className="text-[10px] font-black text-[#e87070]">{verdictCounts["not-yet"]} not yet</span>
               </div>
             )}
@@ -375,7 +375,7 @@ export default function UniversityGrid({ results, profile }: Props) {
             <button
               onClick={() => setFilterRussell(!filterRussell)}
               className={`w-4 h-4 rounded border transition-all ${
-                filterRussell ? "bg-[#e8c4a0] border-[#e8c4a0]" : "border-white/20 bg-white/5"
+                filterRussell ? "bg-[#f9a8d4] border-[#f9a8d4]" : "border-white/20 bg-white/5"
               }`}
             >
               {filterRussell && <span className="text-black text-[8px] flex items-center justify-center w-full h-full">✓</span>}

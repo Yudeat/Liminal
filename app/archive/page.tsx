@@ -55,7 +55,7 @@ export default function ArchivePage() {
           </p>
           <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.88] text-white mb-6">
             The{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+            <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
               Archive.
             </em>
           </h1>
@@ -85,7 +85,7 @@ export default function ArchivePage() {
                       </span>
                       <HiOutlineArrowUpRight
                         size={16}
-                        className="text-white/30 group-hover:text-[#e8c4a0] group-hover:rotate-12 transition-all duration-300"
+                        className="text-white/30 group-hover:text-[#f9a8d4] group-hover:rotate-12 transition-all duration-300"
                       />
                     </div>
                   </div>

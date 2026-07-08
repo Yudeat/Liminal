@@ -2,7 +2,7 @@
 'use client';
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiPlus, HiMinus, HiOutlineSparkles, HiOutlineArrowLongRight } from "react-icons/hi2";
+import { HiPlus, HiMinus, HiOutlineSparkles } from "react-icons/hi2";
 
 const faqs = [
   {
@@ -37,7 +37,7 @@ export default function FAQPage() {
         {/* Badge */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex items-center gap-2 bg-black/5 border border-black/8 text-black/50 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em]">
-            <HiOutlineSparkles className="text-[#b8864e]" /> The DIY Revolution
+            <HiOutlineSparkles className="text-[#e879a0]" /> The DIY Revolution
           </div>
         </div>
 
@@ -45,12 +45,12 @@ export default function FAQPage() {
         <div className="text-center mb-16 space-y-5">
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.88] uppercase">
             You are the{" "}
-            <em className="italic font-serif font-light lowercase text-[#b8864e] not-italic italic">pilot.</em>
+            <em className="italic font-serif font-light lowercase text-[#e879a0] not-italic italic">pilot.</em>
             <br />
             We are the{" "}
             <span className="relative inline-block">
               <span className="relative z-10">GPS.</span>
-              <span className="absolute bottom-1 left-0 right-0 h-[6px] bg-[#b8864e]/15 rounded-sm -z-0" />
+              <span className="absolute bottom-1 left-0 right-0 h-[6px] bg-[#e879a0]/15 rounded-sm -z-0" />
             </span>
           </h2>
           <p className="text-black/55 text-lg font-medium max-w-xl mx-auto leading-relaxed">
@@ -107,41 +107,6 @@ export default function FAQPage() {
           ))}
         </div>
 
-        {/* Final CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative bg-[#080808] rounded-3xl p-10 md:p-16 overflow-hidden"
-        >
-          <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-5">
-              <span className="inline-block text-[#e8c4a0] font-black tracking-[0.3em] uppercase text-[10px]">
-                Final Protocol
-              </span>
-              <h2 className="text-4xl md:text-5xl text-white font-black leading-[0.88] tracking-tighter uppercase">
-                Don&apos;t just dream
-                <br />
-                <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">elsewhere.</em>
-                <br />
-                Navigate there.
-              </h2>
-              <p className="text-white/50 text-base font-medium leading-relaxed max-w-xs">
-                The bridge between your current desk and your future campus. No middlemen, no mystery.
-              </p>
-            </div>
-            <div className="flex flex-col items-start lg:items-end gap-5">
-              <button className="group inline-flex items-center gap-4 bg-white text-black px-8 py-5 rounded-xl font-black text-[11px] uppercase tracking-widest transition-all hover:bg-[#e8c4a0] active:scale-95">
-                Begin Journey
-                <HiOutlineArrowLongRight className="text-xl group-hover:translate-x-2 transition-transform duration-300" />
-              </button>
-              <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em]">
-                Free to start &bull; Precision to finish
-              </p>
-            </div>
-          </div>
-        </motion.div>
 
       </div>
     </section>

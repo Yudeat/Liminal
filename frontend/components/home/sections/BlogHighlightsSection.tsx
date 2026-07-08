@@ -46,7 +46,7 @@ export default function BlogHighlightsSection() {
         <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase mb-6">
           Field notes from
           <br />
-          <em className="font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+          <em className="font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
             Exile OS Journal
           </em>
         </h2>
@@ -58,7 +58,7 @@ export default function BlogHighlightsSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href={`/blog/${latest.slug}`}
-            className="inline-flex items-center gap-2 bg-white text-black px-7 py-3 text-[11px] font-black uppercase tracking-widest hover:bg-[#e8c4a0] transition-colors duration-300"
+            className="inline-flex items-center gap-2 bg-white text-black px-7 py-3 text-[11px] font-black uppercase tracking-widest hover:bg-[#f9a8d4] transition-colors duration-300"
           >
             Read latest
           </Link>

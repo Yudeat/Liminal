@@ -39,7 +39,7 @@ export default function WhatIsLiminal() {
               <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none"
                 style={{ background: "radial-gradient(circle, rgba(232,196,160,0.08) 0%, transparent 70%)" }} />
               <div className="relative z-10 space-y-6">
-                <div className="w-11 h-11 rounded-xl bg-[#e8c4a0]/10 border border-[#e8c4a0]/20 flex items-center justify-center text-[#e8c4a0]">
+                <div className="w-11 h-11 rounded-xl bg-[#f9a8d4]/10 border border-[#f9a8d4]/20 flex items-center justify-center text-[#f9a8d4]">
                   <HiOutlineSun size={20} />
                 </div>
                 <div>
@@ -56,7 +56,7 @@ export default function WhatIsLiminal() {
                   </p>
                 </div>
                 <div className="pt-2">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-[#e8c4a0]/70 group-hover:text-[#e8c4a0] transition-colors">
+                  <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-[#f9a8d4]/70 group-hover:text-[#f9a8d4] transition-colors">
                     Learn More <HiOutlineArrowUpRight size={13} />
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function WhatIsLiminal() {
                 <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.88] text-white">
                   We don&apos;t do
                   <br />
-                  <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+                  <em className="italic font-serif font-light lowercase text-[#f9a8d4] not-italic italic">
                     agencies.
                   </em>
                 </h2>
@@ -177,7 +177,7 @@ export default function WhatIsLiminal() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="relative bg-[#e8c4a0] rounded-3xl p-16 md:p-24 overflow-hidden"
+            className="relative bg-[#f9a8d4] rounded-3xl p-16 md:p-24 overflow-hidden"
           >
             <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
               style={{
