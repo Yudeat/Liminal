@@ -1,69 +1,75 @@
+import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/frontend/lib/blog-posts";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 
 export default function BlogHighlightsSection() {
-  const latestPosts = blogPosts.slice(0, 3);
+  const latest = blogPosts[0];
 
   return (
-    <section id="blog" className="bg-[#080808] py-32 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="blog"
+      className="relative bg-[#080808] min-h-[90vh] flex items-center justify-center overflow-hidden border-t border-white/5"
+    >
+      {/* Background */}
+      <div className="absolute inset-0">
+        <Image
+          src="/hero-1.png"
+          alt=""
+          fill
+          className="object-cover opacity-25"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/70 via-transparent to-[#080808]/80" />
+      </div>
 
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
-          <div className="space-y-3">
-            <p className="text-[10px] font-black uppercase tracking-[0.35em] text-white/50">
-              What We Are Writing
-            </p>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white leading-[0.9] uppercase">
-              Field notes from
-              <br />
-              <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
-                Exile OS Journal
-              </em>
-            </h2>
-          </div>
+      {/* Floating photo — bottom left */}
+      <div className="absolute left-6 bottom-16 md:left-20 md:bottom-24 -rotate-[7deg] z-10 hidden md:block shadow-2xl">
+        <div className="relative w-44 h-56 overflow-hidden">
+          <Image src="/hero-2.png" alt="" fill className="object-cover" sizes="176px" />
+        </div>
+      </div>
 
+      {/* Floating photo — top right */}
+      <div className="absolute right-6 top-16 md:right-20 md:top-24 rotate-[6deg] z-10 hidden md:block shadow-2xl">
+        <div className="relative w-36 h-44 overflow-hidden">
+          <Image src="/hero-3.png" alt="" fill className="object-cover" sizes="144px" />
+        </div>
+      </div>
+
+      {/* Center content */}
+      <div className="relative z-20 text-center px-6 max-w-2xl mx-auto py-36">
+        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mb-6">
+          What We Are Writing
+        </p>
+
+        <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.9] uppercase mb-6">
+          Field notes from
+          <br />
+          <em className="font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
+            Exile OS Journal
+          </em>
+        </h2>
+
+        <p className="text-white/55 text-sm leading-relaxed max-w-sm mx-auto mb-10">
+          {latest.excerpt}
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href={`/blog/${latest.slug}`}
+            className="inline-flex items-center gap-2 bg-white text-black px-7 py-3 text-[11px] font-black uppercase tracking-widest hover:bg-[#e8c4a0] transition-colors duration-300"
+          >
+            Read latest
+          </Link>
           <Link
             href="/blog"
-            className="group inline-flex items-center gap-2 shrink-0 border border-white/15 text-white/60 px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest hover:border-white/35 hover:text-white transition-all duration-300"
+            className="group inline-flex items-center gap-2 border border-white/25 text-white/70 px-7 py-3 text-[11px] font-black uppercase tracking-widest hover:border-white/50 hover:text-white transition-all duration-300"
           >
-            View all posts
-            <HiOutlineArrowUpRight size={13} className="group-hover:rotate-12 transition-transform" />
+            All posts
+            <HiOutlineArrowUpRight size={12} className="group-hover:rotate-12 transition-transform" />
           </Link>
         </div>
-
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-3 gap-5">
-          {latestPosts.map((post, i) => (
-            <article
-              key={post.slug}
-              className="group bg-white/[0.03] border border-white/8 rounded-3xl p-7 flex flex-col hover:bg-white/[0.05] hover:border-white/14 transition-all duration-400"
-            >
-              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/50 mb-4">
-                {post.series}
-              </p>
-              <h3 className="text-xl font-black tracking-tight text-white mb-3 leading-tight">
-                {post.title}
-              </h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-6 flex-1">{post.excerpt}</p>
-
-              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest text-white/45 mb-5">
-                <span>{post.publishedAt}</span>
-                <span>{post.readTime}</span>
-              </div>
-
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-2 border border-white/15 text-white/60 px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest self-start hover:border-[#e8c4a0]/50 hover:text-[#e8c4a0] transition-all duration-300"
-              >
-                Read article
-                <HiOutlineArrowUpRight size={11} />
-              </Link>
-            </article>
-          ))}
-        </div>
-
       </div>
     </section>
   );
