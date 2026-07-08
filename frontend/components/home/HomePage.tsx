@@ -11,7 +11,6 @@ import {
   HireExpertSection,
   HowItWorksSection,
   PricingSection,
-  TestimonialsSection,
 } from "./sections";
 import { SessionData } from "./types";
 
@@ -32,7 +31,6 @@ export default function HomePage({ session }: HomePageProps) {
       <PricingSection />
       <BlogHighlightsSection />
       <CallToActionSection />
-      <TestimonialsSection />
       <JourneySection />
       <FooterSection />
     </>
