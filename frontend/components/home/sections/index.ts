@@ -6,4 +6,5 @@ export { default as HowItWorksSection } from "./HowItWorksSection";
 export { default as FaqSection } from "./FaqSection";
 export { default as PricingSection } from "./PricingSection";
 export { default as BlogHighlightsSection } from "./BlogHighlightsSection";
+export { default as InquirySection } from "./InquirySection";
 export { default as FooterSection } from "./FooterSection";

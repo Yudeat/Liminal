@@ -4,6 +4,7 @@ import {
   StatementSection,
   JourneySection,
   BlogHighlightsSection,
+  InquirySection,
   FaqSection,
   FooterSection,
   HireExpertSection,
@@ -27,6 +28,7 @@ export default function HomePage({ session }: HomePageProps) {
       <FaqSection />
       <BlogHighlightsSection />
       <PricingSection />
+      <InquirySection />
       <JourneySection />
       <FooterSection />
     </>
