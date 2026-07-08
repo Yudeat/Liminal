@@ -10,7 +10,6 @@ import {
   FooterSection,
   HireExpertSection,
   HowItWorksSection,
-  NewsletterSection,
   PricingSection,
   TestimonialsSection,
 } from "./sections";
