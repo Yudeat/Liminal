@@ -34,7 +34,6 @@ export default function HomePage({ session }: HomePageProps) {
       <BlogHighlightsSection />
       <CallToActionSection />
       <TestimonialsSection />
-      <NewsletterSection />
       <JourneySection />
       <FooterSection />
     </>
