@@ -1,180 +1,124 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FaCheck, FaXmark } from "react-icons/fa6";
-import { HiOutlineBolt, HiOutlineStar, HiOutlineUserGroup } from "react-icons/hi2";
 
 const plans = [
   {
     name: "Free",
-    price: "0",
-    priceLabel: null,
-    desc: "Entry-level system access for independent explorers.",
-    features: ["1 University Target", "1 Application Draft", "Standard Community Access", "Basic Protocol Docs"],
-    notIncluded: ["Priority Support", "Visa Architecture", "Direct Mentorship"],
-    Icon: HiOutlineBolt,
-    iconColor: "text-white/50",
-    button: "Get Started",
-    highlight: false,
-    custom: false,
+    price: "$0",
+    label: "Entry-level access",
+    desc: "1 university target · 1 application draft · community access",
   },
   {
     name: "Elite",
-    price: "4,999",
-    priceLabel: null,
-    desc: "Full white-glove autonomous migration for high-probability global success.",
-    features: ["Unlimited Universities", "Unlimited Draft Reviews", "Full Visa Management", "1-on-1 Strategy Calls", "Priority Processing", "Post-Arrival Support", "Lifetime System Updates"],
-    notIncluded: [],
-    Icon: HiOutlineStar,
-    iconColor: "text-[#e8c4a0]",
-    button: "Initiate Exile",
-    highlight: true,
-    custom: false,
+    price: "$4,999",
+    label: "Full migration suite",
+    desc: "Unlimited universities · visa management · 1-on-1 strategy calls",
   },
   {
     name: "Custom",
-    price: "",
-    priceLabel: "Let's talk",
-    desc: "A fully bespoke journey built around your goals, timeline, and destination.",
-    features: ["Dedicated Personal Mentor", "Custom Strategy & Roadmap", "Direct WhatsApp Access", "Bespoke Visa Architecture", "Application Ghost-Writing", "Interview Preparation", "Flexible Payment Terms"],
-    notIncluded: [],
-    Icon: HiOutlineUserGroup,
-    iconColor: "text-white/50",
-    button: "Book a Call",
-    highlight: false,
-    custom: true,
+    price: "Let's talk",
+    label: "Bespoke journey",
+    desc: "Dedicated mentor · custom roadmap · flexible terms",
   },
 ];
 
 export default function PricingPage() {
   return (
-    <section id="price" className="bg-[#080808] py-32 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+    <section id="price" className="bg-[#0c0c0a] py-20 px-8 md:px-16">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-20">
+        {/* Top: headline + image */}
+        <div className="flex items-start justify-between gap-8 pb-16 border-b border-white/8 mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl md:text-6xl font-black tracking-tight text-white leading-[1.05] max-w-xl"
+          >
+            For every student,<br />
+            there is a{" "}
+            <em className="font-serif font-light not-italic italic text-[#e8c4a0]">
+              system
+            </em>{" "}
+            built<br />
+            around their journey.
+          </motion.h2>
+
+          <div className="relative w-32 h-24 md:w-44 md:h-32 shrink-0 overflow-hidden">
+            <Image src="/hero-2.png" alt="" fill className="object-cover" sizes="176px" />
+          </div>
+        </div>
+
+        {/* Plan rows */}
+        <div
+          className="grid gap-x-12"
+          style={{ gridTemplateColumns: "220px 1fr auto" }}
+        >
+          {/* Left description — spans all rows */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50 mb-5"
+            transition={{ delay: 0.2 }}
+            className="row-span-3 text-xs leading-relaxed text-white/45 pt-6 pr-8 max-w-[180px]"
           >
-            Investment Tiers
+            From independent explorers to high-stakes global migrations — choose the tier that matches your ambition and timeline.
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white"
-          >
-            Choose your{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">
-              protocol.
-            </em>
-          </motion.h2>
-        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true }}
-              className={`relative flex flex-col rounded-3xl p-7 transition-all duration-300 ${
-                plan.highlight
-                  ? "bg-[#e8c4a0] text-black border border-[#e8c4a0] shadow-[0_20px_60px_rgba(232,196,160,0.2)] scale-[1.02] z-10"
-                  : "bg-white/[0.03] border border-white/8 text-white hover:bg-white/[0.05] hover:border-white/14"
-              }`}
-            >
-              {plan.highlight && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-black text-white text-[8px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full whitespace-nowrap">
-                  Most Deployed
-                </div>
-              )}
-
-              <div className="mb-7">
-                <div className={`mb-4 text-xl ${plan.highlight ? "text-black/60" : plan.iconColor}`}>
-                  <plan.Icon size={22} />
-                </div>
-                <h3 className={`text-base font-black uppercase tracking-tight mb-1.5 ${plan.highlight ? "text-black" : "text-white"}`}>
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline gap-1 mb-3">
-                  {plan.custom ? (
-                    <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
-                      {plan.priceLabel}
-                    </span>
-                  ) : (
-                    <>
-                      <span className={`text-[10px] font-black ${plan.highlight ? "text-black/60" : "text-white/50"}`}>$</span>
-                      <span className={`text-4xl font-black tracking-tighter ${plan.highlight ? "text-black" : "text-white"}`}>
-                        {plan.price}
-                      </span>
-                      <span className={`text-[10px] font-bold uppercase ${plan.highlight ? "text-black/50" : "text-white/45"}`}>
-                        /one-time
-                      </span>
-                    </>
-                  )}
-                </div>
-                <p className={`text-xs leading-relaxed ${plan.highlight ? "text-black/60" : "text-white/55"}`}>
-                  {plan.desc}
-                </p>
-              </div>
-
-              <div className="flex-grow space-y-3 mb-7">
-                {plan.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5">
-                    <FaCheck
-                      className={plan.highlight ? "text-black/60" : "text-[#80c4a0]"}
-                      size={10}
-                    />
-                    <span className={`text-xs font-medium ${plan.highlight ? "text-black/80" : "text-white/65"}`}>
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-                {plan.notIncluded?.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 opacity-25">
-                    <FaXmark size={10} />
-                    <span className="text-xs font-medium line-through">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                className={`w-full py-3.5 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all active:scale-95 ${
-                  plan.highlight
-                    ? "bg-black text-white hover:bg-[#1a1a1a]"
-                    : "bg-white/8 text-white hover:bg-white/15 border border-white/8"
-                }`}
+            <React.Fragment key={plan.name}>
+              {/* Price */}
+              <motion.div
+                key={`price-${i}`}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="border-t border-white/8 py-7"
               >
-                {plan.button}
-              </button>
-            </motion.div>
+                <span className="text-6xl md:text-7xl font-black tracking-tighter text-white leading-none">
+                  {plan.price}
+                </span>
+              </motion.div>
+
+              {/* Label */}
+              <motion.div
+                key={`label-${i}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 + 0.05 }}
+                className="border-t border-white/8 py-7 flex flex-col justify-center"
+              >
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-white/40 mb-1">
+                  {plan.name} — {plan.label}
+                </p>
+                <p className="text-xs text-white/35">{plan.desc}</p>
+              </motion.div>
+            </React.Fragment>
           ))}
+
         </div>
 
-        {/* Trust footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 text-center border-t border-white/5 pt-10"
-        >
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/45 flex items-center justify-center gap-4 flex-wrap">
-            Secure Payment via Stripe
-            <span className="h-1 w-1 bg-white/15 rounded-full" />
-            No Hidden Fees
-            <span className="h-1 w-1 bg-white/15 rounded-full" />
-            256-bit Encryption
-          </p>
-        </motion.div>
+        {/* CTA row */}
+        <div className="mt-12 flex gap-4" style={{ marginLeft: "calc(220px + 3rem)" }}>
+          <a
+            href="#"
+            className="text-[10px] font-black uppercase tracking-widest text-white border border-white/15 px-6 py-3 hover:border-white/40 transition-colors"
+          >
+            Get Started Free
+          </a>
+          <a
+            href="#"
+            className="text-[10px] font-black uppercase tracking-widest bg-[#e8c4a0] text-black px-6 py-3 hover:bg-[#ddb88e] transition-colors"
+          >
+            Initiate Exile →
+          </a>
+        </div>
 
       </div>
     </section>

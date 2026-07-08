@@ -31,29 +31,29 @@ export default function FAQPage() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#080808] py-32 px-6 border-t border-white/5">
+    <section className="bg-[#f2f2f0] py-32 px-6">
       <div className="max-w-5xl mx-auto">
 
         {/* Badge */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/8 text-white/55 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em]">
-            <HiOutlineSparkles className="text-[#e8c4a0]" /> The DIY Revolution
+          <div className="inline-flex items-center gap-2 bg-black/5 border border-black/8 text-black/50 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.22em]">
+            <HiOutlineSparkles className="text-[#b8864e]" /> The DIY Revolution
           </div>
         </div>
 
         {/* Header */}
         <div className="text-center mb-16 space-y-5">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[0.88] uppercase">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.88] uppercase">
             You are the{" "}
-            <em className="italic font-serif font-light lowercase text-[#e8c4a0] not-italic italic">pilot.</em>
+            <em className="italic font-serif font-light lowercase text-[#b8864e] not-italic italic">pilot.</em>
             <br />
             We are the{" "}
             <span className="relative inline-block">
               <span className="relative z-10">GPS.</span>
-              <span className="absolute bottom-1 left-0 right-0 h-[6px] bg-[#e8c4a0]/20 rounded-sm -z-0" />
+              <span className="absolute bottom-1 left-0 right-0 h-[6px] bg-[#b8864e]/15 rounded-sm -z-0" />
             </span>
           </h2>
-          <p className="text-white/60 text-lg font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-black/55 text-lg font-medium max-w-xl mx-auto leading-relaxed">
             Stop paying thousands in agency commissions. Own your journey with surgical precision.
           </p>
         </div>
@@ -65,8 +65,8 @@ export default function FAQPage() {
               key={index}
               className={`rounded-2xl transition-all duration-400 ${
                 activeIndex === index
-                  ? "bg-white/[0.05] border border-white/12"
-                  : "bg-white/[0.02] border border-white/6 hover:border-white/10"
+                  ? "bg-white border border-black/10"
+                  : "bg-black/[0.03] border border-black/6 hover:border-black/12"
               }`}
             >
               <button
@@ -74,14 +74,14 @@ export default function FAQPage() {
                 className="w-full flex items-center justify-between p-7 text-left gap-6"
               >
                 <span className={`font-black text-base uppercase tracking-tight transition-colors ${
-                  activeIndex === index ? "text-white" : "text-white/50 hover:text-white/80"
+                  activeIndex === index ? "text-black" : "text-black/50 hover:text-black/75"
                 }`}>
                   {faq.question}
                 </span>
                 <div className={`w-7 h-7 flex items-center justify-center rounded-lg shrink-0 transition-all duration-300 ${
                   activeIndex === index
-                    ? "bg-[#e8c4a0] text-black"
-                    : "bg-white/5 text-white/50"
+                    ? "bg-[#080808] text-white"
+                    : "bg-black/5 text-black/40"
                 }`}>
                   {activeIndex === index ? <HiMinus size={13} /> : <HiPlus size={13} />}
                 </div>
@@ -96,8 +96,8 @@ export default function FAQPage() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-7 pb-8 text-white/65 text-base font-medium leading-relaxed">
-                      <div className="h-px w-full bg-white/5 mb-6" />
+                    <div className="px-7 pb-8 text-black/60 text-base font-medium leading-relaxed">
+                      <div className="h-px w-full bg-black/8 mb-6" />
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -113,15 +113,11 @@ export default function FAQPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative bg-white/[0.03] border border-white/8 rounded-3xl p-10 md:p-16 overflow-hidden"
+          className="relative bg-[#080808] rounded-3xl p-10 md:p-16 overflow-hidden"
         >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(232,196,160,0.05) 0%, transparent 60%)" }}
-          />
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-5">
-              <span className="inline-block text-[#80c4a0] font-black tracking-[0.3em] uppercase text-[10px]">
+              <span className="inline-block text-[#e8c4a0] font-black tracking-[0.3em] uppercase text-[10px]">
                 Final Protocol
               </span>
               <h2 className="text-4xl md:text-5xl text-white font-black leading-[0.88] tracking-tighter uppercase">
@@ -131,7 +127,7 @@ export default function FAQPage() {
                 <br />
                 Navigate there.
               </h2>
-              <p className="text-white/55 text-base font-medium leading-relaxed max-w-xs">
+              <p className="text-white/50 text-base font-medium leading-relaxed max-w-xs">
                 The bridge between your current desk and your future campus. No middlemen, no mystery.
               </p>
             </div>
@@ -140,7 +136,7 @@ export default function FAQPage() {
                 Begin Journey
                 <HiOutlineArrowLongRight className="text-xl group-hover:translate-x-2 transition-transform duration-300" />
               </button>
-              <p className="text-white/45 text-[10px] font-black uppercase tracking-[0.3em]">
+              <p className="text-white/40 text-[10px] font-black uppercase tracking-[0.3em]">
                 Free to start &bull; Precision to finish
               </p>
             </div>
