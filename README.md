@@ -2,7 +2,7 @@
 
 **The operating system for self-guided global student migration.**
 
-Exile OS is a frontend-first web platform built for students who want to navigate international admissions, visa processes, and university selection — without agents, without hidden fees, and without gatekeepers. The product surfaces country-level intelligence, eligibility checking, visa blueprints, and strategic frameworks directly to the student.
+Exile OS is a frontend-first web platform built for students who want to navigate international admissions, visa processes, and university selection without agents, without hidden fees, and without gatekeepers. The product surfaces country level intelligence, eligibility checking, visa blueprints, and strategic frameworks directly to the student.
 
 ---
 
@@ -22,7 +22,6 @@ Exile OS is a frontend-first web platform built for students who want to navigat
 - [Design System](#design-system)
 - [Roadmap](#roadmap)
 
----
 
 ## Philosophy
 
